@@ -1,0 +1,70 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+      <div class="field">
+      
+      
+        <label for="name" style="color: rgb(72, 255, 0);">Buyer Name</label>
+        <div class="control">
+        <input type="text" class="form-control"  id="buyerName" pattern="[a-zA-Z]{1,30}$"  #Name="ngModel" 
+          [(ngModel)]="buyer.buyerName" name="buyerName"  required>
+        <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Name Should not include Digits</span>
+      </div></div>
+      </div>
+      <div class="form-group">
+        <div class="field">
+        <label for="name" style="color: rgb(51, 255, 0);">MobileNumber</label>
+        <div class="control">
+        <input type="text" class="form-control" id="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel" required
+          [(ngModel)]="buyer.phoneNumber" name="phoneNumber">
+        <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10 Digits</span>
+      </div></div>
+      </div>
+    
+      <div class="form-group">
+        <div class="field">
+        <label for="name" style="color: rgb(51, 255, 0);">MobileNumber</label>
+        <div class="control">
+        <input type="text" class="form-control" id="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel" required
+          [(ngModel)]="buyer.phoneNumber" name="phoneNumber">
+        <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10 Digits</span>
+      </div></div>
+      </div>
+   
+      <div class="form-group">
+        <div class="field">
+        <label for="name" style="color: rgb(0, 255, 42);">Password</label>
+        <div class="control">
+      
+        
+        
+      
+        <input matInput [type]="hide ?'password':'text'" class="form-control" id="password"
+          pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel" required [(ngModel)]="buyer.password" name="password">
+          <i  class="material-icons" matSuffix (click)="hide = !hide">
+            {{hide ? 'visibility':'visibility_off'}}
+          </i>
+          
+        
+        <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6 characters and Maximum 12
+          characters which includes atleast one number</span>
+        </div></div>
+      </div>
+    
+      <div class="form-group">
+        <div class="field">
+        <label for="name" style="color: rgb(136, 255, 0);"> ConfirmPassword</label><br>
+        <div class="control">
+        <input type="password" class="form-control" id="confirmPassword" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$"
+          #cpwd="ngModel" required [(ngModel)]="buyer.confirmPassword" name="confirmPassword">
+  
+        <span class="help-block" *ngIf="cpwd.errors?.pattern" style="color: red;">ConfirmPassword should match with Password</span>
+      </div></div>
+      </div>
+  <br>
+      <button type="submit" class="button is-blue">Submit</button>
+      
+    </form>
+  </div>
+
+  
