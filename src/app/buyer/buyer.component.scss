@@ -1,0 +1,10 @@
+@import '../../mainstyles.scss';
+
+.navbar{
+    background-color: $beige-light;
+    height: 70px;
+
+    .navbar-item{
+        font-size: x-large;
+    }
+}
