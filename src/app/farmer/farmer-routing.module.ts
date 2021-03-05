@@ -1,8 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FarmerComponent } from './farmer.component';
+import { MspTabComponent } from './msp-tab/msp-tab.component';
+import { TransactionTabComponent } from './transaction-tab/transaction-tab.component';
 
-const routes: Routes = [{ path: '', component: FarmerComponent }];
+const routes: Routes = [
+  {
+    path: "msp",
+    component: MspTabComponent
+  },
+  {
+    path: "transaction",
+    component: TransactionTabComponent
+  },
+  { 
+    path: '', 
+    component: FarmerComponent 
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

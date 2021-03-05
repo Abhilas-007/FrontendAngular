@@ -1,0 +1,24 @@
+<div class="navbar">
+    <a routerLink="/msp" class="nav-item">MSP</a>
+    <a routerLink="/transaction" class="nav-item">Transaction</a>
+</div>
+
+<div class="card">
+    <div class="search-state-block">
+        <input type="text" placeholder="Enter state name.." [(ngModel)]="stateName" />
+        <button (click)="onStateSearch()">Search</button>
+    </div>
+
+    <div class="crop-table">
+        <table>
+            <tr>
+                <th>Crop Name</th>
+                <th>MSP</th>
+            </tr>
+            <tr *ngFor="let crop of crops">
+                <td>{{ crop.cropName }}</td>
+                <td>{{ crop.cropMSP }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

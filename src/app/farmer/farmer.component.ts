@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-farmer',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FarmerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onCLickMsp()
+  {
+    // this.router.navigate(['']);
+    this.router.navigate(['/msp']);
+  }
+
+  onCLickTransaction()
+  {
+    // this.router.navigate(['']);
+    this.router.navigate(['/transaction']);
   }
 
 }

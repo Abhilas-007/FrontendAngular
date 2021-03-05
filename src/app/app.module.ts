@@ -7,15 +7,26 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MatInputModule} from '@angular/material/input';
+import { RouterModule } from '@angular/router';
+import { FarmerModule } from './farmer/farmer.module';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule,AppRoutingModule,BrowserAnimationsModule,HttpClientModule,MatInputModule,
+    AppRoutingModule, 
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    RouterModule,
+    FarmerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
