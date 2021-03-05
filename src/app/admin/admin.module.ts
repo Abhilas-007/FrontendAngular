@@ -5,13 +5,16 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { MspUpdateComponent } from './msp-update/msp-update.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [AdminComponent, MspUpdateComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

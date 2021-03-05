@@ -9,7 +9,7 @@ import { Buyer } from '../shared/models/Buyer';
 export class BuyerServiceService {
 
   private updateUrl = 'http://localhost:8080/updateBuyer';
-  private getUrl = 'http://localhost:8080/getBuyer/12';
+  private getUrl = 'http://localhost:8080/buyer/get/8';
 
   constructor(private httpClient: HttpClient) { }
 

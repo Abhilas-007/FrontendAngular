@@ -9,5 +9,4 @@ export class Buyer {
 
     confirmPassword="";
 
-    role="";
 }
