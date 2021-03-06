@@ -1,0 +1,135 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+
+            <form (ngSubmit)=onSubmit(f) #f="ngForm">
+                <div id="user-data">
+                    <div class="form-group">
+                        <label for="name">Enter name </label>
+                        <input type="text" id="name" class="form-control" ngModel name="name" required #name="ngModel"
+                            pattern="[a-zA-Z ]{5,30}" [(ngModel)]="farmer.farmerName">
+                        <span class="help-block" *ngIf="!name.valid && name.touched">Please entered a vaild name.
+                        </span>
+                        <span *ngIf="name.errors?.pattern">Invalid name</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo">Enter Mobile number </label>
+                        <input type="text" id="mobileNo" class="form-control" ngModel name="mobileNo" required
+                            #mobileNo="ngModel" pattern="[0-9]{10}" [(ngModel)]="farmer.mobileNumber">
+                        <span class="help-block" *ngIf="!mobileNo.valid && mobileNo.touched">Please entered a vaild
+                            mobile number.
+                        </span>
+                        <span *ngIf="mobileNo.errors?.pattern">Length should be 10</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SecurityQuestion">Security Question </label>
+                        <select class="form-control" name="securityQuestion" id="securityQuestion"
+                            [(ngModel)]="farmer.securityQuestion">
+                            <option value="petName">What is your pet name</option>
+                            <option value="actorName">What is your favourite actor</option>
+                            <option value="cityName">What is your city name</option>
+                            <option value="DOB">What is your date of birth</option>
+                            <option value="PhoneNo">What is your last four digit of mobile number</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SecuritAnswer">Security Answer </label>
+                        <input type="text" id="SecurityAnswer" class="form-control" ngModel name="SecurityAnswer"
+                            required #securityAnswer="ngModel" [(ngModel)]="farmer.answer">
+                        <span class="help-block"
+                            *ngIf="securityAnswer.touched && securityAnswer.errors?.required">Answer is
+                            required</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Aadhar">Enter Aadhar number </label>
+                        <input type="text" id="Aadhar" class="form-control" ngModel name="Aadhar" required
+                            #aadhar="ngModel" pattern="[0-9]{12}" [(ngModel)]="farmer.aadharNumber">
+                        <span class="help-block" *ngIf="aadhar.touched && aadhar.errors?.required">Aadhar is
+                            required</span>
+                        <span *ngIf="aadhar.errors?.pattern">Length should be 12</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="field">
+                            <label for="name">Enter Password </label>
+                            <div class="control">
+
+                                <input matInput [type]="hide ?'password':'text'" class="form-control" id="password"
+                                    pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #password="ngModel" required
+                                    [(ngModel)]="farmer.password" name="password">
+                                <i class="material-icons" matSuffix (click)="hide = !hide">
+                                    {{hide ? 'visibility':'visibility_off'}}
+                                </i>
+                                <span class="help-block" *ngIf="password.touched && password.errors?.required">Password
+                                    is
+                                    required </span>
+
+                                <span class="help-block" *ngIf="password.errors?.pattern" style="color: red;">Password
+                                    should be Minimum 6 characters and Maximum 12
+                                    characters which includes atleast one number</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Enter Confirm Password </label>
+                        <input matInput type="password" id="ConfirmPassword" class="form-control" ngModel
+                            name="ConfirmPassword" required #ConfirmPassword="ngModel" [(ngModel)]="confirmPassword"
+                            pattern="[a-zA-Z0-9]{6,12}">
+
+
+
+                        <span class="help-block"
+                            *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.required">Confirm Password is
+                            required</span>
+
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Enter Account Number </label>
+                        <input type="text" id="Account" class="form-control" ngModel name="Account" required
+                            #accountNo="ngModel" pattern="[0-9]{10,16}" [(ngModel)]="farmer.accountNumber">
+                        <span *ngIf="accountNo.errors?.pattern">Length should be between 10-16</span>
+                        <span class="help-block" *ngIf="accountNo.touched && accountNo.errors?.required">Account number
+                            is
+                            required</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Enter IFSC </label>
+                        <input type="text" id="IFSC" class="form-control" ngModel name="IFSC" required
+                            [(ngModel)]="farmer.ifsc" #ifsc="ngModel" pattern="[A-Z]{4}[0-9]{7}">
+                        <span class="help-block" *ngIf="ifsc.touched && ifsc.errors?.required">IFSC is
+                            required</span>
+                        <span *ngIf="ifsc.errors?.pattern">First 4 should be alphabet followed by 7 digit</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Enter Bank Name </label>
+                        <input type="text" id="Bank" class="form-control" ngModel name="Bank" required
+                            [(ngModel)]="farmer.bankName" #bank="ngModel">
+                        <span class="help-block" *ngIf="bank.touched && bank.errors?.required">Bank name is
+                            required</span>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="btn btn-success" [disabled]="!f.valid">Submit</button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>

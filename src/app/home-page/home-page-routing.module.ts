@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomePageComponent } from './home-page.component';
 import { LoginComponent } from './login-home/login.component';
 import { SignUpComponent } from './sign-up-home/sign-up.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'login-home',component:LoginComponent},
   {path:'sign-up-home',component:SignUpComponent},
   {path:'buyer-signup',component:BuyerSignupComponent},
+  {path:'signup',component:SignupComponent},
   { path: 'buyer-signup', redirectTo: ' ', pathMatch: 'full' },
   {path:'viewcrop',component:ViewCropComponent}
 ];
