@@ -1,34 +1,37 @@
 @import '../../../mainstyles.scss';
 
-form{
+.form-container{
 
-    margin-top: 50px;
-    margin-left: 650px;
-    height: 400px;
-    width: 700px;
-    background-color: $beige-light;
-    padding: 20px 20px 20px;
-    justify-content: center;
-    align-items: center;
+    form{
 
-    .field{
-
-        margin-top: 10px;
-
-        input{
-            padding: 3px;
-            font-size: x-large;
-        }
+        margin-top: 50px;
+        margin-left: 650px;
+        height: 400px;
+        width: 700px;
+        background-color: $beige-light;
+        padding: 20px 20px 20px;
     
-        .label{
-            font-size: x-large;
-        }
+        .field{
+    
+            margin-top: 10px;
+            
+            label{
+                font-size: x-large;
+            }
 
-        button{
-            height: 60px;
-            width: 150px;
-            font-size: x-large;
+            input{
+                padding: 3px;
+                font-size: x-large;
+            }
+
+    
+            button{
+                height: 60px;
+                width: 150px;
+                font-size: x-large;
+            }
         }
+        
     }
-    
+
 }

@@ -1,27 +1,36 @@
 <app-admin></app-admin>
 
-<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+<div class="form-container">
 
+  <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm); profileForm.resetForm()">
+
+    <div class="field">
+      <label>Crop Name</label>
+        <div class="control">
+          <input #cname class="input" required type="text" [ngModel]="crop.cropName" name="cropName">
+        </div>
+      </div>
+
+      <br>
+      
       <div class="field">
-          <label class="label">Crop Name</label>
-          <div class="control">
-            <input class="input" required type="text" [ngModel]="crop.cropName" name="cropName">
+        <label>MSP</label>
+        <div class="control">
+            <input #msp class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP">
           </div>
+      </div>
+
+      <br>
+      
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit">Update MSP</button>
         </div>
+        <div class="control">
+          <button class="button is-primary" type="button" (click)="getMSP(cname.value)">Show MSP</button>
+        </div>
+      </div>
         
-        <div class="field">
-          <label class="label">MSP</label>
-          <div class="control">
-              <input class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP">
-            </div>
-        </div>
-  
-        <br>
-        
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-primary" type="submit">Update MSP</button>
-          </div>
-        </div>
-          
-  </form>
+</form>
+</div>
+

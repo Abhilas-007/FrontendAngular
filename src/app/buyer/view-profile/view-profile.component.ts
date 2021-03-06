@@ -30,6 +30,8 @@ export class ViewProfileComponent implements OnInit {
       {
         this.buyer=data;
       }, error => console.log(error));
+
+      window.alert("Details Updated Successfuly");
   }
 
 }
