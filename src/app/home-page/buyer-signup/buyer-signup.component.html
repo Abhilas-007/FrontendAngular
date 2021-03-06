@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -51,7 +52,39 @@
         <span class="help-block" *ngIf="cpwd.errors?.pattern" style="color: red;">ConfirmPassword should match with Password</span>
       </div></div>
       </div>
-  <br>
+  
+  <div class="form-group">
+    <div class="field">
+      <label for="name"  style="color: rgb(136, 255, 0);">Security Question</label><br>
+      <div class="control">
+
+        <select name="singleSelect" class="form-control" required ng-model="data.singleSelect" required
+          [(ngModel)]="buyer.securityQuestion" name="securityQuestion">
+          <option value="What is your pet name?">What is your pet name? </option>
+          <option value="Who is Your favourite actor?">Who is Your favourite actor?</option>
+          <option value="What is Your city name?">What is Your city name?</option>
+          <option value=" What is Your date of birth?"> What is Your date of birth? </option>
+          <option value="What are the last four digits of your phone number?">What are the last four digits of your
+            phone number?</option>
+
+        </select>
+
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="form-group">
+    <div class="field">
+      <label for="name" style="color: rgb(136, 255, 0);"> Enter Your Answer</label><br>
+      <div class="control">
+
+        <input type="text" class="form-control" id="answer" required [(ngModel)]="buyer.answer" name="answer">
+
+
+      </div>
+    </div>
+</div>
       <button type="submit" class="button is-blue">Submit</button>
       
     </form>

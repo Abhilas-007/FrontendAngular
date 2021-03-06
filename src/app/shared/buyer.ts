@@ -8,5 +8,7 @@ export class Buyer {
     password="";
 
     confirmPassword="";
-
+    
+    answer="";
+    securityQuestion="";
 }

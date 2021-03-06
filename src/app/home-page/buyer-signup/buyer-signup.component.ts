@@ -22,7 +22,7 @@ export class BuyerSignupComponent implements OnInit {
   saveBuyer(){
     this.buyerService.createEmployee(this.buyer).subscribe(data=>{
       console.log(data);
-      this.getNew();
+     // this.getNew();
     },
       error=>console.log(error));
   }
@@ -33,13 +33,14 @@ export class BuyerSignupComponent implements OnInit {
   console.log(this.buyer);
  
   this.saveBuyer();
+  this.router.navigate(['/']);
       }
   else
   alert("ConfirmPassword doesn't match with Password")
     }
-    getNew(){
-      this.router.navigate(['/']);
-    }
+   // getNew(){
+    //  this.router.navigate(['/']);
+   // }
 toggleEye():void{
   this.hide=!this.hide;
 }
