@@ -5,6 +5,7 @@ import { MandiComponent } from './mandi/mandi.component';
 import { MspUpdateComponent } from './msp-update/msp-update.component';
 import { ViewClerkComponent } from './view-clerk/view-clerk.component';
 import { ViewCropComponent } from './view-crop/view-crop.component';
+import { CoreModule } from '../core/core.module';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
 {path:'admin',component:AdminComponent},
