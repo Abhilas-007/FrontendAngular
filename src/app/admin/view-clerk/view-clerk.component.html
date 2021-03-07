@@ -1,20 +1,20 @@
 
-<app-header></app-header>
 <div class="container">
     <table class="table table-striped" >
       <thead>
         <tr>
-          <th> CropName</th>
-          <th> CropMsp</th>
+            <th> ClerkId</th>
+          <th> ClerkName</th>
+          <th> Mobile</th>
          
          
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let crops of crop">
-          <td>{{crops.cropName}}</td>
-          <td>{{crops.cropMSP}}</td>
-          
+        <tr *ngFor="let clerks of clerk">
+          <td>{{clerks.clerkId}}</td>
+          <td>{{clerks.clerkName}}</td>
+          <td>{{clerks.mobileNumber}}</td>
           
           <td>
               

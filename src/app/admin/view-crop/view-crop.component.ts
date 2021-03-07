@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Crop } from 'src/app/shared/models/Crop';
+import { ViewcropService } from './viewcrop.service';
 
 @Component({
   selector: 'app-view-crop',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-crop.component.scss']
 })
 export class ViewCropComponent implements OnInit {
-
-  constructor() { }
-
+crop:Crop[]=[];
+  constructor(private cropService:ViewcropService) { }
+adminId="11";
   ngOnInit(): void {
+    this.getCrops();
   }
-
+  private getCrops(){
+    this.cropService.getCrops(this.adminId).subscribe(data=>{
+      this.crop=data;
+    });
+  }
 }
