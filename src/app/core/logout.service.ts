@@ -9,7 +9,7 @@ export class LogoutService {
   constructor(private _router: Router) { }
 
   logOut(): void {
-    localStorage.setItem('loginStatus', "false");
+    localStorage.setItem('loginStatus', 'false');
     localStorage.setItem('userId', null);
     localStorage.setItem("userType", null);
     this._router.navigate(['']);

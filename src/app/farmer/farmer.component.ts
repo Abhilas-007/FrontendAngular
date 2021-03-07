@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogoutService } from '../core/logout.service';
 
 @Component({
   selector: 'app-farmer',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class FarmerComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private log: LogoutService ) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,9 @@ export class FarmerComponent implements OnInit {
   {
     // this.router.navigate(['']);
     this.router.navigate(['/transaction']);
+  }
+  logout():void{
+    this.log.logOut();
   }
 
 }

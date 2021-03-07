@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent],
+  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent],
   imports: [
     CommonModule,
     FarmerRoutingModule,

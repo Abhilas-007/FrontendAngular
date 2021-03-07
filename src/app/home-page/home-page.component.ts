@@ -15,12 +15,12 @@ export class HomePageComponent implements OnInit {
   }
 
   valid() {
-    if (this.val === 'false') {
+    if (this.val =='true') {
 
-      return null;
+      return false;
     }
     else {
-      return 'logedIn';
+      return true;
     }
   }
   logout() {
