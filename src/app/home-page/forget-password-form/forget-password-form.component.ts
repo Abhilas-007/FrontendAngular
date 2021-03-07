@@ -1,0 +1,41 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
+
+@Component({
+  selector: 'app-forget-password-form',
+  templateUrl: './forget-password-form.component.html',
+  styleUrls: ['./forget-password-form.component.scss'],
+})
+export class ForgetPasswordFormComponent implements OnInit {
+  map = new Map();
+  passForm: FormGroup = new FormGroup({
+    userType: new FormControl('', Validators.required),
+    userId: new FormControl('', Validators.required),
+  });
+  constructor(private ls: LoginServiceService, private _router: Router) {}
+
+  ngOnInit(): void {}
+  Submit(): void {
+    this.map.set('userType', this.passForm.controls['userType'].value);
+    localStorage.setItem('userType', this.passForm.controls['userType'].value);
+    this.map.set('userId', this.passForm.controls['userId'].value);
+    this.ls.resetPass(this.map).subscribe(
+      (data) => {
+        if (data != null) {
+          console.log('Id exists');
+          localStorage.setItem('userId', this.map.get('userId'));
+          localStorage.setItem('loginStatus', 'false');
+          this._router.navigate(['/resetPass']);
+        } else if (data == null) {
+          localStorage.setItem('userId', null);
+          localStorage.setItem('loginStatus', 'false');
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+}

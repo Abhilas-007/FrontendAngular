@@ -8,20 +8,35 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login-home/login.component';
 import { SignUpComponent } from './sign-up-home/sign-up.component';
-import {BuyerSignupComponent} from './buyer-signup/buyer-signup.component'
+import { BuyerSignupComponent } from './buyer-signup/buyer-signup.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { ForgetPasswordFormComponent } from './forget-password-form/forget-password-form.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { PasswordChangeSuccessComponent } from './password-change-success/password-change-success.component';
+import { PasswordChangefailureComponent } from './password-changefailure/password-changefailure.component';
 //import { information } from '../shared/about';
 @NgModule({
-  declarations: [HomePageComponent, AboutComponent, ContactComponent, LoginComponent, SignUpComponent,BuyerSignupComponent, SignupComponent],
+  declarations: [
+    HomePageComponent,
+    AboutComponent,
+    ContactComponent,
+    LoginComponent,
+    SignUpComponent,
+    BuyerSignupComponent,
+    SignupComponent,
+    ForgetPasswordFormComponent,
+    ResetPasswordComponent,
+    PasswordChangeSuccessComponent,
+    PasswordChangefailureComponent,
+  ],
   imports: [
     CommonModule,
     HomePageRoutingModule,
     SharedModule,
-    FormsModule
-    
-    
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class HomePageModule { }
+export class HomePageModule {}

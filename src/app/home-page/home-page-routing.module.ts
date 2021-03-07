@@ -4,8 +4,12 @@ import { ViewCropComponent } from '../admin/view-crop/view-crop.component';
 import { AboutComponent } from './about/about.component';
 import { BuyerSignupComponent } from './buyer-signup/buyer-signup.component';
 import { ContactComponent } from './contact/contact.component';
+import { ForgetPasswordFormComponent } from './forget-password-form/forget-password-form.component';
 import { HomePageComponent } from './home-page.component';
 import { LoginComponent } from './login-home/login.component';
+import { PasswordChangeSuccessComponent } from './password-change-success/password-change-success.component';
+import { PasswordChangefailureComponent } from './password-changefailure/password-changefailure.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SignUpComponent } from './sign-up-home/sign-up.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -18,7 +22,11 @@ const routes: Routes = [
   {path:'buyer-signup',component:BuyerSignupComponent},
   {path:'signup',component:SignupComponent},
   { path: 'buyer-signup', redirectTo: ' ', pathMatch: 'full' },
-  {path:'viewcrop',component:ViewCropComponent}
+  {path:'viewcrop',component:ViewCropComponent},
+  {path:'forget',component:ForgetPasswordFormComponent},
+  {path:'resetPass',component:ResetPasswordComponent},
+  {path:'passwordChangeSuccess', component:PasswordChangeSuccessComponent},
+  {path:'passwordChangeFailure', component:PasswordChangefailureComponent}
 ];
 
 @NgModule({
