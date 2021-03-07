@@ -1,0 +1,70 @@
+<app-admin></app-admin>
+
+<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+
+    <div class="field">
+      <label>Mandi Pincode</label>
+      <div class="control">
+        <input class="input" required type="text" [ngModel]="mandi.mandiPincode" name="mandiPincode">
+      </div>
+    </div>
+
+    <br>
+
+      <div class="field">
+          <label>Mandi Storage</label>
+          <div class="control">
+            <input class="input" required type="text" [ngModel]="mandi.storage" name="buyerName">
+          </div>
+        </div>
+
+        <br>
+        
+        <div class="field">
+          <label>Clerk Id</label>
+          <div class="control">
+              <input class="input" required type="text" [ngModel]="mandi.clerk.clerkId" name="password">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="field">
+            <label>Clerk Name</label>
+            <div class="control">
+                <input class="input" required type="text" [ngModel]="mandi.clerk.clerkName" name="phoneNumber">
+              </div>
+          </div>
+
+          <br>
+        
+        <div class="field">
+          <label>Phone Number</label>
+          <div class="control">
+              <input class="input" required type="text" [ngModel]="mandi.clerk.mobileNumber" name="phoneNumber">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="field">
+            <label>Password</label>
+            <div class="control">
+                <input class="input" required type="text" [ngModel]="mandi.clerk.password" name="phoneNumber">
+              </div>
+          </div>
+  
+        <br>
+        
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit">Add Mandi</button>
+          </div>
+          <div class="control">
+            <button class="button" type="submit" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+          
+  </form>
+
+

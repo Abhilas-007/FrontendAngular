@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Crop } from 'src/app/shared/models/Crop';
 import { AdminService } from '../admin.service';
 
@@ -12,7 +13,7 @@ export class MspUpdateComponent implements OnInit {
 
   crop: Crop = new Crop();
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +34,10 @@ export class MspUpdateComponent implements OnInit {
 
     window.alert("MSP Updated Successfuly");
     window.location.reload();
+  }
+
+  onCancel(){
+    this.router.navigate(['/admin']);
   }
 
 }

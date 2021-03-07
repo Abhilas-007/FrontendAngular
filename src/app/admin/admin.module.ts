@@ -8,9 +8,10 @@ import { SharedModule } from '../shared/shared.module';
 import { MspUpdateComponent } from './msp-update/msp-update.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MandiComponent } from './mandi/mandi.component';
 
 @NgModule({
-  declarations: [AdminComponent, MspUpdateComponent],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
