@@ -8,7 +8,7 @@ import { Crop } from 'src/app/shared/models/Crop';
 })
 export class ViewcropService {
 
-  private baseUrl="http://localhost:8080/admin/getAllCrops";
+  private baseUrl="https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllCrops";
   constructor(private httpClient:HttpClient ) { }
 
   getCrops(adminId:string):Observable<Crop[]>{

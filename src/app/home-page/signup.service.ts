@@ -8,7 +8,7 @@ import { Farmer } from '../shared/models/Farmer';
   providedIn: 'root'
 })
 export class SignupService {
-  private baseURL ="http://localhost:8080/farmer/createFarmer";
+  private baseURL ="https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/createFarmer";
   constructor(private httpClient: HttpClient) { }
 
   createEmployee(farmer:Farmer): Observable<object>{

@@ -8,8 +8,8 @@ import { Crop } from '../shared/models/Crop';
 })
 export class AdminService {
 
-  private updateMspUrl = 'http://localhost:8080/crop/updateMSP';
-  private getMSPUrl = 'http://localhost:8080/crop/getCropMSP';
+  private updateMspUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/updateMSP';
+  private getMSPUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getCropMSP';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,7 +32,7 @@ export class AdminService {
   }
   getCropPriceForBuyer(map:any): Observable<any>{
    
-    return this.httpClient.get(`${"http://localhost:8080/crop/getCropPrice"}/`+localStorage.getItem('userId')+
+    return this.httpClient.get(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getCropPrice"}`+localStorage.getItem('userId')+
      `/`+ map.get('cropName')+ `/`+ map.get('cropClass'));
   }
 
@@ -43,7 +43,7 @@ export class AdminService {
       cropClass: map.get('cropClass'),
       cropPrice:map.get('price')
     };
-    return this.httpClient.put(`${"http://localhost:8080/cropVariety/updateCropPrice"}`, obj);
+    return this.httpClient.put(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/cropVariety/updateCropPrice"}`, obj);
   }
 
   getFarmersByAdminIdAndMandiPincode(adminId: any, mandiPincode: any): Observable<any> {
@@ -56,7 +56,7 @@ export class AdminService {
     });
     console.log(map);
     console.log(convMap);
-    return this.httpClient.post("http://localhost:8080/admin/getAllFarmersByAdminIdAndMandiPincode", convMap);
+    return this.httpClient.post("https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllFarmersByAdminIdAndMandiPincode", convMap);
   }
 
   getBuyersByAdminIdAndMandiPincode(adminId: any, mandiPincode: any): Observable<any> {
@@ -69,7 +69,7 @@ export class AdminService {
     });
     console.log(map);
     console.log(convMap);
-    return this.httpClient.post("http://localhost:8080/admin/getAllBuyersByAdminIdAndMandiPincode", convMap);
+    return this.httpClient.post("https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllBuyersByAdminIdAndMandiPincode", convMap);
   }
 
 }

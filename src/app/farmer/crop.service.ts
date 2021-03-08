@@ -17,6 +17,6 @@ export class CropService{
 
     getCrops(): Observable<any> 
     {
-        return this.http.get("http://localhost:8080/crop/getAllCrops");
+        return this.http.get("https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getAllCrops");
     }
 }

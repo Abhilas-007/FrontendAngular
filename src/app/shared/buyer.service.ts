@@ -9,7 +9,7 @@ import { Buyer } from 'src/app/shared/buyer';
 })
 export class BuyerService {
 
-  private baseUrl="http://localhost:8080/buyer/add-buyer";
+  private baseUrl="https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/add-buyer";
   constructor(private httpClient:HttpClient) { }
   createEmployee(buyer:Buyer):Observable<object>{
     return this.httpClient.post(`${this.baseUrl}`,buyer);

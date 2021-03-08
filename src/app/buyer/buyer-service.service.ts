@@ -8,8 +8,8 @@ import { Buyer } from '../shared/models/Buyer';
 })
 export class BuyerServiceService {
 
-  private updateUrl = 'http://localhost:8080/updateBuyer';
-  private getUrl = 'http://localhost:8080/buyer/get/'+localStorage.getItem('userId');
+  private updateUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/updateBuyer';
+  private getUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/get/'+localStorage.getItem('userId');
 
   constructor(private httpClient: HttpClient) { }
 

@@ -21,6 +21,6 @@ export class AdminService{
 
     getAdmins(): Observable<any> 
     {
-        return this.http.get("http://localhost:8080/admin/getAllAdmins");
+        return this.http.get("https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllAdmins");
     }
 }

@@ -8,7 +8,7 @@ import { Clerk } from 'src/app/shared/models/Clerk';
 })
 export class ViewClerkService {
 
-  private baseUrl="http://localhost:8080/admin/getAllClerks";
+  private baseUrl="https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllClerks";
   constructor(private httpClient:HttpClient ) { }
 
   getClerks(adminId:string):Observable<Clerk[]>{
