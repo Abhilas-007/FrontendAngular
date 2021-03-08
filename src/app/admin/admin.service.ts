@@ -46,4 +46,30 @@ export class AdminService {
     return this.httpClient.put(`${"http://localhost:8080/cropVariety/updateCropPrice"}`, obj);
   }
 
+  getFarmersByAdminIdAndMandiPincode(adminId: any, mandiPincode: any): Observable<any> {
+    const map: Map<string, string> = new Map<string, string>();
+    map.set('adminId', adminId);
+    map.set('mandiPincode', mandiPincode);
+    const convMap = {};
+    map.forEach((val: string, key: string) => {
+      convMap[key] = val;
+    });
+    console.log(map);
+    console.log(convMap);
+    return this.httpClient.post("http://localhost:8080/admin/getAllFarmersByAdminIdAndMandiPincode", convMap);
+  }
+
+  getBuyersByAdminIdAndMandiPincode(adminId: any, mandiPincode: any): Observable<any> {
+    const map: Map<string, string> = new Map<string, string>();
+    map.set('adminId', adminId);
+    map.set('mandiPincode', mandiPincode);
+    const convMap = {};
+    map.forEach((val: string, key: string) => {
+      convMap[key] = val;
+    });
+    console.log(map);
+    console.log(convMap);
+    return this.httpClient.post("http://localhost:8080/admin/getAllBuyersByAdminIdAndMandiPincode", convMap);
+  }
+
 }

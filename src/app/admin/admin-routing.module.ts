@@ -7,14 +7,18 @@ import { ViewClerkComponent } from './view-clerk/view-clerk.component';
 import { ViewCropComponent } from './view-crop/view-crop.component';
 import { CoreModule } from '../core/core.module';
 import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
+import { ViewFarmerComponent } from './view-farmer/view-farmer.component';
+import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
-{path:'admin',component:AdminComponent},
 {path:'view-crop',component:ViewCropComponent},
 {path:'addMandi', component: MandiComponent},
-{path:'updateMSP', component: MspUpdateComponent},{path:'view-clerk',component:ViewClerkComponent},
-{path:'userId/cropName/cropClass', component: UpdateCropPriceComponent}];
-
+{path:'updateMSP', component: MspUpdateComponent},
+{path:'view-clerk',component:ViewClerkComponent},
+{path:'userId/cropName/cropClass', component: UpdateCropPriceComponent},
+{path:'view-farmer',component:ViewFarmerComponent},
+{path:'view-buyer',component:ViewBuyerComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -13,10 +13,12 @@ import { MandiComponent } from './mandi/mandi.component';
 import { ViewCropComponent } from './view-crop/view-crop.component';
 import { ViewClerkComponent } from './view-clerk/view-clerk.component';
 import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
+import { ViewFarmerComponent } from './view-farmer/view-farmer.component';
+import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
 
 @NgModule({
 
-  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent,],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent,],
 
   imports: [
     CommonModule,
