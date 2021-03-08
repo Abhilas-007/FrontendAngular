@@ -10,7 +10,7 @@ import { ViewcropService } from './viewcrop.service';
 export class ViewCropComponent implements OnInit {
 crop:Crop[]=[];
   constructor(private cropService:ViewcropService) { }
-adminId="11";
+  adminId=localStorage.getItem('userId');
   ngOnInit(): void {
     this.getCrops();
   }
