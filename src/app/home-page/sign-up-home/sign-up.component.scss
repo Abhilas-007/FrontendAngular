@@ -4,5 +4,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        button{
+           background-color: wheat;
+           opacity: 0.7;
+           color: brown;
+           &:hover{
+               background-color: darken($color: #e28f8f, $amount: 0);
+               color: white;
+           }
+        }
     }
 }

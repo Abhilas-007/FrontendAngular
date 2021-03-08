@@ -8,6 +8,7 @@
     padding-top: 20px;
     margin-top: 60px;
     width: 500px;
+    max-height: 200px;
 }
 input.ng-invalid.ng-touched{
     border: 1px solid red;
@@ -19,4 +20,7 @@ input.ng-invalid.ng-touched{
 #cancel{
     margin-left: 60px;
     margin-bottom: 40px;
+}
+.row{
+    overflow: scroll;
 }
