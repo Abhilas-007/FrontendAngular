@@ -15,8 +15,7 @@ export class HomePageComponent implements OnInit {
   }
 
   valid() {
-    if (this.val =='true') {
-
+    if (localStorage.getItem('loginStatus') != null) {
       return false;
     }
     else {
