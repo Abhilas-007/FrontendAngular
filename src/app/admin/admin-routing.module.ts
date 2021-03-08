@@ -9,6 +9,8 @@ import { CoreModule } from '../core/core.module';
 import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
 import { ViewFarmerComponent } from './view-farmer/view-farmer.component';
 import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
+import { HomePageModule } from '../home-page/home-page.module'
+import { HomePageComponent } from '../home-page/home-page.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
 {path:'view-crop',component:ViewCropComponent},
@@ -21,7 +23,7 @@ const routes: Routes = [{ path: '', component: AdminComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), HomePageModule],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }

@@ -15,10 +15,12 @@ import { ViewClerkComponent } from './view-clerk/view-clerk.component';
 import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
 import { ViewFarmerComponent } from './view-farmer/view-farmer.component';
 import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
+import { HomePageModule } from '../home-page/home-page.module';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @NgModule({
 
-  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent,],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent],
 
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
     SharedModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomePageModule
   ]
 })
 export class AdminModule { }
