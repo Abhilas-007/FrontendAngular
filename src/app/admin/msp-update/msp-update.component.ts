@@ -20,7 +20,7 @@ export class MspUpdateComponent implements OnInit {
 
   getMSP(cname: string){
     console.log(cname);
-    this.adminService.getMSP("11",cname).subscribe(data => {
+    this.adminService.getMSP(localStorage.getItem('userId'),cname).subscribe(data => {
       this.crop = data;
     }, error => window.alert("Invalid Crop Name")
     );
