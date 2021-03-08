@@ -6,23 +6,25 @@ import { AdminComponent } from './admin.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { MspUpdateComponent } from './msp-update/msp-update.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MandiComponent } from './mandi/mandi.component';
 import { ViewCropComponent } from './view-crop/view-crop.component';
 import { ViewClerkComponent } from './view-clerk/view-clerk.component';
+import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
 
 @NgModule({
 
-  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent,],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent,],
 
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

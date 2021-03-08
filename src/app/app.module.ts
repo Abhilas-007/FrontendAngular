@@ -11,10 +11,11 @@ import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 

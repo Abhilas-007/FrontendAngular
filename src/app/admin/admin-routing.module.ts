@@ -6,12 +6,14 @@ import { MspUpdateComponent } from './msp-update/msp-update.component';
 import { ViewClerkComponent } from './view-clerk/view-clerk.component';
 import { ViewCropComponent } from './view-crop/view-crop.component';
 import { CoreModule } from '../core/core.module';
+import { UpdateCropPriceComponent } from './update-crop-price/update-crop-price.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
 {path:'admin',component:AdminComponent},
 {path:'view-crop',component:ViewCropComponent},
 {path:'addMandi', component: MandiComponent},
-{path:'updateMSP', component: MspUpdateComponent},{path:'view-clerk',component:ViewClerkComponent}];
+{path:'updateMSP', component: MspUpdateComponent},{path:'view-clerk',component:ViewClerkComponent},
+{path:'userId/cropName/cropClass', component: UpdateCropPriceComponent}];
 
 
 @NgModule({

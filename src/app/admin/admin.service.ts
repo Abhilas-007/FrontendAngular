@@ -30,5 +30,20 @@ export class AdminService {
       return this.httpClient.put<Crop>(`${this.updateMspUrl}`,crop);
     }
   }
+  getCropPriceForBuyer(map:any): Observable<any>{
+   
+    return this.httpClient.get(`${"http://localhost:8080/crop/getCropPrice"}/`+localStorage.getItem('userId')+
+     `/`+ map.get('cropName')+ `/`+ map.get('cropClass'));
+  }
+
+  updateCropPrice(map: any): Observable<any> {
+    let obj = {
+      adminId:localStorage.getItem('userId'),
+      cropName: map.get('cropName'),
+      cropClass: map.get('cropClass'),
+      cropPrice:map.get('price')
+    };
+    return this.httpClient.put(`${"http://localhost:8080/cropVariety/updateCropPrice"}`, obj);
+  }
 
 }
