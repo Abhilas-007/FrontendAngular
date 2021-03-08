@@ -36,10 +36,12 @@ export class SignupComponent implements OnInit {
     })
   }
   goToEmployeeList(){
+    alert("Sign up Successfully");
     this.router.navigate(['']);
   }
 
    myFunction() {
      this.hide = !this.hide;
    }
+  
 }
