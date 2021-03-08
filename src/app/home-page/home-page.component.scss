@@ -1,3 +1,10 @@
 .navbar {
   background-color: ghostwhite;
+  opacity: 0.5;
+  .navbar-item {
+    font-size: x-large;
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+  }
 }
