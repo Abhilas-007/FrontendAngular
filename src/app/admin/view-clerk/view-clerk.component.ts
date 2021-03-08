@@ -11,7 +11,10 @@ export class ViewClerkComponent implements OnInit {
 
   clerk:Clerk[]=[];
   constructor(private clerkService:ViewClerkService) { }
-adminId="11";
+
+adminId=localStorage.getItem('userId');
+
+  //adminId="11";
   ngOnInit(): void {
     this.getClerks();
   }
