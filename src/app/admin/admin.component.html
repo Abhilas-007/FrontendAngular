@@ -1,74 +1,85 @@
 <app-header></app-header>
 <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link"> Update </a>
 
-    <div class="navbar">
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Update
-          </a>
-    
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="admin/updateMSP">
-              MSP
-            </a>
-            <a class="navbar-item" href="admin/userId/cropName/cropClass">
-              Cost To Buyers
-            </a>
-            <a class="navbar-item">
-                Crop Quality Price
-            </a>
-            <a class="navbar-item">
-                Clerk
-            </a>
-          </div>
-        </div>
-    </div>
-
-    <div class="navbar">
-  
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            View
-          </a>
-    
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="admin/view-crop">
-              Crop Details
-            </a>
-            <a class="navbar-item" href="admin/view-farmer">
-              Farmer Details
-            </a>
-            <a class="navbar-item" href="admin/view-buyer">
-                Buyer Details
-            </a>
-            <a class="navbar-item" href="admin/view-clerk">
-                Clerk Details
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar">
-          <button class="button is-primary"><a href="admin/addMandi" style="text-decoration: none; color: black;">Add Mandi</a></button>
-      </div>
-    
-    <div class="navbar-end">
-  
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Profile
+      <div class="navbar-dropdown">
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/updateMSP']"
+          routerLinkActive
+        >
+          MSP
         </a>
-  
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            View Profile
-          </a>
-          <a class="navbar-item" (click)="logout()">
-            Logout
-          </a>
-        </div>
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/userId/cropName/cropClass']"
+          routerLinkActive
+        >
+          Cost To Buyers
+        </a>
+        <a class="navbar-item"> Crop Quality Price </a>
+        <a class="navbar-item"> Clerk </a>
       </div>
     </div>
-  
-  </nav>
+  </div>
+
+  <div class="navbar">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link"> View </a>
+
+      <div class="navbar-dropdown">
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/view-crop']"
+          routerLinkActive
+        >
+          Crop Details
+        </a>
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/view-farmer']"
+          routerLinkActive
+        >
+          Farmer Details
+        </a>
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/view-buyer']"
+          routerLinkActive
+        >
+          Buyer Details
+        </a>
+        <a
+          class="navbar-item"
+          [routerLink]="['/admin/view-clerk']"
+          routerLinkActive
+        >
+          Clerk Details
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <button
+      class="button is-primary"
+      [routerLink]="['/admin/addMandi']"
+      routerLinkActive
+    >
+      Add Mandi
+    </button>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link"> Profile </a>
+
+      <div class="navbar-dropdown">
+        <a class="navbar-item"> View Profile </a>
+        <a class="navbar-item" (click)="logout()"> Logout </a>
+      </div>
+    </div>
+  </div>
+</nav>

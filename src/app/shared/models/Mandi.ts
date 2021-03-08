@@ -4,7 +4,7 @@ export class Mandi{
 
     mandiPincode: number;
     storage: number;
-    clerk: Clerk;
+    clerk: Clerk=new Clerk();
     adminId: string;
 
     constructor(){ }

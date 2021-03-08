@@ -1,41 +1,62 @@
 <app-header></app-header>
-<nav class="navbar is-white has-shadow" role="navigation" aria-label="main navigation">
-
+<nav
+  class="navbar is-white has-shadow"
+  role="navigation"
+  aria-label="main navigation"
+>
   <!--<div class="navbar-brand">
         <a class="navbar-item">
             <img  src="../../assets/logo.jpg" height="100px" width="200px" >
         </a>
     </div>-->
-  <div #burger role="button" class="navbar-burger burger" (click)="toggleNavbar()" aria-label="menu"
-    aria-expanded="false" data-target="navbarBasicExample">
+  <div
+    #burger
+    role="button"
+    class="navbar-burger burger"
+    (click)="toggleNavbar()"
+    aria-label="menu"
+    aria-expanded="false"
+    data-target="navbarBasicExample"
+  >
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
-
   </div>
   <div #menu class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="">Home</a>
-      <a class="navbar-item" href="about">About</a>
+      <a class="navbar-item" [routerLink]="['']" routerLinkActive>Home</a>
+      <a class="navbar-item" [routerLink]="['/about']" routerLinkActive
+        >About</a
+      >
     </div>
     <div class="navbar-end">
-      <a href="login-home/" class="navbar-item" *ngIf="valid()">Login</a>
+      <a
+        [routerLink]="['/login-home']"
+        routerLinkActive
+        class="navbar-item"
+        *ngIf="valid()"
+        >Login</a
+      >
       <div class="navbar-item has-dropdown is-hoverable">
-
-
         <a class="navbar-link navbar-item" *ngIf="valid()">Sign-up</a>
 
         <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="signup">
-           Farmer
+          <a class="navbar-item" [routerLink]="['/signup']" routerLinkActive>
+            Farmer
           </a>
-          <a class="navbar-item" href="buyer-signup">
+          <a
+            class="navbar-item"
+            [routerLink]="['/buyer-signup']"
+            routerLinkActive
+          >
             Buyer
           </a>
         </div>
       </div>
-      <a class="navbar-item"  *ngIf="!valid()" (click)="logout()">Logout</a>
-      <a class="navbar-item" href="contact-us">Contact us</a>
+      <a class="navbar-item" *ngIf="!valid()" (click)="logout()">Logout</a>
+      <a class="navbar-item" [routerLink]="['/contact-us']" routerLinkActive
+        >Contact us</a
+      >
     </div>
   </div>
 </nav>
