@@ -12,6 +12,7 @@ import { CropService } from '../crop.service';
 export class MspTabComponent implements OnInit {
 
   stateName: string = "";
+  lowerCaseState: string = "";
   adminId: any;
   adminObj: Admin = new Admin();
   i: number = 0;
@@ -49,19 +50,23 @@ export class MspTabComponent implements OnInit {
       }
       this.allCrops = data;
     }, error => console.log(error));
-    this.crops = this.allCrops;
   }
 
   onStateSearch() {
     //to find the Admin object having state same as the entered state
-    this.adminObj = this.allAdmins.filter(element => (element.state == this.stateName))[0];
+    this.lowerCaseState = this.stateName.toLowerCase();
+    this.adminObj = this.allAdmins.filter(element => (element.state == this.lowerCaseState))[0];
 
-    if (typeof this.adminObj === 'undefined' || this.adminObj === null) 
+    if (typeof this.adminObj === 'undefined' && this.stateName === "") 
     {
-      //if a wrong state name is entered or no state name is entered
-      //then show alert message and show all available crops in all states
-      alert("Invalid state name");
-      this.crops = this.allCrops;
+      //if a wrong state name is entered or no state name is entered then show alert message
+      alert("Invalid state name.");
+      this.crops = null;
+    }
+    else if(typeof this.adminObj === 'undefined' && this.stateName != null)
+    {
+      alert("Entered state name not found.");
+      this.crops = null;
     }
     else 
     {
