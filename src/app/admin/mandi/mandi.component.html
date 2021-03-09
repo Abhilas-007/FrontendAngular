@@ -1,11 +1,11 @@
 <app-admin></app-admin>
 
-<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+<form #profileForm="ngForm" (ngSubmit)="onSubmit()">
 
     <div class="field">
       <label>Mandi Pincode</label>
       <div class="control">
-        <input class="input" required type="number" [ngModel]="mandi.mandiPincode" name="mandiPincode">
+        <input class="input" required type="number" [(ngModel)]="mandi.mandiPincode" name="mandiPincode">
       </div>
     </div>
 
@@ -14,7 +14,7 @@
       <div class="field">
           <label>Mandi Storage</label>
           <div class="control">
-            <input class="input" required type="number" [ngModel]="mandi.storage" name="storage">
+            <input class="input" required type="number" [(ngModel)]="mandi.storage" name="storage">
           </div>
         </div>
 
@@ -23,7 +23,7 @@
         <div class="field">
           <label>Clerk Id</label>
           <div class="control">
-              <input class="input" required type="text" [ngModel]="mandi.clerk.clerkId" name="clerkId">
+              <input class="input" required type="text" [(ngModel)]="clerk.clerkId" name="clerkId">
             </div>
         </div>
 
@@ -32,7 +32,7 @@
         <div class="field">
             <label>Clerk Name</label>
             <div class="control">
-                <input class="input" required type="text"  [ngModel]="mandi.clerk.clerkName" name="clerkName">
+                <input class="input" required type="text"  [(ngModel)]="clerk.clerkName" name="clerkName">
               </div>
           </div>
 
@@ -41,7 +41,7 @@
           <div class="field">
             <label>Password</label>
             <div class="control">
-                <input class="input" required type="text" [ngModel]="mandi.clerk.password" name="password">
+                <input class="input" required type="text" [(ngModel)]="clerk.password" name="password">
               </div>
           </div>
 
@@ -50,7 +50,7 @@
         <div class="field">
           <label>Phone Number</label>
           <div class="control">
-              <input class="input" required type="text" [ngModel]="mandi.clerk.mobileNumber" name="mobileNumber">
+              <input class="input" required type="text" [(ngModel)]="clerk.mobileNumber" name="mobileNumber">
             </div>
         </div>
   

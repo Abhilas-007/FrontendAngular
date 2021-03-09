@@ -15,16 +15,22 @@ export class MandiComponent implements OnInit {
   mandi: Mandi = new Mandi();
   clerk: Clerk = new Clerk();
 
-
   constructor(private router: Router,private adminService:AdminService) { }
 
   ngOnInit(): void {
-    this.mandi.clerk = new Clerk();
+    this.mandi.mandiPincode = null;
+    this.mandi.storage = null;
+    this.clerk.clerkId = null;
+    this.clerk.clerkName = null;
+    this.clerk.mobileNumber = null;
+    this.clerk.password = null;
+    this.mandi.adminId = null;
   }
 
-  onSubmit(form: NgForm){
-    console.log(form.value);
-    this.adminService.addMandi(form.value).subscribe(data => {
+  onSubmit(){
+    this.mandi.clerk = this.clerk;
+    console.log(this.mandi);
+    this.adminService.addMandi(this.mandi).subscribe(data => {
       this.mandi = data;
     });
   }
