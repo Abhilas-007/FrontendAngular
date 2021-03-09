@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Crop } from '../shared/models/Crop';
+import { Mandi } from '../shared/models/Mandi';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AdminService {
 
   private updateMspUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/updateMSP';
   private getMSPUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getCropMSP';
+  private addMandiUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/mandi/add';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -70,6 +72,12 @@ export class AdminService {
     console.log(map);
     console.log(convMap);
     return this.httpClient.post("https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllBuyersByAdminIdAndMandiPincode", convMap);
+  }
+
+  addMandi(mandi: Mandi): Observable<Mandi>{
+    mandi.adminId = localStorage.getItem('userId');
+    console.log(mandi);
+    return this.httpClient.post<Mandi>(`${this.addMandiUrl}`,mandi);
   }
 
 }
