@@ -4,6 +4,6 @@ export class Buyer{
     buyerName: string;
     password: string;
     phoneNumber: string;
-
+    
     constructor() {}
 }

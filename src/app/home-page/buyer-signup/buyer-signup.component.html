@@ -5,11 +5,33 @@
       <div class="field">
 
         <label for="name">Buyer Name</label>
-        <input type="text" class="form-control" id="buyerName" pattern="[a-zA-Z]{1,30}$" #Name="ngModel"
+        <input type="text" class="form-control" id="buyerName" pattern="/^[a-zA-Z '.-]*$/" #Name="ngModel"
           [(ngModel)]="buyer.buyerName" name="buyerName" required>
         <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Name Should not include Digits</span>
       </div>
-
+      <div class="form-group">
+        <div class="field">
+          <label for="name">Password</label>
+          <div class="control">
+  
+  
+  
+  
+            <input matInput [type]="hide ?'password':'text'" class="form-control" id="password"
+              pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel" required [(ngModel)]="buyer.password"
+              name="password">
+            <i class="material-icons" matSuffix (click)="hide = !hide">
+              {{hide ? 'visibility':'visibility_off'}}
+            </i>
+  
+  
+            <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
+              characters
+              and Maximum 12
+              characters which includes atleast one number</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <div class="field">
@@ -23,42 +45,9 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <div class="field">
-        <label for="name">Password</label>
-        <div class="control">
+    
 
-
-
-
-          <input matInput [type]="hide ?'password':'text'" class="form-control" id="password"
-            pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel" required [(ngModel)]="buyer.password"
-            name="password">
-          <i class="material-icons" matSuffix (click)="hide = !hide">
-            {{hide ? 'visibility':'visibility_off'}}
-          </i>
-
-
-          <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
-            characters
-            and Maximum 12
-            characters which includes atleast one number</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="field">
-        <label for="name"> ConfirmPassword</label><br>
-        <div class="control">
-          <input type="password" class="form-control" id="confirmPassword" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$"
-            #cpwd="ngModel" required [(ngModel)]="buyer.confirmPassword" name="confirmPassword">
-
-          <span class="help-block" *ngIf="cpwd.errors?.pattern" style="color: red;">ConfirmPassword should match with
-            Password</span>
-        </div>
-      </div>
-    </div>
+    
 
     <div class="form-group">
       <div class="field">
@@ -89,6 +78,20 @@
           <input type="text" class="form-control" id="answer" required [(ngModel)]="buyer.answer" name="answer">
 
 
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="field">
+        <label for="name"> ConfirmPassword</label><br>
+        <div class="control">
+          <input  matInput [type]="hide ?'password':'text'" class="form-control" id="confirmPassword" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$"
+            #cpwd="ngModel" required [(ngModel)]="confirmPassword" name="confirmPassword">
+            <i class="material-icons" matSuffix (click)="hide = !hide">
+              {{hide ? 'visibility':'visibility_off'}}
+            </i>
+          <span class="help-block" *ngIf="cpwd.errors?.pattern" style="color: red;">ConfirmPassword should match with
+            Password</span>
         </div>
       </div>
     </div>
