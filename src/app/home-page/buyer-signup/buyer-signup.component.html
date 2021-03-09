@@ -1,6 +1,6 @@
 <app-home-page></app-home-page>
 <div class="container">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-group">
       <div class="field">
 
@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="button is-primary">Submit</button>
+    <button type="submit" class="button is-primary" [disabled]="!f.valid">Submit</button>
 
   </form>
 </div>
