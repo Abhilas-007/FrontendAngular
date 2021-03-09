@@ -5,7 +5,7 @@
       <div class="field">
 
         <label for="name">Buyer Name</label>
-        <input type="text" class="form-control" id="buyerName" pattern="/^[a-zA-Z '.-]*$/" #Name="ngModel"
+        <input type="text" class="form-control" id="buyerName" pattern="[a-zA-Z]{1,30}$" #Name="ngModel"
           [(ngModel)]="buyer.buyerName" name="buyerName" required>
         <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Name Should not include Digits</span>
       </div>
@@ -40,7 +40,7 @@
           <input type="text" class="form-control" id="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel"
             required [(ngModel)]="buyer.phoneNumber" name="phoneNumber">
           <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
-            Digits and It should not start with 0</span>
+            Digits and It should not start with 0 or </span>
         </div>
       </div>
     </div>
