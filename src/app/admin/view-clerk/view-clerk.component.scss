@@ -1,4 +1,25 @@
 
 .container{
     width: 500px;
+    text-emphasis-color: Red;
+    
+    background-color: wheat;
+    opacity: 0.7;
+    border: 1px red solid;
+
+.table-card{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    color: black;
+    
+    table, td, th {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+        background-color: wheat;
+    }
+      
+    
+}
 }
