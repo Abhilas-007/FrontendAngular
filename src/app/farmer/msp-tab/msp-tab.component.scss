@@ -20,3 +20,52 @@
         }
     }
 }
+
+.container{
+    text-emphasis-color: Red;
+    width: 50%;
+    background-color: wheat;
+    opacity: 0.7;
+    border: 1px red solid;
+    padding:10px;
+}
+
+.card{
+    width: 70%;
+    margin-left: 40%;
+    margin-right: 50%;
+    padding: 30px;
+    background-color: wheat;
+    margin: 0 auto;
+
+    .search-state-block{
+        width: 50%;
+        margin: 0 auto;
+        
+        input{
+            margin-right: 10px;
+        }
+        button{
+            background-color: brown;
+            color: white;
+        }
+    }
+}
+
+.crop-table{
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    color: black;
+
+    table, td, th {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+      
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+}

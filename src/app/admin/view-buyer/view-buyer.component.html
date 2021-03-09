@@ -1,23 +1,26 @@
 <app-admin></app-admin>
 
-<div class="search-card">
-    <div class="search-mandi-block">
-        <input type="text" placeholder="Enter mandi pincode.." [(ngModel)]="mandiPincode" />
-        <button (click)="onMandiPincodeSearch()">Search</button>
+<div class="container">
+    <div class="search-card">
+        <div class="search-mandi-block">
+            <input type="text" placeholder="Enter mandi pincode.." [(ngModel)]="mandiPincode" />
+            <button (click)="onMandiPincodeSearch()">Search</button>
+        </div>
     </div>
-</div>
 
-<div class="table-card">
-    <div class="farmer-table">
-        <table>
-            <tr>
-                <th>Buyer Name</th>
-                <th>Mobile Number</th>
-            </tr>
-            <tr *ngFor="let buyer of allBuyers">
-                <td>{{ buyer.buyerName }}</td>
-                <td>{{ buyer.phoneNumber }}</td>
-            </tr>
-        </table>
+
+    <div class="table-card">
+        <div class="farmer-table">
+            <table>
+                <tr>
+                    <th>Buyer Name</th>
+                    <th>Mobile Number</th>
+                </tr>
+                <tr *ngFor="let buyer of allBuyers">
+                    <td>{{ buyer.buyerName }}</td>
+                    <td>{{ buyer.phoneNumber }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
