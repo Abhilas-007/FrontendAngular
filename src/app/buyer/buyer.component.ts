@@ -7,11 +7,20 @@ import { LogoutService } from '../core/logout.service';
   styleUrls: ['./buyer.component.scss']
 })
 export class BuyerComponent implements OnInit {
-
+  val = localStorage.getItem('loginStatus');
   constructor(private router: Router, private log: LogoutService )  { }
 
   ngOnInit(): void {
   }
+  valid() {
+    if (localStorage.getItem('loginStatus') != null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  
   logout():void{
     this.log.logOut();
   }

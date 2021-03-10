@@ -40,7 +40,7 @@
           <input type="text" class="form-control" id="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel"
             required [(ngModel)]="buyer.phoneNumber" name="phoneNumber">
           <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
-            Digits and It should not start with 0 or </span>
+            Digits and It should not start with 0</span>
         </div>
       </div>
     </div>

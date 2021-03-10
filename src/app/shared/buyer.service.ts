@@ -11,9 +11,9 @@ export class BuyerService {
 
   private baseUrl="https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/add-buyer";
   constructor(private httpClient:HttpClient) { }
-  createBuyer(buyer:BuyerSignup):Observable<string>{
+  createBuyer(buyer:BuyerSignup):Observable<object>{
     console.log(buyer.securityQuestion);
-    return this.httpClient.post<string>(`${this.baseUrl}`,buyer);
+    return this.httpClient.post<object>(`${this.baseUrl}`,buyer);
 
   }
 

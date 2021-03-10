@@ -15,7 +15,7 @@ import { BuyerSignup } from 'src/app/shared/models/BuyerSignup';
 })
 export class BuyerSignupComponent implements OnInit {
   hide: boolean = true;
-
+  buyerId;
   buyer: BuyerSignup = new BuyerSignup();
   confirmPassword: string;
 
@@ -23,7 +23,8 @@ export class BuyerSignupComponent implements OnInit {
   saveBuyer() {
     this.buyerService.createBuyer(this.buyer).subscribe(data => {
       console.log(data);
-
+      this.buyerId=data;
+      alert("Signup Successfully Please remember Your id for Login :"+ this.buyerId);
     },
       error => console.log(error));
   }
@@ -34,7 +35,7 @@ export class BuyerSignupComponent implements OnInit {
     if (this.buyer.password === this.confirmPassword) {
      
       this.saveBuyer();
-
+      
       this.router.navigate(['/']);
     }
     else
