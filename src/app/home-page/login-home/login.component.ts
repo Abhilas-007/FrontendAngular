@@ -118,7 +118,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('userId', this.loginForm.controls['id'].value);
             localStorage.setItem('loginStatus', 'true');
             localStorage.setItem('userType', 'sAdmin');
-            this._router.navigate(['/sAdmin']);
+            this._router.navigate(['/superAdmin']);
           }
           if (data == null) {
             alert('invalid credentials');
