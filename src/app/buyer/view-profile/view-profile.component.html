@@ -15,8 +15,8 @@
         <div class="field">
             <label>Name</label>
             <div class="control">
-              <input class="input" required type="text" [ngModel]="buyer.buyerName" name="buyerName" pattern="[a-zA-Z]{1,30}$" #Name="ngModel">
-              <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Name Should not include Digits</span>
+              <input class="input" required type="text" [ngModel]="buyer.buyerName" name="buyerName" pattern="[a-zA-Z]{3,15}([ ][a-zA-Z]{3,15})?([ ][a-zA-Z]{3,15})?" #Name="ngModel">
+              <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Invalid Name</span>
             </div>
           </div>
 
@@ -25,11 +25,14 @@
           <div class="field">
             <label>Password</label>
             <div class="control">
-                <input class="input" required type="text" [ngModel]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [ngModel]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
                 <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
                   characters
                   and Maximum 12
                   characters which includes atleast one number</span>
+                  <i class="material-icons" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility':'visibility_off'}}
+                  </i>
               </div>
           </div>
 
@@ -48,7 +51,7 @@
           
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-primary" type="submit">Update</button>
+              <button class="button is-primary" [disabled]="!profileForm.valid" type="submit">Update</button>
             </div>
           </div>
             

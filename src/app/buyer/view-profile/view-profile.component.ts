@@ -12,6 +12,7 @@ export class ViewProfileComponent implements OnInit {
 
   buyer: Buyer = new Buyer();
   @Output() formSubmit: EventEmitter<Buyer> = new EventEmitter<Buyer>();
+  hide: boolean = true;
 
   constructor(private buyerService: BuyerServiceService) { }
 
