@@ -2,7 +2,7 @@
 
 <div class="form-container">
 
-  <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm); profileForm.resetForm()">
+  <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm,cname.value); profileForm.resetForm()">
 
     <div class="field">
       <label>Crop Name</label>
@@ -13,7 +13,7 @@
 
       <br>
       
-      <div class="field">
+      <div class="field" style="display:none" id="field">
         <label>MSP</label>
         <div class="control">
             <input #msp class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP">
@@ -24,13 +24,10 @@
       
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-primary" type="submit">Update MSP</button>
+          <button class="button is-primary" type="submit" [disabled]="disable">Update MSP</button>
         </div>
         <div class="control">
           <button class="button is-primary" type="button" (click)="getMSP(cname.value)">Show MSP</button>
-        </div>
-        <div class="control">
-          <button class="button" type="button" (click)="onCancel()">Cancel</button>
         </div>
       </div>
         
