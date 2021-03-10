@@ -15,7 +15,8 @@
         <div class="field">
             <label>Name</label>
             <div class="control">
-              <input class="input" required type="text" [ngModel]="buyer.buyerName" name="buyerName">
+              <input class="input" required type="text" [ngModel]="buyer.buyerName" name="buyerName" pattern="[a-zA-Z]{1,30}$" #Name="ngModel">
+              <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Name Should not include Digits</span>
             </div>
           </div>
 
@@ -24,7 +25,11 @@
           <div class="field">
             <label>Password</label>
             <div class="control">
-                <input class="input" required type="text" [ngModel]="buyer.password" name="password">
+                <input class="input" required type="text" [ngModel]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
+                  characters
+                  and Maximum 12
+                  characters which includes atleast one number</span>
               </div>
           </div>
 
@@ -33,7 +38,9 @@
           <div class="field">
             <label>Phone Number</label>
             <div class="control">
-                <input class="input" required type="text" [ngModel]="buyer.phoneNumber" name="phoneNumber">
+                <input class="input" required type="text" [ngModel]="buyer.phoneNumber" name="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
+                <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
+                  Digits and It should not start with 0</span>
               </div>
           </div>
     
