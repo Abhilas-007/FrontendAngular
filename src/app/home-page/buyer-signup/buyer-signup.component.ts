@@ -47,4 +47,5 @@ export class BuyerSignupComponent implements OnInit {
   toggleEye(): void {
     this.hide = !this.hide;
   }
+  
 }

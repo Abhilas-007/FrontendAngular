@@ -1,25 +1,45 @@
 
 .container{
-    width: 500px;
-    text-emphasis-color: Red;
-    
-    background-color: wheat;
-    opacity: 0.7;
-    border: 1px red solid;
+    align-content: center;
+width: 700px;
+height: 500px;
 
-.table-card{
-    width: 80%;
-    margin: 0 auto;
-    padding: 30px;
-    color: black;
-    
-    table, td, th {
-        border: 1px solid black;
-        padding: 10px;
-        text-align: center;
-        background-color: wheat;
-    }
-      
-    
+.fixed_header{
+    width: 700px;
+    table-layout: auto;
+   
+}
+.fixed_header tbody tr{
+    border: 1px solid black;
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 200px;
+  text-align: center;
+ 
+}
+
+.fixed_header thead tr {
+   display: block;
+   border: 1px solid black;
+}
+
+.fixed_header thead {
+  background:wheat;
+  color:#fff;
+  
+}
+
+.fixed_header th, .fixed_header td {
+  padding: 10px;
+  text-align: left;
+  width: 500px;
+  
+}
+.fixed_header td{
+    border: 1px solid black;
 }
 }
