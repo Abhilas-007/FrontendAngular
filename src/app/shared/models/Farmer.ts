@@ -8,5 +8,5 @@ export class Farmer {
     mobileNumber: string;
     securityQuestion: string;
     answer:string;
-
+    farmerId:number;
 }

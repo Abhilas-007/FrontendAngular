@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="cropClass">Enter new price </label>
                         <input type="text" id="price" class="form-control" name="cropPrice" formControlName="price" 
-                        >
+                        [(ngModel)]="crop"  placeholder="{{crop}}">
                         <p class="text-danger"
                             *ngIf="!UpdateForm.get('price').valid && UpdateForm.get('price').touched">Please enter
                             new price</p>

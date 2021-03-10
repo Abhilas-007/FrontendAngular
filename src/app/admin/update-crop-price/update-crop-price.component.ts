@@ -16,7 +16,7 @@ export class UpdateCropPriceComponent implements OnInit {
   UpdateForm: FormGroup;
   cropName: string = '';
   cropVariety:CropVariety= new CropVariety();
-  crop: any[] = [];
+  crop;
   ngOnInit(): void {
     this.UpdateForm = this.fb.group({
       cropName: [null, Validators.required],
@@ -32,9 +32,9 @@ export class UpdateCropPriceComponent implements OnInit {
     this.map1.set('price', this.UpdateForm.controls['price'].value);
     this.updatePriceService.updateCropPrice(this.map1).subscribe((data) => {
       console.log(data);
-
+     
    
-    })
+    });
 
   }
   map = new Map();
@@ -47,8 +47,7 @@ export class UpdateCropPriceComponent implements OnInit {
     this.updatePriceService.getCropPriceForBuyer(this.map).subscribe((data) => {
       console.log(data);
       this.crop = data;
-      this.map=data;
-      console.log(this.map);
+      console.log(this.crop);
     });
   }
   printSuccessMessage(){

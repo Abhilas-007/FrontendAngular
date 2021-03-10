@@ -34,7 +34,7 @@ export class AdminService {
   }
   getCropPriceForBuyer(map:any): Observable<any>{
    
-    return this.httpClient.get(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getCropPrice"}`+localStorage.getItem('userId')+
+    return this.httpClient.get(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/crop/getCropPrice"}`+`/`+localStorage.getItem('userId')+
      `/`+ map.get('cropName')+ `/`+ map.get('cropClass'));
   }
 

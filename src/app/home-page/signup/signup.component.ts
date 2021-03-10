@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Farmer } from 'src/app/shared/models/Farmer';
 import { SignupService } from '../signup.service';
 
@@ -14,11 +14,13 @@ export class SignupComponent implements OnInit {
   hide: boolean = true;
   confirmPassword: string='';
   password:string='';
-  
+  stringJson:string;
+  farmerId;
   farmer:Farmer= new Farmer();
-  constructor(private employeeService: SignupService, private router: Router) { }
+  constructor(private employeeService: SignupService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+   
   }
   onSubmit(form:NgForm){
     if(this.farmer.password===this.confirmPassword){
@@ -32,16 +34,17 @@ export class SignupComponent implements OnInit {
    saveEmployee(){
     this.employeeService.createEmployee(this.farmer).subscribe(data =>{
       console.log(data);
-      this.goToEmployeeList();
+       this.farmerId=data;
+     this.goToEmployeeList();
     })
   }
   goToEmployeeList(){
-    alert("Sign up Successfully");
+    alert("Sign up Successfully"+"\n"+"Your Farmer Id is :"+this.farmerId);
     this.router.navigate(['']);
   }
 
    myFunction() {
      this.hide = !this.hide;
    }
-  
+   
 }
