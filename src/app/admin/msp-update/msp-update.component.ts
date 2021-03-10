@@ -43,9 +43,9 @@ export class MspUpdateComponent implements OnInit {
     );
     this.adminService.updateMSP(form.value).subscribe(data => {
       this.crop = data;
-      });
       window.alert("MSP Updated Successfuly");
       window.location.reload();
+      });
   }
 
   onCancel(){

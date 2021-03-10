@@ -23,7 +23,7 @@ export class AdminService {
   }
 
   updateMSP(crop: Crop): Observable<Crop>{
-    if(crop.cropMSP <= 0){
+    if((crop.cropMSP<=0)||(crop.cropMSP>150)){
       window.alert("Invalid MSP");
       return null;
     }
