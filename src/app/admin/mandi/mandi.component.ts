@@ -35,8 +35,6 @@ export class MandiComponent implements OnInit {
     });
   }
 
-  onCancel(){
-    this.router.navigate(['/admin']);
-  }
+
 
 }
