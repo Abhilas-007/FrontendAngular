@@ -19,7 +19,7 @@ export class MspUpdateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getMSP(cname: string){
+  getMSP(form: NgForm, cname: string){
     console.log(cname);
     this.adminService.getMSP(localStorage.getItem('userId'),cname).subscribe(data => {
       this.crop = data;
@@ -27,7 +27,7 @@ export class MspUpdateComponent implements OnInit {
       this.disable = false;
     }, error => {
       window.alert("Invalid Crop Name");
-      this.router.navigate(['/admin/updateMSP']);
+      form.reset();
     }
     );
 
@@ -38,13 +38,13 @@ export class MspUpdateComponent implements OnInit {
       this.crop = data;
     }, error => {
       window.alert("Invalid Crop Name");
-      this.router.navigate(['/admin/updateMSP']);
+      window.location.reload();
     }
     );
     this.adminService.updateMSP(form.value).subscribe(data => {
       this.crop = data;
       window.alert("MSP Updated Successfuly");
-      this.router.navigate(['/admin/updateMSP']);
+      window.location.reload();
       });
   }
 

@@ -28,14 +28,14 @@ export class MandiComponent implements OnInit {
     this.mandi.adminId = null;
   }
 
-  onSubmit(){
+  onSubmit(form: NgForm){
     this.mandi.clerk = this.clerk;
     console.log(this.mandi);
     this.adminService.addMandi(this.mandi).subscribe(data => {
       this.mandi = data;
     });
     window.alert("Mandi Added Successfuly");
-    this.router.navigate(['/admin/addMandi']);
+    window.location.reload();
   }
 
 
