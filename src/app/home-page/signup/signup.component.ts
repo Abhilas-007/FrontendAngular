@@ -12,6 +12,7 @@ import { SignupService } from '../signup.service';
 
 export class SignupComponent implements OnInit {
   hide: boolean = true;
+  hide1: boolean = true;
   confirmPassword: string='';
   password:string='';
   stringJson:string;

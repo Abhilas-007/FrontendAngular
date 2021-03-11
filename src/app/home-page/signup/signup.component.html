@@ -11,7 +11,8 @@
                     <div class="form-group">
                         <label for="name">Enter name </label>
                         <input type="text" id="name" class="form-control" ngModel name="name" required #name="ngModel"
-                            pattern="[a-zA-Z ]{5,30}" [(ngModel)]="farmer.farmerName">
+                            pattern="[a-zA-Z]{3,15}([ ][a-zA-z]{3,15})?([ ][a-zA-Z]{3,15})?[ ]?"
+                            [(ngModel)]="farmer.farmerName">
                         <span class="help-block" *ngIf="!name.valid && name.touched">Please entered a vaild name.
                         </span>
                         <span *ngIf="name.errors?.pattern">Invalid name</span>
@@ -20,11 +21,11 @@
                     <div class="form-group">
                         <label for="mobileNo">Enter Mobile number </label>
                         <input type="text" id="mobileNo" class="form-control" ngModel name="mobileNo" required
-                            #mobileNo="ngModel" pattern="[0-9]{10}" [(ngModel)]="farmer.mobileNumber">
+                            #mobileNo="ngModel" pattern="[1-9][0-9]{9}" [(ngModel)]="farmer.mobileNumber">
                         <span class="help-block" *ngIf="!mobileNo.valid && mobileNo.touched">Please entered a vaild
                             mobile number.
                         </span>
-                        <span *ngIf="mobileNo.errors?.pattern">Length should be 10</span>
+                        <span *ngIf="mobileNo.errors?.pattern">Invalid Mobile Number</span>
 
                     </div>
 
@@ -53,10 +54,10 @@
                     <div class="form-group">
                         <label for="Aadhar">Enter Aadhar number </label>
                         <input type="text" id="Aadhar" class="form-control" ngModel name="Aadhar" required
-                            #aadhar="ngModel" pattern="[0-9]{12}" [(ngModel)]="farmer.aadharNumber">
+                            #aadhar="ngModel" pattern="[1-9][0-9]{11}" [(ngModel)]="farmer.aadharNumber">
                         <span class="help-block" *ngIf="aadhar.touched && aadhar.errors?.required">Aadhar is
                             required</span>
-                        <span *ngIf="aadhar.errors?.pattern">Length should be 12</span>
+                        <span *ngIf="aadhar.errors?.pattern">Invalid Aadhar no.</span>
 
                     </div>
 
@@ -83,25 +84,34 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Enter Confirm Password </label>
-                        <input matInput type="password" id="ConfirmPassword" class="form-control" ngModel
-                            name="ConfirmPassword" required #ConfirmPassword="ngModel" [(ngModel)]="confirmPassword"
-                            pattern="[a-zA-Z0-9]{6,12}">
+                        <div class="field">
+                            <label for="password" class="form-label">Enter Confirm Password </label>
+                            <div class="control">
 
+                                <input matInput [type]="hide1 ?'password':'text'" class="form-control"
+                                    id="ConfirmPassword" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$"
+                                    #ConfirmPassword="ngModel" required [(ngModel)]="confirmPassword"
+                                    name="ConfirmPassword">
+                                <i class="material-icons" matSuffix (click)="hide1 = !hide1">
+                                    {{hide1 ? 'visibility':'visibility_off'}}
+                                </i>
+                                <span class="help-block"
+                                    *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.required">Confirm Password
+                                    is
+                                    required </span>
 
-
-                        <span class="help-block"
-                            *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.required">Confirm Password is
-                            required</span>
-
-
-
+                                <span class="help-block" *ngIf="ConfirmPassword.errors?.pattern"
+                                    style="color: red;">Password
+                                    should be Minimum 6 characters and Maximum 12
+                                    characters which includes atleast one number</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Enter Account Number </label>
                         <input type="text" id="Account" class="form-control" ngModel name="Account" required
                             #accountNo="ngModel" pattern="[0-9]{10,16}" [(ngModel)]="farmer.accountNumber">
-                        <span *ngIf="accountNo.errors?.pattern">Length should be between 10-16</span>
+                        <span *ngIf="accountNo.errors?.pattern">Invalid Account Number</span>
                         <span class="help-block" *ngIf="accountNo.touched && accountNo.errors?.required">Account number
                             is
                             required</span>
@@ -116,16 +126,17 @@
                         <span *ngIf="ifsc.errors?.pattern">First 4 should be alphabet followed by 7 digit</span>
                     </div>
                     <div class="form-group">
-                        <label for="name">Enter Bank Name </label>
+                        <label for="name" class="form-label">Enter Bank Name </label>
                         <input type="text" id="Bank" class="form-control" ngModel name="Bank" required
-                            [(ngModel)]="farmer.bankName" #bank="ngModel">
+                            [(ngModel)]="farmer.bankName" #bank="ngModel" pattern="[a-zA-Z]{1,15}">
                         <span class="help-block" *ngIf="bank.touched && bank.errors?.required">Bank name is
                             required</span>
+                        <span *ngIf="bank.errors?.pattern">Only characters are allowed</span>
                     </div>
                 </div>
 
                 <div>
-                    <button class="btn btn-success" [disabled]="!f.valid" >Submit</button>
+                    <button class="btn btn-success" [disabled]="!f.valid">Submit</button>
 
                 </div>
 
