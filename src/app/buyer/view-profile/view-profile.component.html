@@ -26,13 +26,13 @@
             <label>Password</label>
             <div class="control">
                 <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [ngModel]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                <i class="material-icons" matSuffix (click)="hide = !hide">
+                  {{hide ? 'visibility':'visibility_off'}}
+                </i>
                 <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
                   characters
                   and Maximum 12
                   characters which includes atleast one number</span>
-                  <i class="material-icons" matSuffix (click)="hide = !hide">
-                    {{hide ? 'visibility':'visibility_off'}}
-                  </i>
               </div>
           </div>
 

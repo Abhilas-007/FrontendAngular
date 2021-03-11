@@ -14,6 +14,7 @@ export class MandiComponent implements OnInit {
 
   mandi: Mandi = new Mandi();
   clerk: Clerk = new Clerk();
+  hide: boolean = true;
 
   constructor(private router: Router,private adminService:AdminService) { }
 
@@ -33,6 +34,8 @@ export class MandiComponent implements OnInit {
     this.adminService.addMandi(this.mandi).subscribe(data => {
       this.mandi = data;
     });
+    window.alert("Mandi Added Successfuly");
+    this.router.navigate(['/admin/addMandi']);
   }
 
 

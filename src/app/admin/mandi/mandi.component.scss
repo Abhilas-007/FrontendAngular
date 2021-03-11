@@ -5,10 +5,11 @@ form{
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 620px;
-    height: 865px;
+    height: 950px;
     width: 750px;
     background-color: $beige-light;
     padding: 20px 20px 20px;
+
 
     .field{
 
@@ -27,6 +28,13 @@ form{
             height: 60px;
             width: 130px;
             font-size: x-large;
+        }
+
+        .control i{
+            position: absolute;
+            margin-left: -40px;
+            margin-top: 20px;
+            cursor: pointer;
         }
     }
     

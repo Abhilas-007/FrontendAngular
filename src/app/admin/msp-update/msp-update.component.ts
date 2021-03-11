@@ -27,7 +27,7 @@ export class MspUpdateComponent implements OnInit {
       this.disable = false;
     }, error => {
       window.alert("Invalid Crop Name");
-      window.location.reload();
+      this.router.navigate(['/admin/updateMSP']);
     }
     );
 
@@ -38,13 +38,13 @@ export class MspUpdateComponent implements OnInit {
       this.crop = data;
     }, error => {
       window.alert("Invalid Crop Name");
-      window.location.reload();
+      this.router.navigate(['/admin/updateMSP']);
     }
     );
     this.adminService.updateMSP(form.value).subscribe(data => {
       this.crop = data;
       window.alert("MSP Updated Successfuly");
-      window.location.reload();
+      this.router.navigate(['/admin/updateMSP']);
       });
   }
 

@@ -5,7 +5,8 @@
     <div class="field">
       <label>Mandi Pincode</label>
       <div class="control">
-        <input class="input" required type="number" [(ngModel)]="mandi.mandiPincode" name="mandiPincode">
+        <input class="input" required type="text" [(ngModel)]="mandi.mandiPincode" name="mandiPincode" pattern="^[1-9]{1}[0-9]{5}$" #pincode="ngModel">
+        <span class="help-block" *ngIf="pincode.errors?.pattern" style="color: red;">Invalid Pincode</span>
       </div>
     </div>
 
@@ -14,7 +15,8 @@
       <div class="field">
           <label>Mandi Storage</label>
           <div class="control">
-            <input class="input" required type="number" [(ngModel)]="mandi.storage" name="storage">
+            <input class="input" required type="text" [(ngModel)]="mandi.storage" name="storage" pattern="[1-9]([0-9]{1,3})?" #storage="ngModel">
+            <span class="help-block" *ngIf="storage.errors?.pattern" style="color: red;">Invalid Storage</span>
           </div>
         </div>
 
@@ -23,7 +25,8 @@
         <div class="field">
           <label>Clerk Id</label>
           <div class="control">
-              <input class="input" required type="text" [(ngModel)]="clerk.clerkId" name="clerkId">
+              <input class="input" required type="text" [(ngModel)]="clerk.clerkId" name="clerkId" pattern="[C10][0-9]{7}" #clerkid="ngModel">
+              <span class="help-block" *ngIf="clerkid.errors?.pattern" style="color: red;">Clerk Id should start with C10 followed by 5 digits</span>
             </div>
         </div>
 
@@ -32,7 +35,8 @@
         <div class="field">
             <label>Clerk Name</label>
             <div class="control">
-                <input class="input" required type="text"  [(ngModel)]="clerk.clerkName" name="clerkName">
+                <input class="input" required type="text"  [(ngModel)]="clerk.clerkName" name="clerkName" pattern="[a-zA-Z]{3,15}([ ][a-zA-Z]{3,15})?([ ][a-zA-Z]{3,15})?" #Name="ngModel">
+                <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Invalid Name</span>
               </div>
           </div>
 
@@ -41,7 +45,12 @@
           <div class="field">
             <label>Password</label>
             <div class="control">
-                <input class="input" required type="text" [(ngModel)]="clerk.password" name="password">
+                <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [(ngModel)]="clerk.password" name="password" pattern="^(?=.*[0-9].*[0-9])(?=.*[a-zA-Z].*[a-zA-Z].*[a-zA-Z])(?=.*[!@#$%^&]).{8}$" #password="ngModel">
+                <i class="material-icons" matSuffix (click)="hide = !hide">
+                  {{hide ? 'visibility':'visibility_off'}}
+                </i>
+                <span class="help-block" *ngIf="password.errors?.pattern" style="color: red;">Password should be of 8
+                  characters which includes atleast 2 digits,3 letters and one special character</span>
               </div>
           </div>
 
@@ -50,7 +59,9 @@
         <div class="field">
           <label>Phone Number</label>
           <div class="control">
-              <input class="input" required type="text" [(ngModel)]="clerk.mobileNumber" name="mobileNumber">
+              <input class="input" required type="text" [(ngModel)]="clerk.mobileNumber" name="mobileNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
+              <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
+                Digits and It should not start with 0</span>
             </div>
         </div>
   
@@ -58,7 +69,7 @@
         
         <div class="field is-grouped">
           <div class="control">
-            <button class="button is-primary" type="submit">Add Mandi</button>
+            <button class="button is-primary" type="submit" [disabled]="!profileForm.valid">Add Mandi</button>
           </div>
         </div>
           
