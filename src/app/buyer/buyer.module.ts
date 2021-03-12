@@ -7,6 +7,7 @@ import { BuyerRoutingModule } from './buyer-routing.module';
 import { BuyerComponent } from './buyer.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 
 @NgModule({
@@ -16,7 +17,10 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     BuyerRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    BackButtonDisableModule.forRoot({
+      preserveScrollPosition:true
+    })
   ]
 })
 export class BuyerModule { }

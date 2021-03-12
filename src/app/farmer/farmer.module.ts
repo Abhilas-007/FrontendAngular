@@ -11,6 +11,7 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { LogoutComponent } from './logout/logout.component';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 @NgModule({
   declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent],
@@ -19,7 +20,10 @@ import { LogoutComponent } from './logout/logout.component';
     FarmerRoutingModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    BackButtonDisableModule.forRoot({
+      preserveScrollPosition:true
+    })
   ],
   exports: [
     HeaderComponent,

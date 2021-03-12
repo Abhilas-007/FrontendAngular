@@ -17,6 +17,7 @@ import { ViewFarmerComponent } from './view-farmer/view-farmer.component';
 import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
 import { HomePageModule } from '../home-page/home-page.module';
 import { HomePageComponent } from '../home-page/home-page.component';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 @NgModule({
 
@@ -29,7 +30,10 @@ import { HomePageComponent } from '../home-page/home-page.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    HomePageModule
+    HomePageModule,
+    BackButtonDisableModule.forRoot({
+      preserveScrollPosition:true
+    })
   ]
 })
 export class AdminModule { }

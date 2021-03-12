@@ -5,6 +5,7 @@ import { SuperAdminRoutingModule } from './super-admin-routing.module';
 import { SuperAdminComponent } from './super-admin.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SharedModule } from '../shared/shared.module';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 
 
 @NgModule({
@@ -12,7 +13,10 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SuperAdminRoutingModule,
-    SharedModule
+    SharedModule,
+    BackButtonDisableModule.forRoot({
+      preserveScrollPosition:true
+    })
   ]
 })
 export class SuperAdminModule { }
