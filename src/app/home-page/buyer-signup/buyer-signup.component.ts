@@ -15,6 +15,7 @@ import { BuyerSignup } from 'src/app/shared/models/BuyerSignup';
 })
 export class BuyerSignupComponent implements OnInit {
   hide: boolean = true;
+  hide1: boolean = true;
   buyerId;
   buyer: BuyerSignup = new BuyerSignup();
   confirmPassword: string;
