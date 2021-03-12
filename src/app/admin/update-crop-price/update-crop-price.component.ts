@@ -19,9 +19,9 @@ export class UpdateCropPriceComponent implements OnInit {
   crop;
   ngOnInit(): void {
     this.UpdateForm = this.fb.group({
-      cropName: [null, Validators.required],
-      cropClass: [null, Validators.required],
-      price: [null, Validators.required]
+      cropName: [null, [Validators.required, Validators.pattern("^([A-Za-z])+(( )([A-Za-z])+)*$")]],
+      cropClass: [null, [Validators.required, Validators.pattern("[A-C]")]],
+      price: [null, [Validators.required, Validators.pattern("[1-9][0-9]{1,4}")]]
     });
   }
   map1 = new Map();
@@ -31,10 +31,18 @@ export class UpdateCropPriceComponent implements OnInit {
     this.map1.set('cropClass', this.UpdateForm.controls['cropClass'].value);
     this.map1.set('price', this.UpdateForm.controls['price'].value);
     this.updatePriceService.updateCropPrice(this.map1).subscribe((data) => {
-      console.log(data);
-     
-   
-    });
+      if(data!=null){
+        console.log(data);
+        this.printSuccessMessage();
+      }if (data == null) {
+        console.log(data);
+        alert('invalid credentials');
+        window.location.reload();
+      }
+    },
+    (error) => {
+      console.log(error);
+     });
 
   }
   map = new Map();

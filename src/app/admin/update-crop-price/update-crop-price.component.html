@@ -9,32 +9,46 @@
                     <div class="form-group">
                         <label for="cropName">Enter crop name </label>
                         <input type="text" id="name" class="form-control" formControlName="cropName">
-                        <p class="text-danger"
-                            *ngIf="!UpdateForm.get('cropName').valid && UpdateForm.get('cropName').touched">Crops name
-                            is required</p>
+                        <span class=" text-danger"
+                            *ngIf="UpdateForm.get('cropName').hasError('required') && UpdateForm.get('cropName').touched">Crops
+                            name
+                            is required</span>
 
+                        <p class=" text-danger"
+                            *ngIf="UpdateForm.get('cropName').hasError('pattern') && UpdateForm.get('cropName').touched">
+                            Invalid Crop Name
+                        </p>
 
                     </div>
                     <div class="form-group">
                         <label for="cropClass">Enter crop class </label>
                         <input type="text" id="class" class="form-control" formControlName="cropClass">
                         <p class="text-danger"
-                            *ngIf="!UpdateForm.get('cropClass').valid && UpdateForm.get('cropClass').touched">Crops
+                            *ngIf="UpdateForm.get('cropClass').hasError('required') && UpdateForm.get('cropClass').touched">Crops
                             class
                             is required</p>
+                            <p class=" text-danger"
+                            *ngIf="UpdateForm.get('cropClass').hasError('pattern') && UpdateForm.get('cropClass').touched">
+                            Invalid crop class, should be only A/B/C
+                        </p>
 
                     </div>
                     <div class="form-group">
                         <label for="cropClass">Enter new price </label>
-                        <input type="text" id="price" class="form-control" name="cropPrice" formControlName="price" 
-                        [(ngModel)]="crop"  placeholder="{{crop}}">
-                        <p class="text-danger"
-                            *ngIf="!UpdateForm.get('price').valid && UpdateForm.get('price').touched">Please enter
+                        <input type="text" id="price" class="form-control" name="cropPrice" formControlName="price"
+                            [(ngModel)]="crop" placeholder="{{crop}}">
+                            <p class="text-danger"
+                            *ngIf="UpdateForm.get('price').hasError('required') && UpdateForm.get('price').touched">Please enter
                             new price</p>
+
+                        <p class=" text-danger"
+                            *ngIf="UpdateForm.get('price').hasError('pattern') && UpdateForm.get('price').touched">
+                            Invalid crop price.
+                        </p>
                         <span>
-                            <button class="btn btn-primary" type="button" (click)="getPreviousPrice()"  
-                            [disabled]="!UpdateForm.get('cropClass').valid  || !UpdateForm.get('cropName').valid " 
-                            >Get Previous
+                            <button class="btn btn-primary" type="button" (click)="getPreviousPrice()"
+                                [disabled]="!UpdateForm.get('cropClass').valid  && !UpdateForm.get('cropName').valid ">Get
+                                Previous
                                 cost</button>
                         </span>
 
@@ -42,13 +56,11 @@
                     <div class="form-group">
                         <span class="help-block" *ngIf="!UpdateForm.valid && UpdateForm.touched">All fields are
                             required</span>
-                        <button class="btn btn-primary" [disabled]="!UpdateForm.valid" (click)="printSuccessMessage()"
-                        style="margin-top: 6px;" >Update New Price</button>
-                         
-                            <button id="cancel" class="button"  type="button" (click)="onCancel()">Cancel</button>
-                          
-                    </div>
+                        <button class="btn btn-primary" [disabled]="!UpdateForm.valid" style="margin-top: 6px;">Update
+                            New Price</button>
 
+                        <button id="cancel" class="button" type="button" (click)="onCancel()">Cancel</button>
+                    </div>
                 </div>
             </form>
         </div>
