@@ -1,6 +1,6 @@
 <app-admin></app-admin>
 
-<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+<form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" style="overflow: scroll; height: 70%; width: 50%; overflow-x: hidden;">
 
     <div class="field">
       <label>Mandi Pincode</label>
@@ -62,6 +62,13 @@
               <input class="input" required type="text" [(ngModel)]="clerk.mobileNumber" name="mobileNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
               <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
                 Digits and It should not start with 0</span>
+            </div>
+        </div>
+
+        <div class="field">
+          <label>Email Id</label>
+          <div class="control">
+              <input class="input" required type="email" [(ngModel)]="clerk.emailId" name="emailId" #mobile="ngModel">
             </div>
         </div>
   

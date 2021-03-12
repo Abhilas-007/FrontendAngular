@@ -4,6 +4,7 @@ export class Clerk{
     clerkName: string;
     password: string;
     mobileNumber: string;
+    emailId: string;
 
     constructor() { }
 }

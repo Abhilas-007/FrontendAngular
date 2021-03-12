@@ -60,7 +60,7 @@ export class UpdateCropPriceComponent implements OnInit {
   }
   printSuccessMessage(){
     alert("Price Updated Successfully");
-    this.router.navigate(['']);
+    this.router.navigate(['/admin']);
   }
 
   onCancel(){
