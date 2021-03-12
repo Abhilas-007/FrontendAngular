@@ -26,14 +26,16 @@ export class ForgetPasswordFormComponent implements OnInit {
         if (data != null) {
           console.log('Id exists');
           localStorage.setItem('userId', this.map.get('userId'));
-          localStorage.setItem('loginStatus', 'false');
           this._router.navigate(['/resetPass']);
         } else if (data == null) {
           localStorage.setItem('userId', null);
-          localStorage.setItem('loginStatus', 'false');
+          alert("Wrong id, or user type")
+          this.passForm.reset();
         }
       },
       (error) => {
+        alert("Wrong id, or user type")
+          this.passForm.reset();
         console.log(error);
       }
     );

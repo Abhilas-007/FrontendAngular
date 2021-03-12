@@ -10,6 +10,7 @@ export class PasswordChangeSuccessComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
   
 }

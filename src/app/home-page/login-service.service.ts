@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginServiceService {
-  private baseUrl: string = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  private baseUrl: string =
+    'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  //private baseUrl: string = 'http://localhost:8080';
   constructor(private httpclient: HttpClient) {}
   loginAdmin(map: any): Observable<any> {
     let obj = {

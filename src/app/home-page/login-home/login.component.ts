@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           }
           if (data == null) {
             alert('invalid credentials');
-            window.location.reload();
+            this.loginForm.reset();
           }
         },
         (error) => {
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           }
           if (data == null) {
             alert('invalid credentials');
-            window.location.reload();
+            this.loginForm.reset();
           }
         },
         (error) => {
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           }
           if (data == null) {
             alert('invalid credentials');
-            window.location.reload();
+            this.loginForm.reset();
           }
         },
         (error) => {
@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
           }
           if (data == null) {
             alert('invalid credentials');
-            window.location.reload();
+            this.loginForm.reset();
           }
         },
         (error) => {
@@ -122,7 +122,7 @@ export class LoginComponent implements OnInit {
           }
           if (data == null) {
             alert('invalid credentials');
-            window.location.reload();
+            this.loginForm.reset();
           }
         },
         (error) => {

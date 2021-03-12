@@ -10,10 +10,11 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class ResetPasswordComponent implements OnInit {
   hide: boolean = true;
+  hide2: boolean = true;
   pass: string;
-  resetPassForm: FormGroup ;
+  resetPassForm: FormGroup;
   constructor(private ls: LoginServiceService, private _router: Router) {
-    this.resetPassForm=new FormGroup({
+    this.resetPassForm = new FormGroup({
       password1: new FormControl('', Validators.required),
       password2: new FormControl('', Validators.required),
     });
@@ -24,25 +25,34 @@ export class ResetPasswordComponent implements OnInit {
   toggleEye(): void {
     this.hide = !this.hide;
   }
+  toggleEye2(): void {
+    this.hide2 = !this.hide2;
+  }
   matchPassword(pass1, pass2): boolean {
     if (pass1 != pass2) return false;
     else return true;
   }
+  validatePassWord(): boolean {
+    if (
+      this.resetPassForm.controls['password1'].value.length >= 6 &&
+      this.resetPassForm.controls['password1'].value <= 12
+    )
+      return true;
+    else return false;
+  }
   submit(): void {
-    this.pass =this.resetPassForm.controls['password1'].value;
-    this.ls
-      .changePassword(this.pass)
-      .subscribe(
-        (data) => {
-          if (data != null) {
-            this._router.navigate(['passwordChangeSuccess']);
-          } else if (data == null) {
-            this._router.navigate(['passwordChangeFailure']);
-          }
-        },
-        (error) => {
-          console.log(error);
+    this.pass = this.resetPassForm.controls['password1'].value;
+    this.ls.changePassword(this.pass).subscribe(
+      (data) => {
+        if (data != null) {
+          this._router.navigate(['passwordChangeSuccess']);
+        } else if (data == null) {
+          this._router.navigate(['passwordChangeFailure']);
         }
-      );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

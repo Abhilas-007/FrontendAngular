@@ -27,20 +27,24 @@
       <label for="inputPassword3" class="col-sm-2 col-form-label"
         >Password</label
       >
-      <div class="col-sm-10">
-        <span>
+        <span class="col-sm-10">
           <input
             class="form-control"
+            matInput
             id="inputPassword3"
             formControlName="password"
             [type]="hide ? 'password' : 'text'"
           />
-          <button type="button" (click)="toggleEye()" class="tog">
-            <img src="../../../assets/eye.png" />
-          </button>
+          <i
+            class="material-icons"
+            matSuffix
+            (click)="hide = !hide"
+            style="cursor: pointer"
+          >
+            {{ hide ? "visibility" : "visibility_off" }}
+          </i>
         </span>
       </div>
-    </div>
     <div class="col-12">
       <button
         type="submit"
