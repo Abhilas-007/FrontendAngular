@@ -54,6 +54,7 @@
         </div>
       </div>
       <a class="navbar-item" *ngIf="!valid()" (click)="logout()">Logout</a>
+      <a class="navbar-item" *ngIf="!valid()" (click)="gotoDashboard()">Go to your Dashboard</a>
       <a class="navbar-item" [routerLink]="['/contact-us']" routerLinkActive
         >Contact us</a
       >

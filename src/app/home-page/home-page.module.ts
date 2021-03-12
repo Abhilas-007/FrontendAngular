@@ -16,6 +16,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { PasswordChangeSuccessComponent } from './password-change-success/password-change-success.component';
 import { PasswordChangefailureComponent } from './password-changefailure/password-changefailure.component';
 //import { information } from '../shared/about';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -36,6 +37,9 @@ import { PasswordChangefailureComponent } from './password-changefailure/passwor
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    BackButtonDisableModule.forRoot({
+      preserveScrollPosition: true
+    })
   ],
 })
 export class HomePageModule {}

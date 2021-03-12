@@ -1,15 +1,16 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
 
-   
-   .contact{
-       background: antiquewhite;
-       
-       margin: auto;
-       width: 50%;
-        padding: 10px
-   }
+
+
+  .contact {
+    background: wheat;
+    opacity: 0.9;
+    width: 50%;
+    padding: 10px;
+    bottom: 200px;
+    border-radius: 5px;
+  }
 }
