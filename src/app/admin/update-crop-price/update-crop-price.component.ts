@@ -53,10 +53,20 @@ export class UpdateCropPriceComponent implements OnInit {
     this.map.set('cropClass', this.UpdateForm.controls['cropClass'].value);
 
     this.updatePriceService.getCropPriceForBuyer(this.map).subscribe((data) => {
-      console.log(data);
-      this.crop = data;
-      console.log(this.crop);
-    });
+      if(data!=null){
+        console.log(data);
+        this.crop = data;
+        console.log(this.crop);
+      } if (data == null) {
+        console.log(data);
+        alert('invalid credentials');
+        window.location.reload();
+      }
+    },
+    (error) => {
+      console.log(error);
+    }
+     );
   }
   printSuccessMessage(){
     alert("Price Updated Successfully");
