@@ -38,11 +38,15 @@ export class ConfirmCreditComponent implements OnInit {
   {
     this.clerkService.buyCrops(this.allClerkCropItems).subscribe(data => console.log(data));
     alert("Amount credited successfully!!");
+    this.dataService.allCrops = [];
+    this.dataService.allClerkCropItems = [];
     this.router.navigate(['/clerk/buyCropsTab']);
   }
 
   onCancel()
   {
+    this.dataService.allCrops = [];
+    this.dataService.allClerkCropItems = [];
     this.router.navigate(['/clerk/buyCropsTab']);
   }
 
