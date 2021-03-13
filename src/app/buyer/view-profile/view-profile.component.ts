@@ -27,6 +27,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
+    console.log(form.value);
     this.buyerService.updateBuyer(form.value).subscribe(data => 
       {
         this.buyer=data;
