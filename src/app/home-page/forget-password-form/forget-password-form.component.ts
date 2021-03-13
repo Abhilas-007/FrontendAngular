@@ -20,22 +20,40 @@ export class ForgetPasswordFormComponent implements OnInit {
   Submit(): void {
     this.map.set('userType', this.passForm.controls['userType'].value);
     localStorage.setItem('userType', this.passForm.controls['userType'].value);
+    localStorage.setItem('userId', this.passForm.controls['userId'].value);
+    let str = localStorage.getItem('userType');
+    console.log(str);
     this.map.set('userId', this.passForm.controls['userId'].value);
     this.ls.resetPass(this.map).subscribe(
       (data) => {
         if (data != null) {
           console.log('Id exists');
-          localStorage.setItem('userId', this.map.get('userId'));
-          this._router.navigate(['/resetPass']);
+          console.log(str);
+          if (str == 'buyer' || str == 'farmer') {
+            this._router.navigate(['sqcheck']);
+          } else {
+            console.log(str);
+            this.ls.sendPasswordMail(str).subscribe((data) => {
+              if (data != null) {
+                alert('password sent to your registered mail id');
+                this._router.navigate(['']);
+              } else {
+                alert(
+                  'your request for password change couldnt be processed due to some error, /n please try again'
+                );
+                this._router.navigate(['']);
+              }
+            });
+          }
         } else if (data == null) {
           localStorage.setItem('userId', null);
-          alert("Wrong id, or user type")
+          alert('Wrong id, or user type');
           this.passForm.reset();
         }
       },
       (error) => {
-        alert("Wrong id, or user type")
-          this.passForm.reset();
+        alert('couldnt process the request, try again');
+        this.passForm.reset();
         console.log(error);
       }
     );

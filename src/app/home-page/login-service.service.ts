@@ -50,23 +50,23 @@ export class LoginServiceService {
     };
     if (map.get('userType') == 'buyer')
       return this.httpclient.get(
-        `${this.baseUrl}/buyer/validate/` + map.get('userId')
+        `${this.baseUrl}/buyer/validate/` + map.get('userId'),{responseType: 'text'}
       );
     else if (map.get('userType') == 'farmer')
       return this.httpclient.get(
-        `${this.baseUrl}/farmer/validate/` + map.get('userId')
+        `${this.baseUrl}/farmer/validate/` + map.get('userId'),{responseType: 'text'}
       );
     else if (map.get('userType') == 'clerk')
       return this.httpclient.get(
-        `${this.baseUrl}/clerk/validate/` + map.get('userId')
+        `${this.baseUrl}/clerk/validate/` + map.get('userId'),{responseType: 'text'}
       );
     else if (map.get('userType') == 'admin')
       return this.httpclient.get(
-        `${this.baseUrl}/admin/validate/` + map.get('userId')
+        `${this.baseUrl}/admin/validate/` + map.get('userId'),{responseType: 'text'}
       );
     else if (map.get('userType') == 'sAdmin')
       return this.httpclient.get(
-        `${this.baseUrl}/sAdmin/validate/` + map.get('userId')
+        `${this.baseUrl}/sAdmin/validate/` + map.get('userId'),{responseType: 'text'}
       );
   }
 
@@ -89,5 +89,25 @@ export class LoginServiceService {
       let a = this.httpclient.put(`${this.baseUrl}/sAdmin/resetPassword`, obj);
       return a;
     }
+  }
+  checkSecurity(map: any): Observable<any> {
+    let obj = {
+      userId: localStorage.getItem('userId'),
+      sQ: map.get('sQ'),
+      answer: map.get('answer'),
+    };
+    let s = localStorage.getItem('userType');
+    // add s into the link and backend functions
+    s += '/sqCheck';
+    return this.httpclient.post(`${this.baseUrl}/` + s, obj, {
+      responseType: 'text',
+    });
+  }
+  sendPasswordMail(s:any): Observable<any> {
+    s+='/passwordMail';
+    let obj = {userId:localStorage.getItem('userId')}
+    return this.httpclient.post(`${this.baseUrl}/` + s,obj,  {
+      responseType: 'text',
+    });
   }
 }

@@ -47,7 +47,7 @@
                         </p>
                         <span>
                             <button class="btn btn-primary" type="button" (click)="getPreviousPrice()"
-                                [disabled]="!UpdateForm.get('cropClass').valid  && !UpdateForm.get('cropName').valid ">Get
+                                [disabled]="!UpdateForm.get('cropClass').valid || !UpdateForm.get('cropName').valid ">Get
                                 Previous
                                 cost</button>
                         </span>

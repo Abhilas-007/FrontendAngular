@@ -10,6 +10,7 @@ import { LoginComponent } from './login-home/login.component';
 import { PasswordChangeSuccessComponent } from './password-change-success/password-change-success.component';
 import { PasswordChangefailureComponent } from './password-changefailure/password-changefailure.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SecurityQuestionCHeckComponent } from './security-question-check/security-question-check.component';
 import { SignUpComponent } from './sign-up-home/sign-up.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'forget',component:ForgetPasswordFormComponent},
   {path:'resetPass',component:ResetPasswordComponent},
   {path:'passwordChangeSuccess', component:PasswordChangeSuccessComponent},
-  {path:'passwordChangeFailure', component:PasswordChangefailureComponent}
+  {path:'passwordChangeFailure', component:PasswordChangefailureComponent},
+  {path:'sqcheck', component:SecurityQuestionCHeckComponent}
 ];
 
 @NgModule({
