@@ -21,7 +21,7 @@ export class UpdateCropPriceComponent implements OnInit {
     this.UpdateForm = this.fb.group({
       cropName: [null, [Validators.required, Validators.pattern("^([A-Za-z])+(( )([A-Za-z])+)*$")]],
       cropClass: [null, [Validators.required, Validators.pattern("[A-C]")]],
-      price: [null, [Validators.required, Validators.pattern("[1-9][0-9]{1,4}")]]
+      price: [null, [Validators.required, Validators.pattern("[1-9]([0-9]{1,4})?")]]
     });
   }
   map1 = new Map();
@@ -37,7 +37,7 @@ export class UpdateCropPriceComponent implements OnInit {
       }if (data == null) {
         console.log(data);
         alert('invalid credentials');
-        window.location.reload();
+        this.router.navigate(['/admin']);
       }
     },
     (error) => {
@@ -60,7 +60,7 @@ export class UpdateCropPriceComponent implements OnInit {
       } if (data == null) {
         console.log(data);
         alert('invalid credentials');
-        window.location.reload();
+        this.router.navigate(['/admin']);
       }
     },
     (error) => {
