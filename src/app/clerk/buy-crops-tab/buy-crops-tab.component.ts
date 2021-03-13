@@ -148,7 +148,7 @@ export class BuyCropsTabComponent implements OnInit {
           this.clerkService.getSingleCropPrice(this.clerkcrops[i])
             .subscribe(data => {
               if (data === 0) {
-                alert(((this.tempAllItems[i]).CropName) + "has no MSP set. So no money will be credited for it.");
+                alert(((this.tempAllItems[i]).CropName) + " has no MSP set. So no money will be credited for it.");
               }
             });
         }
