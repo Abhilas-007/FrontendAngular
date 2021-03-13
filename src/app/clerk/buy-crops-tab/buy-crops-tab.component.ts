@@ -45,7 +45,7 @@ export class BuyCropsTabComponent implements OnInit {
 
   ngOnInit(): void {
     this.requiredStorage = 0;
-    this.clerkId = "1";
+    this.clerkId = localStorage.getItem('userId');
     this.TotalRow = 1;
     this.FormGroup = this._fb.group({
       itemRows: this._fb.array([this.initItemRow()]),
