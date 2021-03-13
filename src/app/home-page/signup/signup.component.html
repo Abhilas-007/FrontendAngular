@@ -31,14 +31,16 @@
 
                     <div class="form-group">
                         <label for="SecurityQuestion">Security Question </label>
-                        <select class="form-control" name="securityQuestion" id="securityQuestion"
-                            [(ngModel)]="farmer.securityQuestion">
-                            <option value="petName">What is your pet name</option>
-                            <option value="actorName">What is your favourite actor</option>
-                            <option value="cityName">What is your city name</option>
-                            <option value="DOB">What is your date of birth</option>
-                            <option value="PhoneNo">What is your last four digit of mobile number</option>
-                        </select>
+                     <select name="singleSelect" class="form-control" required ng-model="data.singleSelect" required
+                        [(ngModel)]="farmer.securityQuestion" name="securityQuestion">
+                        <option value="What is your pet name?">What is your pet name? </option>
+                        <option value="Who is Your favourite actor?">Who is Your favourite actor?</option>
+                        <option value="What is Your city name?">What is Your city name?</option>
+                        <option value=" What is Your date of birth?"> What is Your date of birth? </option>
+                        <option value="What are the last four digits of your phone number?">What are the last four digits of your
+                          phone number?</option>
+            
+                      </select>
 
                     </div>
 
@@ -110,7 +112,7 @@
                     <div class="form-group">
                         <label for="name">Enter Account Number </label>
                         <input type="text" id="Account" class="form-control" ngModel name="Account" required
-                            #accountNo="ngModel" pattern="[0-9]{10,16}" [(ngModel)]="farmer.accountNumber">
+                            #accountNo="ngModel" pattern="[1-9][0-9]{10,16}" [(ngModel)]="farmer.accountNumber">
                         <span *ngIf="accountNo.errors?.pattern">Invalid Account Number</span>
                         <span class="help-block" *ngIf="accountNo.touched && accountNo.errors?.required">Account number
                             is
