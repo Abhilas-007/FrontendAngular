@@ -10,6 +10,7 @@ import { FarmerModule } from './farmer/farmer.module';
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { DataService } from './clerk/data.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

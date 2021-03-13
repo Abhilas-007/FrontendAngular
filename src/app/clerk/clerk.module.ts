@@ -6,15 +6,22 @@ import { ClerkComponent } from './clerk.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { BuyCropsTabComponent } from './buy-crops-tab/buy-crops-tab.component';
+import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.component';
+import { DataService } from './data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [ClerkComponent],
+  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent],
   imports: [
     CommonModule,
     ClerkRoutingModule,
     SharedModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition:true
-    })
-  ]
+    }),
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [DataService]
 })
 export class ClerkModule { }

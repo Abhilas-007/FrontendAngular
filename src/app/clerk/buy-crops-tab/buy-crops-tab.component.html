@@ -1,0 +1,62 @@
+<app-clerk></app-clerk>
+
+<div class="container">
+    <div class="staticForm">
+        <input type="text" placeholder="Enter farmer ID..." [(ngModel)]="farmerId" [disabled]="disableAddCropDetails" />
+        <input type="text" placeholder="Enter number of crop types..." [(ngModel)]="noOfCropTypes"
+            [disabled]="disableAddCropDetails" />
+        <button (click)="onStaticSubmit()" [disabled]="disableAddCropDetails">
+            Add Crop Details
+        </button>
+    </div>
+</div>
+
+<div class="container" *ngIf="staticSubmit == true">
+    <div class="dynamicForm">
+        <form novalidate [formGroup]="FormGroup">
+            <div class="row">
+                <div class="col-xs-12 form-group marL40">
+                    <div style="margin-top:0px;" formGroupName="itemRows">
+                        <div class="dynamicFormHeading">
+                            <h1>Crop Details</h1>
+                        </div>
+                        <ng-container *ngIf='FormGroup.controls.itemRows!=null'>
+                            <div *ngFor="let itemrow of FormGroup.controls.itemRows.controls; let i=index"
+                                [formGroupName]="i">
+                                <div class="row">
+                                    <div class="col-md-3 form-group">
+                                        <input matInput placeHolder="Enter crop name..." formControlName="CropName">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <input matInput placeHolder="Enter qty in quintals..."
+                                            formControlName="CropQty">
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <button (click)="deleteRow(i)" class="btn btn-danger"
+                                            style="opacity: 1">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div class="form-group" style="text-align:right;">
+                            <button type="button" (click)="addNewRow()" style="opacity: 1" class="btn btn-primary">Add
+                                Record</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:center;">
+                        <button style="background-color: green; opacity: 1;" type="button" (click)="onDynamicSubmit()"
+                            [disabled]="dynamicSubmit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                    <div class="form-group" style="text-align:center;">
+                        <button style="background-color: green; opacity: 1;" type="button" (click)="onCancel()"
+                            [disabled]="FormGroup.invalid" class="btn btn-primary">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

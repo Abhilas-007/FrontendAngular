@@ -1,0 +1,19 @@
+<app-clerk></app-clerk>
+
+<div class="container">
+    <div class="data-container">
+        <div *ngFor="let cropItem of allCropItems; let i = index;">
+            <h2>Crop {{(i+1)}} Details:</h2>
+            <h3>---- Crop Name: {{cropItem.cropName}}</h3>
+            <h3>---- Crop Quantity: {{cropItem.cropQty}}</h3>
+        </div>
+        <div class="total-price">
+            <h1>Total price to pay: ₹{{totalPrice}}</h1>
+        </div>
+    </div>
+
+    <div class="submit-buttons">
+        <button class="credit-button" (click)="onCredit()">Credit</button>
+        <button class="cancel-button" (click)="onCancel()">Cancel</button>
+    </div>
+</div>
