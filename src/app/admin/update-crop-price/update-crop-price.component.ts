@@ -42,6 +42,7 @@ export class UpdateCropPriceComponent implements OnInit {
     },
     (error) => {
       console.log(error);
+     
      });
 
   }
@@ -65,6 +66,8 @@ export class UpdateCropPriceComponent implements OnInit {
     },
     (error) => {
       console.log(error);
+      window.alert("Invalid Crop Name");
+      history.go(0);
     }
      );
   }
