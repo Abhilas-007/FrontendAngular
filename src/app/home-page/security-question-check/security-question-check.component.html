@@ -10,11 +10,11 @@
         formControlName="sQ"
         required
       >
-        <option value="petName">What is your pet name?</option>
-        <option value="actorName">What is your favourite actor?</option>
-        <option value="cityName">What is your city name?</option>
-        <option value="DOB">What is your date of birth?</option>
-        <option value="PhoneNo">
+        <option value="What is your pet name?">What is your pet name?</option>
+        <option value="What is your favourite actor?">What is your favourite actor?</option>
+        <option value="What is your city name?">What is your city name?</option>
+        <option value="What is your date of birth?">What is your date of birth?</option>
+        <option value="What is your last four digit of mobile number?">
           What is your last four digit of mobile number?
         </option>
       </select>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="mb-3">
-      <input type="submit" class="btn btn-primary" (click)="submit()" />
+      <input type="submit" class="btn btn-primary" (click)="submit()" [disabled]="!sqCheckForm.valid" />
     </div>
   </form>
 </div>

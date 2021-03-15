@@ -52,7 +52,7 @@ export class ForgetPasswordFormComponent implements OnInit {
         }
       },
       (error) => {
-        alert('couldnt process the request, try again');
+        alert('Please try again with correct id or user type');
         this.passForm.reset();
         console.log(error);
       }

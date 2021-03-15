@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginServiceService {
-  private baseUrl: string =
-    'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
-  //private baseUrl: string = 'http://localhost:8080';
+  //private baseUrl: string =
+ //   'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+ private baseUrl: string = 'http://localhost:8080';
   constructor(private httpclient: HttpClient) {}
   loginAdmin(map: any): Observable<any> {
     let obj = {
@@ -93,11 +93,10 @@ export class LoginServiceService {
   checkSecurity(map: any): Observable<any> {
     let obj = {
       userId: localStorage.getItem('userId'),
-      sQ: map.get('sQ'),
+      sQ: map.get('sQuestion'),
       answer: map.get('answer'),
     };
     let s = localStorage.getItem('userType');
-    // add s into the link and backend functions
     s += '/sqCheck';
     return this.httpclient.post(`${this.baseUrl}/` + s, obj, {
       responseType: 'text',

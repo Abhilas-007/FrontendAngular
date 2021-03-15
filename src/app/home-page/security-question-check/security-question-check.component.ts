@@ -9,6 +9,7 @@ import { LoginServiceService } from '../login-service.service';
   styleUrls: ['./security-question-check.component.scss'],
 })
 export class SecurityQuestionCHeckComponent implements OnInit {
+  
   map = new Map();
   sqCheckForm: FormGroup = new FormGroup({
     sQ: new FormControl('', Validators.required),
@@ -21,17 +22,21 @@ export class SecurityQuestionCHeckComponent implements OnInit {
   submit(): void {
     this.map.set('sQuestion', this.sqCheckForm.controls['sQ'].value);
     this.map.set('answer', this.sqCheckForm.controls['answer'].value);
+    console.log(this.map.get('sQuestion'));
+    console.log(this.map.get('answer'));
   this.ls.checkSecurity(this.map).subscribe(
     (data)=> {
       if(data==null){
         alert('wrong security question or answer');
-        localStorage.setItem('userType', null);
-        localStorage.setItem('userId', null);
-        this._router.navigate(['']);
+        this.sqCheckForm.reset();
       }
       else if(data!=null){
         this._router.navigate(['resetPass']);
       }
+    },
+    (err)=>{ alert('wrong security question or answer');
+    this.sqCheckForm.reset();
+
     } 
     );
   }

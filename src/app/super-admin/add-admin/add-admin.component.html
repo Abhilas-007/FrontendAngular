@@ -10,7 +10,7 @@
         placeholder="Email Id"
         formControlName="emailId"
         required
-      />
+      /><span style="color:red;" *ngIf="!addAdminForm.get('emailId').valid && addAdminForm.get('emailId').touched ">invalid Email</span>
     </div>
     <div class="mb-3">
       <label for="state" class="form-label">Enter State</label>
