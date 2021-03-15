@@ -16,7 +16,8 @@
       <div class="field" style="display:none" id="field">
         <label>MSP</label>
         <div class="control">
-            <input #msp class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP">
+            <input #msp class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP" pattern="[1-9]([0-9])?" #cropMSP="ngModel">
+            <span class="help-block" *ngIf="cropMSP.errors?.pattern" style="color: red;">Invalid MSP</span>
           </div>
       </div>
 
@@ -24,10 +25,13 @@
       
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-primary" type="submit" [disabled]="disable">Update MSP</button>
+          <button class="button is-primary" type="submit" [disabled]="!profileForm.valid">Update MSP</button>
         </div>
         <div class="control">
           <button class="button is-primary" type="button" (click)="getMSP(profileForm,cname.value)">Show MSP</button>
+        </div>
+        <div class="control">
+          <button class="button is-primary" style="background-color: red;" type="button" (click)="onCancel()">Cancel</button>
         </div>
       </div>
         

@@ -38,13 +38,13 @@ export class MspUpdateComponent implements OnInit {
       this.crop = data;
     }, error => {
       window.alert("Invalid Crop Name");
-      history.go(0);
+      this.router.navigate(['/admin']);
     }
     );
     this.adminService.updateMSP(form.value).subscribe(data => {
       this.crop = data;
       window.alert("MSP Updated Successfuly");
-      history.go(0);
+      this.router.navigate(['/admin']);
       });
   }
 
