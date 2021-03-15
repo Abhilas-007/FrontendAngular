@@ -16,7 +16,7 @@
       <div class="field" style="display:none" id="field">
         <label>MSP</label>
         <div class="control">
-            <input #msp class="input" required type="text" [ngModel]="crop.cropMSP" name="cropMSP" pattern="[1-9]([0-9])?" #cropMSP="ngModel">
+            <input #msp class="input" required type="text" [(ngModel)]="crop.cropMSP" name="cropMSP" pattern="[1-9]([0-9])?" #cropMSP="ngModel">
             <span class="help-block" *ngIf="cropMSP.errors?.pattern" style="color: red;">Invalid MSP</span>
           </div>
       </div>
