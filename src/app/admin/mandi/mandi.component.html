@@ -70,7 +70,8 @@
         <div class="field">
           <label>Email Id</label>
           <div class="control">
-              <input class="input" required type="email" [(ngModel)]="clerk.emailId" name="emailId" #mobile="ngModel">
+              <input class="input" required type="email" [(ngModel)]="clerk.emailId" name="emailId" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #email="ngModel">
+              <span class="help-block" *ngIf="email.errors?.pattern" style="color: red;">Invalid Email Id</span>
             </div>
         </div>
   

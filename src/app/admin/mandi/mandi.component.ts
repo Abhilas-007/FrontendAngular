@@ -35,7 +35,7 @@ export class MandiComponent implements OnInit {
       this.mandi = data;
     });
     window.alert("Mandi Added Successfuly");
-    window.location.reload();
+    this.router.navigate(['/admin']);
   }
 
 
