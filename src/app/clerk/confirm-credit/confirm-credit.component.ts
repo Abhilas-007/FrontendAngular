@@ -12,44 +12,40 @@ import { DataService } from '../data.service';
 })
 export class ConfirmCreditComponent implements OnInit {
 
-  allCropItems: CropsToBuy[] = [{cropName:'', cropQty:0}];
-  allClerkCropItems: ClerkCrop[] = [{farmerId:0, clerkId:'', cropName:'', cropQty:0}];
+  allCropItems: CropsToBuy[] = [{ cropName: '', cropQty: 0 }];
+  allClerkCropItems: ClerkCrop[] = [{ farmerId: 0, clerkId: '', cropName: '', cropQty: 0 }];
   totalPrice: number;
   allCosts: number[] = [];
 
   constructor(
-    private dataService: DataService, 
+    private dataService: DataService,
     private router: Router,
     private clerkService: ClerkBuyCropsService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    for(let i=0; i<this.dataService.getItems().length; i++)
-    {
+    for (let i = 0; i < this.dataService.getItems().length; i++) {
       this.allCropItems[i] = this.dataService.getItems()[i];
     }
-    for(let i=0; i<this.dataService.getClerkCropItems().length; i++)
-    {
+    for (let i = 0; i < this.dataService.getClerkCropItems().length; i++) {
       this.allClerkCropItems[i] = this.dataService.getClerkCropItems()[i];
       this.allCosts[i] = this.dataService.getAllCosts()[i];
     }
-    this.clerkService.getTotalPrice(this.allClerkCropItems).subscribe(data => {this.totalPrice = data});
+    this.clerkService.getTotalPrice(this.allClerkCropItems).subscribe(data => { this.totalPrice = data });
   }
 
-  onCredit()
-  {
+  onCredit() {
     this.clerkService.buyCrops(this.allClerkCropItems).subscribe(data => console.log(data));
-    console.log(this.allCosts);
-    alert("Amount credited successfully!!");
     this.dataService.allCrops = [];
     this.dataService.allClerkCropItems = [];
+    alert("Amount credited successfully!!");
     this.router.navigate(['/clerk/buyCropsTab']);
   }
 
-  onCancel()
-  {
+  onCancel() {
     this.dataService.allCrops = [];
     this.dataService.allClerkCropItems = [];
+    alert("Request cancelled.");
     this.router.navigate(['/clerk/buyCropsTab']);
   }
 

@@ -21,13 +21,24 @@
             color: white;
         }
     }
+
+    .columnHeadings{
+        width: 100%;
+        text-align: center;
+        h3{
+            display: inline;
+            margin-left: 5%;
+            margin-right: 6%;
+            color: black;
+            font-weight: bold;
+        }
+        
+    }
 }
 
 .dynamicForm{
     height: 350px;
     overflow-y: scroll;
-
-
 }
 
 .dynamicFormHeading{

@@ -32,6 +32,8 @@ export class BuyCropsTabComponent implements OnInit {
 
   j: number = 0;
   singleCost: number = 0;
+  count: number = 0;
+  inputLength: number = 0;
 
   clerkcrops: ClerkCrop[] = [{ farmerId: 0, clerkId: '', cropName: '', cropQty: 0 }];
 
@@ -47,7 +49,6 @@ export class BuyCropsTabComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.foundWrongItem = false;
     this.requiredStorage = 0;
     this.clerkId = localStorage.getItem('userId');
     this.TotalRow = 1;
@@ -63,13 +64,11 @@ export class BuyCropsTabComponent implements OnInit {
     });
   }
 
-  onStaticSubmit() 
-  {
+  onStaticSubmit() {
     if (this.farmerId === null || this.noOfCropTypes === null || this.farmerId === "" || this.noOfCropTypes === "") {
       alert("Please enter data in both fields.");
     }
-    else 
-    {
+    else {
       if (typeof (Number(this.farmerId)) === 'number' && this.farmerId > 0 && typeof (Number(this.noOfCropTypes)) === 'number' && this.noOfCropTypes > 0 && this.noOfCropTypes < 10) {
         this.clerkService.validateFarmerId(Number(this.farmerId))
           .subscribe(data => {
@@ -85,7 +84,7 @@ export class BuyCropsTabComponent implements OnInit {
               alert("Farmer not registered.")
             }
           }
-        );
+          );
       }
       else {
         if (isNaN(this.farmerId) == true || Number(this.farmerId) < 0) {
@@ -128,9 +127,14 @@ export class BuyCropsTabComponent implements OnInit {
 
   onDynamicSubmit() {
     this.allCropsEntered = true;
-    this.foundWrongItem = false;
     const control = <FormArray>this.FormGroup.controls['itemRows'];
+    this.inputLength = this.noOfCropTypes - 1;
+    console.log(this.noOfCropTypes);
     this.tempAllItems = control.value;
+    this.foundWrongItem = false;
+
+    this.count = 0;
+    this.requiredStorage = 0;
 
     for (let i = 0; i < control.value.length; i++) {
       this.tempCropName = (this.tempAllItems[i]).CropName;
@@ -145,14 +149,12 @@ export class BuyCropsTabComponent implements OnInit {
     this.cropPattern = new RegExp('^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$');
 
     //if none of the fields are empty then below operation will take place
-    if (this.allCropsEntered == true) 
-    {
+    if (this.allCropsEntered == true) {
+      this.inputLength = 0;
       this.j = 0;
-      this.foundWrongItem = false;
-      for (let i = 0; i < control.value.length; i++) 
-      {
+      for (let i = 0; i < control.value.length; i++) {
         this.cropNameCheck = false; this.cropQtyCheck = false;
-        
+
         if (this.cropPattern.test((this.tempAllItems[i]).CropName) === true) {
           this.cropNameCheck = true;
         }
@@ -167,18 +169,16 @@ export class BuyCropsTabComponent implements OnInit {
           alert("Invalid crop qty in item " + (i + 1));
           this.cropQtyCheck = false;
         }
-        if (this.cropNameCheck && this.cropQtyCheck === true) 
-        {
+        if (this.cropNameCheck && this.cropQtyCheck === true) {
           this.clerkService.getSingleCropPrice(new ClerkCrop(this.farmerId, this.clerkId, ((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty))
             .subscribe(data => {
               this.singleCost = data;
-              if (data == 0) 
-              {
+              if (data == 0) {
                 this.foundWrongItem = true;
                 alert(((this.tempAllItems[i]).CropName) + " not found.");
               }
-              else 
-              {
+              else {
+                // this.foundWrongItem = false;
                 this.requiredStorage = this.requiredStorage + Number((this.tempAllItems[i]).CropQty);
                 this.tempCropToBuy = new CropsToBuy(((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty);
                 this.dataService.addItem(this.tempCropToBuy);
@@ -187,40 +187,19 @@ export class BuyCropsTabComponent implements OnInit {
                 this.dataService.addCost(this.singleCost);
                 this.j = this.j + 1;
               }
+              this.count = this.count + 1;
               this.dummy(this.foundWrongItem);
             }
-          );
+            );
         }
-
         else {
           this.foundWrongItem = true;
           this.dataService.allCrops = [];
           this.dataService.allClerkCropItems = [];
           this.dataService.costs = [];
-          // this.requiredStorage = 0;
           this.dummy(this.foundWrongItem);
         }
       }
-
-      // if (this.foundWrongItem == true)  
-      // {
-      //   alert("Entered data invalid.");
-      // }
-      // else 
-      // {
-      //   this.clerkService.getStorageByClerkId(this.clerkId)
-      //     .subscribe(data => {
-      //       this.availableStorage = data;
-      //       if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
-      //         alert("Storage not enough!");
-      //         this.onCancel();
-      //       }
-      //       else {
-      //         this.router.navigate(['/clerk/confirmCredit']);
-      //       }
-      //     }
-      //   );
-      // }
     }
   }
 
@@ -232,38 +211,38 @@ export class BuyCropsTabComponent implements OnInit {
     this.dataService.allCrops = [];
     this.dataService.allClerkCropItems = [];
     this.dataService.costs = [];
-    // this.requiredStorage = 0;
     const control = <FormArray>this.FormGroup.controls['itemRows'];
-    for(let i = 0; i < control.value.length; i++)
-    {
+    for (let i = 0; i < control.value.length; i++) {
       this.deleteRow(i);
     }
     this.FormGroup.reset();
   }
 
-  dummy(bool: boolean)
-  {
-    if (this.foundWrongItem == true)  
-    {
+  dummy(bool: boolean) {
+    // console.log(this.requiredStorage + " --req storage");
+    // console.log(this.count + " --count");
+    // console.log(this.inputLength + " --inp length");
+    if (bool == true) {
       this.dataService.allCrops = [];
       this.dataService.allClerkCropItems = [];
       this.dataService.costs = [];
-      // this.requiredStorage = 0;
     }
-    else 
-    {
-      this.clerkService.getStorageByClerkId(this.clerkId)
-        .subscribe(data => {
-          this.availableStorage = data;
-          if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
-            alert("Storage not enough!");
-            this.onCancel();
+    else {
+      if (this.count == this.noOfCropTypes) {
+        this.clerkService.getStorageByClerkId(this.clerkId)
+          .subscribe(data => {
+            this.availableStorage = data;
+            if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
+              this.requiredStorage = 0;
+              alert("Storage not enough!");
+              this.onCancel();
+            }
+            else {
+              this.router.navigate(['/clerk/confirmCredit']);
+            }
           }
-          else {
-            this.router.navigate(['/clerk/confirmCredit']);
-          }
-        }
-      );
+          );
+      }
     }
   }
 }
