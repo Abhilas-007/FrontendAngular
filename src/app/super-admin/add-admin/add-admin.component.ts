@@ -12,7 +12,7 @@ export class AddAdminComponent implements OnInit {
   map = new Map();
   addAdminForm: FormGroup = new FormGroup({
     emailId: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    state: new FormControl('', Validators.required),
+    state: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z ]*$")])
   });
   constructor(private _router: Router, private sAService: SuperAdminService) {}
 

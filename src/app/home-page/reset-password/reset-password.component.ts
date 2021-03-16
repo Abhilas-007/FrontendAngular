@@ -15,8 +15,8 @@ export class ResetPasswordComponent implements OnInit {
   resetPassForm: FormGroup;
   constructor(private ls: LoginServiceService, private _router: Router) {
     this.resetPassForm = new FormGroup({
-      password1: new FormControl('', Validators.required),
-      password2: new FormControl('', Validators.required),
+      password1: new FormControl('', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z]).{6,12}$")]),
+      password2: new FormControl('', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z]).{6,12}$")]),
     });
   }
 
