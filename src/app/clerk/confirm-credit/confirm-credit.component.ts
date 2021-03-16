@@ -15,6 +15,7 @@ export class ConfirmCreditComponent implements OnInit {
   allCropItems: CropsToBuy[] = [{cropName:'', cropQty:0}];
   allClerkCropItems: ClerkCrop[] = [{farmerId:0, clerkId:'', cropName:'', cropQty:0}];
   totalPrice: number;
+  allCosts: number[] = [];
 
   constructor(
     private dataService: DataService, 
@@ -30,6 +31,7 @@ export class ConfirmCreditComponent implements OnInit {
     for(let i=0; i<this.dataService.getClerkCropItems().length; i++)
     {
       this.allClerkCropItems[i] = this.dataService.getClerkCropItems()[i];
+      this.allCosts[i] = this.dataService.getAllCosts()[i];
     }
     this.clerkService.getTotalPrice(this.allClerkCropItems).subscribe(data => {this.totalPrice = data});
   }
@@ -37,6 +39,7 @@ export class ConfirmCreditComponent implements OnInit {
   onCredit()
   {
     this.clerkService.buyCrops(this.allClerkCropItems).subscribe(data => console.log(data));
+    console.log(this.allCosts);
     alert("Amount credited successfully!!");
     this.dataService.allCrops = [];
     this.dataService.allClerkCropItems = [];

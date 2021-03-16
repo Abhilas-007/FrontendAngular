@@ -6,11 +6,12 @@ import { CropsToBuy } from "../shared/models/CropsToBuy";
     providedIn: 'root'
 })
 
-export class DataService {
-
+export class DataService 
+{
     public allCrops: CropsToBuy[] = [];
     public amount: any;
     public allClerkCropItems: ClerkCrop[] = [];
+    public costs: number[] = [];
 
     addItem(item: CropsToBuy) {
         this.allCrops.push(item);
@@ -26,5 +27,15 @@ export class DataService {
 
     getClerkCropItems(): ClerkCrop[] {
         return this.allClerkCropItems;
+    }
+
+    addCost(cost: number)
+    {
+        this.costs.push(cost);
+    }
+
+    getAllCosts(): number[]
+    {
+        return this.costs;
     }
 }

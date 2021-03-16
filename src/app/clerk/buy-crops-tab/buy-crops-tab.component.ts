@@ -30,6 +30,9 @@ export class BuyCropsTabComponent implements OnInit {
   requiredStorage: number;
   availableStorage: number;
 
+  j: number = 0;
+  singleCost: number = 0;
+
   clerkcrops: ClerkCrop[] = [{ farmerId: 0, clerkId: '', cropName: '', cropQty: 0 }];
 
   staticSubmit: boolean = false; //to decide when to show the dynamic form
@@ -44,6 +47,7 @@ export class BuyCropsTabComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.foundWrongItem = false;
     this.requiredStorage = 0;
     this.clerkId = localStorage.getItem('userId');
     this.TotalRow = 1;
@@ -59,12 +63,14 @@ export class BuyCropsTabComponent implements OnInit {
     });
   }
 
-  onStaticSubmit() {
+  onStaticSubmit() 
+  {
     if (this.farmerId === null || this.noOfCropTypes === null || this.farmerId === "" || this.noOfCropTypes === "") {
       alert("Please enter data in both fields.");
     }
-    else {
-      if (typeof (Number(this.farmerId)) === 'number' && this.farmerId > 0 && typeof (Number(this.farmerId)) === 'number' && this.noOfCropTypes > 0 && this.noOfCropTypes < 10) {
+    else 
+    {
+      if (typeof (Number(this.farmerId)) === 'number' && this.farmerId > 0 && typeof (Number(this.noOfCropTypes)) === 'number' && this.noOfCropTypes > 0 && this.noOfCropTypes < 10) {
         this.clerkService.validateFarmerId(Number(this.farmerId))
           .subscribe(data => {
             if (data == true) {
@@ -78,10 +84,19 @@ export class BuyCropsTabComponent implements OnInit {
             else {
               alert("Farmer not registered.")
             }
-          });
+          }
+        );
       }
       else {
-        alert("Entered input not accepted.");
+        if (isNaN(this.farmerId) == true || Number(this.farmerId) < 0) {
+          alert("Error in farmer ID.");
+        }
+        else if (isNaN(this.noOfCropTypes) == true || Number(this.noOfCropTypes) < 0 || Number(this.noOfCropTypes) > 10) {
+          alert("Error in no of crop types.");
+        }
+        else {
+          alert("Invalid input.");
+        }
       }
     }
   }
@@ -113,6 +128,7 @@ export class BuyCropsTabComponent implements OnInit {
 
   onDynamicSubmit() {
     this.allCropsEntered = true;
+    this.foundWrongItem = false;
     const control = <FormArray>this.FormGroup.controls['itemRows'];
     this.tempAllItems = control.value;
 
@@ -129,54 +145,82 @@ export class BuyCropsTabComponent implements OnInit {
     this.cropPattern = new RegExp('^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$');
 
     //if none of the fields are empty then below operation will take place
-    if (this.allCropsEntered == true) {
-      for (let i = 0; i < control.value.length; i++) {
-        this.cropNameCheck = false; this.cropQtyCheck = false; this.foundWrongItem = false;
+    if (this.allCropsEntered == true) 
+    {
+      this.j = 0;
+      this.foundWrongItem = false;
+      for (let i = 0; i < control.value.length; i++) 
+      {
+        this.cropNameCheck = false; this.cropQtyCheck = false;
+        
         if (this.cropPattern.test((this.tempAllItems[i]).CropName) === true) {
           this.cropNameCheck = true;
         }
-        if ((this.tempAllItems[i]).CropQty > 0) {
+        else {
+          alert("Invalid crop name in item " + (i + 1));
+          this.cropNameCheck = false;
+        }
+        if ((this.tempAllItems[i]).CropQty > 0 && (this.tempAllItems[i]).CropQty < 1000) {
           this.cropQtyCheck = true;
         }
-        if (this.cropNameCheck && this.cropQtyCheck === true) {
-          this.requiredStorage = this.requiredStorage + Number((this.tempAllItems[i]).CropQty);
-          this.tempCropToBuy = new CropsToBuy((this.tempAllItems[i]).CropName, (this.tempAllItems[i]).CropQty);
-          this.dataService.addItem(this.tempCropToBuy);
-          this.clerkcrops[i] = new ClerkCrop(this.farmerId, this.clerkId, (this.tempAllItems[i]).CropName, (this.tempAllItems[i]).CropQty);
-          this.dataService.addClerkCropItem(this.clerkcrops[i]);
-
-          this.clerkService.getSingleCropPrice(this.clerkcrops[i])
-            .subscribe(data => {
-              if (data === 0) {
-                alert(((this.tempAllItems[i]).CropName) + " has no MSP set. So no money will be credited for it.");
-              }
-            });
+        else {
+          alert("Invalid crop qty in item " + (i + 1));
+          this.cropQtyCheck = false;
         }
+        if (this.cropNameCheck && this.cropQtyCheck === true) 
+        {
+          this.clerkService.getSingleCropPrice(new ClerkCrop(this.farmerId, this.clerkId, ((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty))
+            .subscribe(data => {
+              this.singleCost = data;
+              if (data == 0) 
+              {
+                this.foundWrongItem = true;
+                alert(((this.tempAllItems[i]).CropName) + " not found.");
+              }
+              else 
+              {
+                this.requiredStorage = this.requiredStorage + Number((this.tempAllItems[i]).CropQty);
+                this.tempCropToBuy = new CropsToBuy(((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty);
+                this.dataService.addItem(this.tempCropToBuy);
+                this.clerkcrops[this.j] = new ClerkCrop(this.farmerId, this.clerkId, ((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty);
+                this.dataService.addClerkCropItem(this.clerkcrops[this.j]);
+                this.dataService.addCost(this.singleCost);
+                this.j = this.j + 1;
+              }
+              this.dummy(this.foundWrongItem);
+            }
+          );
+        }
+
         else {
           this.foundWrongItem = true;
           this.dataService.allCrops = [];
           this.dataService.allClerkCropItems = [];
-          break;
+          this.dataService.costs = [];
+          // this.requiredStorage = 0;
+          this.dummy(this.foundWrongItem);
         }
       }
 
-      if (this.foundWrongItem === true) {
-        alert("Entered data invalid.")
-      }
-      else {
-        this.clerkService.getStorageByClerkId(this.clerkId)
-          .subscribe(data => {
-            this.availableStorage = data;
-            if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
-              alert("Storage not enough!");
-              this.onCancel();
-            }
-            else {
-              this.router.navigate(['/clerk/confirmCredit']);
-            }
-          }
-          );
-      }
+      // if (this.foundWrongItem == true)  
+      // {
+      //   alert("Entered data invalid.");
+      // }
+      // else 
+      // {
+      //   this.clerkService.getStorageByClerkId(this.clerkId)
+      //     .subscribe(data => {
+      //       this.availableStorage = data;
+      //       if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
+      //         alert("Storage not enough!");
+      //         this.onCancel();
+      //       }
+      //       else {
+      //         this.router.navigate(['/clerk/confirmCredit']);
+      //       }
+      //     }
+      //   );
+      // }
     }
   }
 
@@ -185,6 +229,42 @@ export class BuyCropsTabComponent implements OnInit {
     this.noOfCropTypes = null;
     this.staticSubmit = false;
     this.disableAddCropDetails = false;
+    this.dataService.allCrops = [];
+    this.dataService.allClerkCropItems = [];
+    this.dataService.costs = [];
+    // this.requiredStorage = 0;
+    const control = <FormArray>this.FormGroup.controls['itemRows'];
+    for(let i = 0; i < control.value.length; i++)
+    {
+      this.deleteRow(i);
+    }
+    this.FormGroup.reset();
+  }
+
+  dummy(bool: boolean)
+  {
+    if (this.foundWrongItem == true)  
+    {
+      this.dataService.allCrops = [];
+      this.dataService.allClerkCropItems = [];
+      this.dataService.costs = [];
+      // this.requiredStorage = 0;
+    }
+    else 
+    {
+      this.clerkService.getStorageByClerkId(this.clerkId)
+        .subscribe(data => {
+          this.availableStorage = data;
+          if (Number(this.availableStorage) - Number(this.requiredStorage) < 0) {
+            alert("Storage not enough!");
+            this.onCancel();
+          }
+          else {
+            this.router.navigate(['/clerk/confirmCredit']);
+          }
+        }
+      );
+    }
   }
 }
 
