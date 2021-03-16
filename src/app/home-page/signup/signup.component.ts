@@ -34,9 +34,15 @@ export class SignupComponent implements OnInit {
    }
    saveEmployee(){
     this.employeeService.createEmployee(this.farmer).subscribe(data =>{
-      console.log(data);
+      if(data==null){
+        alert("Aadhar number already exists.");
+        window.location.reload();
+     }
+     if(data!=null){
        this.farmerId=data;
-     this.goToEmployeeList();
+       console.log(this.farmerId);
+        this.goToEmployeeList();
+     } 
     })
   }
   goToEmployeeList(){
