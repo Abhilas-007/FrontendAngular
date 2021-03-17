@@ -5,22 +5,24 @@ import { FarmerRoutingModule } from './farmer-routing.module';
 import { FarmerComponent } from './farmer.component';
 import { MspTabComponent } from './msp-tab/msp-tab.component';
 import { TransactionTabComponent } from './transaction-tab/transaction-tab.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { LogoutComponent } from './logout/logout.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { ViewAndUpdateProfileComponent } from './view-and-update-profile/view-and-update-profile.component';
 
 @NgModule({
-  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent],
+  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent, ViewAndUpdateProfileComponent],
   imports: [
     CommonModule,
     FarmerRoutingModule,
     FormsModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition:true
     })

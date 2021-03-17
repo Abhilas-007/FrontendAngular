@@ -1,0 +1,158 @@
+<app-farmer></app-farmer>
+<div class="container">
+    <div class="row" style="overflow: scroll; height: 90%; width: 100%; overflow-x: hidden; ">
+
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+
+            <form [formGroup]="UpdateProfile" (ngSubmit)="onSubmit()">
+                <div id="user-data">
+                    <div class="form-group">
+                        <h1>
+                            <b style="color: chocolate;">Your Profile</b>
+                        </h1>
+                    </div>
+                    <div class="form-group">
+                        <label for="cropName">Farmer Id </label>
+                        <input type="text" id="farmerId" class="form-control" formControlName="farmerId"
+                            [ngModel]="farmer.farmerId" readonly>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Name </label>
+                        <input type="text" id="farmerName" class="form-control" formControlName="farmerName"
+                            [ngModel]="farmer.farmerName">
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('farmerName').hasError('required') && UpdateProfile.get('farmerName').touched">Farmer
+                            name
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('farmerName').hasError('pattern') && UpdateProfile.get('farmerName').touched">
+                            Invalid Name</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Mobile Number </label>
+                        <input type="text" id="mobileNumber" class="form-control" formControlName="mobileNumber"
+                            [ngModel]="farmer.mobileNumber">
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('mobileNumber').hasError('required') && UpdateProfile.get('mobileNumber').touched">Mobile
+                            number
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('mobileNumber').hasError('pattern') && UpdateProfile.get('mobileNumber').touched">
+                            Invalid Mobile number</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Password </label>
+                        <input type="text" id="password" class="form-control" formControlName="password"
+                            [ngModel]="farmer.password">
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('password').hasError('required') && UpdateProfile.get('password').touched">Password
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('password').hasError('pattern') && UpdateProfile.get('password').touched">
+                            Password
+                                    should be Minimum 6 characters and Maximum 12
+                                    characters which includes atleast one number</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Aadhar Number </label>
+                        <input type="text" id="aadharNumber" class="form-control" formControlName="aadharNumber"
+                            [ngModel]="farmer.aadharNumber" readonly>
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('aadharNumber').hasError('required') && UpdateProfile.get('aadharNumber').touched">Aadhar
+                            number
+                            is required</span>
+                           
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Account Number </label>
+                        <input type="text" id="accountNumber" class="form-control" formControlName="accountNumber"
+                            [ngModel]="farmer.accountNumber">
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('accountNumber').hasError('required') && UpdateProfile.get('accountNumber').touched">Account
+                            nunber
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('accountNumber').hasError('pattern') && UpdateProfile.get('accountNumber').touched">
+                            Invalid Account number</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">IFSC </label>
+                        <input type="text" id="ifsc" class="form-control" formControlName="ifsc"
+                            [ngModel]="farmer.ifsc">
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('ifsc').hasError('required') && UpdateProfile.get('ifsc').touched">IFSC
+                            code
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('ifsc').hasError('pattern') && UpdateProfile.get('ifsc').touched">
+                            Invalid IFSC Code</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="cropClass">Bank Name </label>
+                        <input type="text" id="bankName" class="form-control" formControlName="bankName"
+                            [ngModel]="farmer.bankName">
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('bankName').hasError('required') && UpdateProfile.get('bankName').touched">Bank
+                            name
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('bankName').hasError('pattern') && UpdateProfile.get('bankName').touched">
+                            Invalid Bank Name</p>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cropClass">Security Question </label>
+                        <input type="text" id="securityQuestion" class="form-control" formControlName="securityQuestion"
+                            [ngModel]="farmer.securityQuestion" readonly>
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('securityQuestion').hasError('required') && UpdateProfile.get('securityQuestion').touched">Security
+                            question
+                            is required</span>
+                
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cropClass">Security Answer </label>
+                        <input type="text" id="answer" class="form-control" formControlName="answer"
+                            [ngModel]="farmer.answer">
+
+                        <span class=" text-danger"
+                            *ngIf="UpdateProfile.get('answer').hasError('required') && UpdateProfile.get('answer').touched">Answer
+                            is required</span>
+                            <p class=" text-danger"
+                            *ngIf="UpdateProfile.get('answer').hasError('pattern') && UpdateProfile.get('answer').touched">
+                            Invalid Answer</p>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span class="help-block" *ngIf="!UpdateProfile.valid && UpdateProfile.touched">All fields are
+                            required</span>
+                        <button class="btn btn-primary" style="margin-top: 6px;"
+                            [disabled]="!UpdateProfile.valid">Update
+                            Profile</button>
+
+                        <button id="cancel" class="button btn btn-danger" type="button" style="margin-left: 30px;"
+                            (click)="onCancel()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

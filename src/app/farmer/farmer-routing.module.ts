@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FarmerComponent } from './farmer.component';
 import { MspTabComponent } from './msp-tab/msp-tab.component';
 import { TransactionTabComponent } from './transaction-tab/transaction-tab.component';
+import { ViewAndUpdateProfileComponent } from './view-and-update-profile/view-and-update-profile.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   { 
     path: '', 
     component: FarmerComponent 
+  },
+  {
+    path: "viewProfile",
+    component: ViewAndUpdateProfileComponent
   }
 ];
 

@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
        console.log(this.farmerId);
         this.goToEmployeeList();
      } 
-    })
+    });
   }
   goToEmployeeList(){
     alert("Sign up Successfully"+"\n"+"Your Farmer Id is :"+this.farmerId);
