@@ -18,10 +18,11 @@ import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
 import { HomePageModule } from '../home-page/home-page.module';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { UpdateClerkComponent } from './update-clerk/update-clerk.component';
 
 @NgModule({
 
-  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent, UpdateClerkComponent],
 
   imports: [
     CommonModule,

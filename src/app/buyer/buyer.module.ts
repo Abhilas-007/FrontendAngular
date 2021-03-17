@@ -8,10 +8,11 @@ import { BuyerComponent } from './buyer.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { BuycropsComponent } from './buycrops/buycrops.component';
 
 
 @NgModule({
-  declarations: [BuyerComponent,ViewProfileComponent],
+  declarations: [BuyerComponent,ViewProfileComponent, BuycropsComponent],
   imports: [
     CommonModule,
     FormsModule,
