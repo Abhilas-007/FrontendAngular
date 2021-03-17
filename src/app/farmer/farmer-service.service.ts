@@ -14,7 +14,7 @@ export class FarmerServiceService {
       return this.httpClient.get<Farmer>(`${this.getUrl}`);
     }
     updateFarmer(farmer: Farmer):Observable<Farmer> {
-      return this.httpClient.put<Farmer>(`${this.getUrl}`,farmer);
+      return this.httpClient.put<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/updateFarmer"}`,farmer);
     }
  
 }

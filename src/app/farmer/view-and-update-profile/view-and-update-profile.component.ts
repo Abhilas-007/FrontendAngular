@@ -32,8 +32,21 @@ export class ViewAndUpdateProfileComponent implements OnInit {
     });
   }
 onSubmit(){
- console.log("AA gya mai");
- console.log(this.UpdateProfile);
+  console.log(this.UpdateProfile);
+  console.log(this.farmer);
+  this.farmerService.updateFarmer(this.farmer).subscribe(data=>{
+    console.log(data);
+    if(data==null){
+      alert("Profile already updated");
+      this.router.navigate(['/farmer']);
+    }
+      
+    },
+    (error) => {
+     alert("Profile updated successfully");
+      this.router.navigate(['/farmer']);
+     
+     });
  
 }
 onCancel(){
