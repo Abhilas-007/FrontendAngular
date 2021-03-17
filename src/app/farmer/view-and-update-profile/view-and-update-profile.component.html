@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="cropName">Farmer Id </label>
                         <input type="text" id="farmerId" class="form-control" formControlName="farmerId"
-                            [ngModel]="farmer.farmerId" readonly>
+                            [(ngModel)]="farmer.farmerId" readonly>
 
                     </div>
                     <div class="form-group">
                         <label for="cropClass">Name </label>
                         <input type="text" id="farmerName" class="form-control" formControlName="farmerName"
-                            [ngModel]="farmer.farmerName">
+                            [(ngModel)]="farmer.farmerName">
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('farmerName').hasError('required') && UpdateProfile.get('farmerName').touched">Farmer
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label for="cropClass">Mobile Number </label>
                         <input type="text" id="mobileNumber" class="form-control" formControlName="mobileNumber"
-                            [ngModel]="farmer.mobileNumber">
+                            [(ngModel)]="farmer.mobileNumber">
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('mobileNumber').hasError('required') && UpdateProfile.get('mobileNumber').touched">Mobile
                             number
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="cropClass">Password </label>
                         <input type="text" id="password" class="form-control" formControlName="password"
-                            [ngModel]="farmer.password">
+                            [(ngModel)]="farmer.password">
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('password').hasError('required') && UpdateProfile.get('password').touched">Password
                             is required</span>
@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label for="cropClass">Aadhar Number </label>
                         <input type="text" id="aadharNumber" class="form-control" formControlName="aadharNumber"
-                            [ngModel]="farmer.aadharNumber" readonly>
+                            [(ngModel)]="farmer.aadharNumber" readonly>
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('aadharNumber').hasError('required') && UpdateProfile.get('aadharNumber').touched">Aadhar
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         <label for="cropClass">Account Number </label>
                         <input type="text" id="accountNumber" class="form-control" formControlName="accountNumber"
-                            [ngModel]="farmer.accountNumber">
+                            [(ngModel)]="farmer.accountNumber">
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('accountNumber').hasError('required') && UpdateProfile.get('accountNumber').touched">Account
@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <label for="cropClass">IFSC </label>
                         <input type="text" id="ifsc" class="form-control" formControlName="ifsc"
-                            [ngModel]="farmer.ifsc">
+                            [(ngModel)]="farmer.ifsc">
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('ifsc').hasError('required') && UpdateProfile.get('ifsc').touched">IFSC
@@ -102,7 +102,7 @@
                     <div class="form-group">
                         <label for="cropClass">Bank Name </label>
                         <input type="text" id="bankName" class="form-control" formControlName="bankName"
-                            [ngModel]="farmer.bankName">
+                            [(ngModel)]="farmer.bankName">
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('bankName').hasError('required') && UpdateProfile.get('bankName').touched">Bank
@@ -117,7 +117,7 @@
                     <div class="form-group">
                         <label for="cropClass">Security Question </label>
                         <input type="text" id="securityQuestion" class="form-control" formControlName="securityQuestion"
-                            [ngModel]="farmer.securityQuestion" readonly>
+                            [(ngModel)]="farmer.securityQuestion" readonly>
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('securityQuestion').hasError('required') && UpdateProfile.get('securityQuestion').touched">Security
@@ -130,7 +130,7 @@
                     <div class="form-group">
                         <label for="cropClass">Security Answer </label>
                         <input type="text" id="answer" class="form-control" formControlName="answer"
-                            [ngModel]="farmer.answer">
+                            [(ngModel)]="farmer.answer">
 
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('answer').hasError('required') && UpdateProfile.get('answer').touched">Answer
