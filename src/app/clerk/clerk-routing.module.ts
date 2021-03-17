@@ -4,6 +4,7 @@ import { ClerkComponent } from './clerk.component';
 import { SharedModule } from '../shared/shared.module';
 import { BuyCropsTabComponent } from './buy-crops-tab/buy-crops-tab.component';
 import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.component';
+import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'confirmCredit',
     component: ConfirmCreditComponent
+  },
+  {
+    path: 'farmerView',
+    component: FarmerDetailsViewComponent
   },
   { 
     path: '', 

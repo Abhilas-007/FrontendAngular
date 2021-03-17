@@ -10,8 +10,9 @@ import { BuyCropsTabComponent } from './buy-crops-tab/buy-crops-tab.component';
 import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.component';
 import { DataService } from './data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
 @NgModule({
-  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent],
+  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent],
   imports: [
     CommonModule,
     ClerkRoutingModule,
