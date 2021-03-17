@@ -2,9 +2,11 @@
 
 <div class="container">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="row mb-3">
-      <label for="userType">Select your user type:</label>
-      <select id="UserType" name="UserType" formControlName="userType">
+   <div class="row mb-3">
+    
+      
+      <select class="form-select" name="UserType" formControlName="userType" >
+        <option selected disabled value="">Select your category</option>
         <option value="farmer">Farmer</option>
         <option value="clerk">Clerk</option>
         <option value="buyer">Buyer</option>
@@ -12,50 +14,55 @@
         <option value="sAdmin">SuperAdmin</option>
       </select>
     </div>
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">UserId</label>
-      <div class="col-sm-10">
+ 
+    <div class="row-md-10" >
+      <label for="inputEmail3">UserId</label>
+     
         <input
           type="text"
           class="form-control"
           id="inputEmail3"
           formControlName="id"
         />
-      </div>
+      
     </div>
-    <div class="row mb-3">
-      <label for="inputPassword3" class="col-sm-2 col-form-label"
-        >Password</label
-      >
-        <span class="col-sm-10">
+    <div class="field">
+     <label for="inputPassword3" 
+      >Password</label
+    >
+    <div class="control">
           <input
-            class="form-control"
+            class="form-control input-box"
             matInput
             id="inputPassword3"
             formControlName="password"
             [type]="hide ? 'password' : 'text'"
+            style="position: absolute; "
           />
           <i
             class="material-icons"
             matSuffix
             (click)="hide = !hide"
-            style="cursor: pointer"
+            style="cursor: pointer; position: relative;  margin-left: 400px; margin-top:5px"
           >
             {{ hide ? "visibility" : "visibility_off" }}
           </i>
-        </span>
+        </div>
       </div>
-    <div class="col-12">
-      <button
+    <div class="row g-2">
+      <div class="col-md-3"><button
         type="submit"
         class="btn btn-primary"
         [disabled]="!loginForm.valid"
       >
         Log In
       </button>
+    </div>
+      <div class="col-md-3 end">
       <button type="button" class="btn btn-primary fp" routerLink="/forget">
         Forget Password
       </button>
     </div>
+  </div>
   </form>
 </div>

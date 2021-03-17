@@ -27,7 +27,8 @@ import { DataService } from './clerk/data.service';
     FarmerModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatInputModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
