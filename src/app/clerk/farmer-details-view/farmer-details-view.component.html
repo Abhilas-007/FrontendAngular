@@ -6,7 +6,8 @@
         <h1>Farmer Ids</h1>
         <div class="list-menu">
             <a class="list-menu-item"
-                *ngFor="let l of lists">
+                *ngFor="let l of lists"
+                (click)="getFarmer(l)">
                     <p>
                         {{l}}
                     </p>
@@ -18,13 +19,22 @@
         <h1>Farmer Details</h1>
             <div class="personal-details">
                     <p>
-                        Name: Ram
+                        Name: {{farmer.farmerName}}
                     </p>
                     <p>
-                        Date: 16/03/2021
+                        Aadhar Number: {{farmer.aadharNumber}}
                     </p>
                     <p>
-                        Amount: 50000/-
+                        Mobile Nummber: {{farmer.mobileNumber}}
+                    </p>
+                    <p>
+                        Bank Name: {{farmer.bankName}}
+                    </p>
+                    <p>
+                        Account Number: {{farmer.accountNumber}}
+                    </p>
+                    <p>
+                        IFSC: {{farmer.ifsc}}
                     </p>
                 </div>
         <br>

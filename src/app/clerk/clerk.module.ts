@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { ClerkRoutingModule } from './clerk-routing.module';
 import { ClerkComponent } from './clerk.component';
 
@@ -17,6 +19,7 @@ import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details
     CommonModule,
     ClerkRoutingModule,
     SharedModule,
+    HttpClientModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition:true
     }),
