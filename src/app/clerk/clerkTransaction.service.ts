@@ -12,12 +12,12 @@ export class ClerkTransactionService {
 
     checkForTransactionId(id: number): Observable<any>
     {
-        return this.http.post("http://localhost:8080/farmerTransaction/checkForTransactonId", id);
+        return this.http.post("https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmerTransaction/checkForTransactonId", id);
     }
 
     creditExtraAmount(extraCredit: ExtraCredit): Observable<any>
     {
-        return this.http.put("http://localhost:8080/farmerTransaction/creditExtraAmount", extraCredit);
+        return this.http.put("https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmerTransaction/creditExtraAmount", extraCredit);
     }
 
 }
