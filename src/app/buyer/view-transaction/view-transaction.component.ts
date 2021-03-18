@@ -9,7 +9,9 @@ import { BuyerServiceService } from '../buyer-service.service';
 })
 export class ViewTransactionComponent implements OnInit {
   transaction: BuyerTransaction[]=[];
-  constructor(private buyerService: BuyerServiceService) { }
+  constructor(private buyerService: BuyerServiceService) {
+    this.getTransaction();
+   }
 
   ngOnInit(): void {
   }

@@ -1,17 +1,16 @@
 <app-header></app-header>
 
 <nav class="navbar is-white has-shadow" role="navigation" aria-label="main navigation">
-  <div class="navbar">
-    <button class="btn btn-success" routerLink="viewTransaction" style="margin-top: 20px; margin-left: 25px; color: rgb(87, 10, 10);">
-       <b>View Transaction</b>
-      </button>
-  </div>
+
   <div #menu class="navbar-menu">
     <div class="navbar-start">
       <button class="button is-primary" [routerLink]="['/buyer/buycrops']" routerLinkActive>
         BuyCrops
       </button>
+      <button class="btn btn-success" [routerLink]="['/buyer/viewTransaction']" style="margin-top: 17px; margin-left: 30px;">View
+        Transactions</button>
     </div>
+  
     <div class="navbar-end">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"> Profile </a>

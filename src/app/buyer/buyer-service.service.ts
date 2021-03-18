@@ -11,7 +11,7 @@ export class BuyerServiceService {
 
   private updateUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/update';
   private getUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/get/'+localStorage.getItem('userId');
-  private getTransactionUrl= 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyertransaction/getTransaction/'+localStorage.getItem('userId');
+  private getTransactionUrl= 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyerTransaction/getTransactions/'+localStorage.getItem('userId');
 
   constructor(private httpClient: HttpClient) { }
 
