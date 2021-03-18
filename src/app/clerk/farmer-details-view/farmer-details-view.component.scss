@@ -14,6 +14,35 @@
         height: 77%;
         width: 30%;
         padding: 1.5%;
+
+        h1{
+            font-weight: bold;
+        }
+
+        .list-menu{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: scroll;
+
+            .list-menu-item{
+                display: flex;
+                align-items: center;
+                border-radius: 5px;
+                width: 100%;
+                color: black;
+                padding: 6% 3% 3%;
+                text-decoration: none;
+                font-size: large;
+                opacity: 0.7;
+
+                &:hover{
+                    background: rgb(190, 58, 58);
+                    color: white;
+                }
+
+            }
+        }
     }
 
     .details-container{
@@ -25,6 +54,31 @@
         height: 77%;
         width: 100%;
         padding: 1.5%;
+
+        h1{
+            font-weight: bold;
+        }
+
+        .details{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: scroll;
+
+            .list-details{
+                align-items: center;
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+                color: black;
+                padding: 3% 3% 3%;
+                text-decoration: none;
+                font-size: large;
+                opacity: 0.7;
+                background-color: white;
+                margin-bottom: 1.5%;
+            }
+        }
     }
 
 }

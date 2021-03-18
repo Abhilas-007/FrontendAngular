@@ -1,0 +1,77 @@
+<app-admin></app-admin>
+
+    
+        <div class="search-clerkid-block" style="align-content: center;">
+            <input type="text" placeholder="Enter clerk id.." [(ngModel)]="clerkid" />
+         
+            <button (click)="onclerkIdSearch()">Search</button>
+          
+        </div>
+        <br>
+   <div class="container">
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" #f="ngForm">
+
+        <div class="field">
+          <label>Id</label>
+          <div class="control">
+            <input class="input" required type="text" [ngModel]="clerks.clerkId" name="clerkId" readonly>
+          </div>
+        </div>
+  
+        <br>
+  
+          <div class="field">
+              <label>Name</label>
+              <div class="control">
+                <input class="input" required type="text" [ngModel]="clerks.clerkName" name="clerkName" pattern="[a-zA-Z]{1,15}([ ][a-zA-z]{1,15})?([ ][a-zA-Z]{1,15})?" #Name="ngModel">
+                <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Invalid Name</span>
+              </div>
+            </div>
+  
+            <br>
+            
+            <div class="field">
+              <label>Password</label>
+              <div class="control">
+                  <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [ngModel]="clerks.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                  <i class="material-icons" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility':'visibility_off'}}
+                  </i>
+                  <span class="help-block" *ngIf="pwd.errors?.pattern" style="color: red;">Password should be Minimum 6
+                    characters
+                    and Maximum 12
+                    characters which includes atleast one number</span>
+                </div>
+            </div>
+  
+            <br>
+            
+            <div class="field">
+              <label>Phone Number</label>
+              <div class="control">
+                  <input class="input" required type="text" [ngModel]="clerks.mobileNumber" name="mobileNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
+                  <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
+                    Digits and It should not start with 0</span>
+                </div>
+            </div>
+      
+            <br>
+            <br>
+            
+            <div class="field">
+              <label>Email Id</label>
+              <div class="control">
+                  <input class="input" required type="text" [ngModel]="clerks.emailId" name="emailId" pattern="[a-zA-Z]" >
+                  
+                </div>
+            </div>
+      
+            <br>
+           
+                <button type="submit" class="button is-primary" >Update</button>
+
+              
+              
+      </form>
+  
+    </div>

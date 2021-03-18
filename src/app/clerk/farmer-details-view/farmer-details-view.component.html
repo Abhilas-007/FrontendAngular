@@ -1,18 +1,34 @@
 <app-clerk></app-clerk>
 
 <div class="main-container">
-    
+
     <div class="list-container">
         <h1>Farmers</h1>
         <div class="list-menu">
-
+            <a class="list-menu-item"
+                *ngFor="let l of lists">
+                    <p>
+                        {{l}}
+                    </p>
+                </a>
         </div>
     </div>
     
     <div class="details-container">
         <h1>Farmer Transaction Details</h1>
         <div class="details">
-
+            <div class="list-details"
+                *ngFor="let l of lists">
+                    <p>
+                        Name: Ram
+                    </p>
+                    <p>
+                        Date: 16/03/2021
+                    </p>
+                    <p>
+                        Amount: 50000/-
+                    </p>
+                </div>
         </div>
     </div>
 
