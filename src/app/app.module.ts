@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { DataService } from './clerk/data.service';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
     AppComponent,
    ],
-  imports: [
+  imports: [ProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule,
