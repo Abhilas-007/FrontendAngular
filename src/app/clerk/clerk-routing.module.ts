@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BuyCropsTabComponent } from './buy-crops-tab/buy-crops-tab.component';
 import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.component';
 import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
+import { CreditTabComponent } from './credit-tab/credit-tab.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'farmerView',
     component: FarmerDetailsViewComponent
+  },
+  {
+    path: 'creditTab',
+    component: CreditTabComponent
   },
   { 
     path: '', 

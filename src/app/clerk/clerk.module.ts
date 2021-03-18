@@ -13,8 +13,13 @@ import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.componen
 import { DataService } from './data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
+import { CreditConfirmDialogComponent } from './credit-confirm-dialog/credit-confirm-dialog.component';
+import { CreditTabComponent } from './credit-tab/credit-tab.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon"
+
 @NgModule({
-  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent],
+  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent, CreditConfirmDialogComponent, CreditTabComponent],
   imports: [
     CommonModule,
     ClerkRoutingModule,
@@ -24,8 +29,11 @@ import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details
       preserveScrollPosition:true
     }),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [DataService]
+  providers: [DataService],
+  entryComponents: [CreditConfirmDialogComponent]
 })
 export class ClerkModule { }

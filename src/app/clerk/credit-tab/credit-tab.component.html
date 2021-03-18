@@ -1,0 +1,57 @@
+<app-clerk></app-clerk>
+
+<div class="container">
+    <form [formGroup]="creditForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+        <div class="panel panel-primary" style="background-color: wheat; opacity: 0.7; color: brown;">
+            <div class="panel-heading">
+                <h3 class="panel-title">Credit Details Form</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group" [ngClass]="{'has-error' : creditForm.get('transId').errors
+                && (creditForm.get('transId').touched || creditForm.get('transId').dirty)}">
+                    <label class="col-sm-2 control-label" for="transId">Transaction ID</label>
+                    <div class="col-sm-8">
+                        <input id="transId" formControlName="transId" type="number" class="form-control">
+                        <span class="help-block" *ngIf="creditForm.get('transId').errors
+                        && (creditForm.get('transId').touched || creditForm.get('transId').dirty)">
+                            <span *ngIf="creditForm.get('transId').errors.required">
+                                Transaction ID is required
+                            </span>
+                            <span *ngIf="creditForm.get('transId').errors.min && !transId.errors?.notUnique">
+                                Transaction ID must have atleast one digit
+                            </span>
+                            <span *ngIf="transId.errors?.notUnique">
+                                Transaction ID not found
+                            </span>
+                        </span>
+                        <span *ngIf="transId.pending" style="color: rgb(145, 143, 143);">
+                            Checking...
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error' : creditForm.get('cropClass').errors
+                && (creditForm.get('cropClass').touched || creditForm.get('cropClass').dirty)}">
+                    <label class="col-sm-2 control-label" for="cropClass">Crop Class</label>
+                    <div class="col-sm-8">
+                        <input id="cropClass" formControlName="cropClass" type="text" class="form-control">
+                        <span class="help-block" *ngIf="creditForm.get('cropClass').errors
+                        && (creditForm.get('cropClass').touched || creditForm.get('cropClass').dirty)">
+                            <span *ngIf="creditForm.get('cropClass').errors.required">
+                                Crop class is required
+                            </span>
+                            <span *ngIf="creditForm.get('cropClass').hasError('pattern')">
+                                Crop class must be A or B only
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="creditForm.invalid || creditForm.pending">Credit</button>
+            </div>
+        </div>
+    </form>
+</div>

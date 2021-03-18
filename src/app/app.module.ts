@@ -12,6 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { DataService } from './clerk/data.service';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreditConfirmDialogComponent } from './clerk/credit-confirm-dialog/credit-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreditConfirmDialogComponent]
 })
 export class AppModule { }
 
