@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Farmer } from '../shared/models/Farmer';
-import { FarmerTransaction } from '../shared/models/farmerTransaction';
+import { FarmerTransaction } from '../shared/models/FarmerTransaction';
 
 @Injectable({
   providedIn: 'root'

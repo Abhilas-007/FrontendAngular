@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FarmerTransaction } from 'src/app/shared/models/farmerTransaction';
+import { FarmerTransaction } from 'src/app/shared/models/FarmerTransaction';
 
 @Injectable({
   providedIn: 'root'
