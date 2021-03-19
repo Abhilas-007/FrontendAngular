@@ -16,7 +16,7 @@
     </div>
     
     <div class="details-container">
-        <h1>Farmer Details</h1>
+            <h1>Farmer Details</h1>
             <div class="personal-details">
                     <p>
                         Name: {{farmer.farmerName}}
@@ -36,23 +36,29 @@
                     <p>
                         IFSC: {{farmer.ifsc}}
                     </p>
-                </div>
-        <br>
-        <h1>Farmer Transaction Details</h1>
-        <div class="details">
-            <div class="list-details"
-                *ngFor="let l of lists">
+            </div>
+                <h1>Farmer Transaction Details</h1>
+                <div class="details">
+                <div class="list-details"
+                *ngFor="let t of transactions">
                     <p>
-                        Name: Ram
+                        Transaction Id: {{t.transactionId}}
                     </p>
                     <p>
-                        Date: 16/03/2021
+                        Crop Name: {{t.cropName}}
                     </p>
                     <p>
-                        Amount: 50000/-
+                        Crop Class: {{t.cropClass}}
+                    </p>
+                    <p>
+                        Quantity: {{t.quantity}}
+                    </p>
+                    <p>
+                        Amount: {{t.amount}}
                     </p>
                 </div>
         </div>
+
     </div>
 
 </div>

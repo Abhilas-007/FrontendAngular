@@ -27,10 +27,10 @@ export class ClerkService {
     return this.httpClient.get<Farmer>(`${this.farmerUrl}`,{params:param});
   }
 
-  getTransactions(clerkId:string,farmerId:number):Observable<FarmerTransaction>{
+  getTransactions(clerkId:string,farmerId:number):Observable<FarmerTransaction[]>{
     let param = new HttpParams();
     param = param.append('clerkId',clerkId);
     param = param.append('farmerId',farmerId.toString());
-    return this.httpClient.get<FarmerTransaction>(`${this.transactionurl}`,{params:param});
+    return this.httpClient.get<FarmerTransaction[]>(`${this.transactionurl}`,{params:param});
   }
 }

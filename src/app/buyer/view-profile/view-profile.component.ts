@@ -17,6 +17,7 @@ export class ViewProfileComponent implements OnInit {
   constructor(private buyerService: BuyerServiceService) { }
 
   ngOnInit(): void {
+    this.buyer = null;
     this.getBuyer();
   }
 
