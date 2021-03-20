@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { SuperAdminComponent } from './super-admin.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
 
 const routes: Routes = [{ path: '', component: SuperAdminComponent },
-{ path: 'addAdmin', component: AddAdminComponent }];
+{ path: 'addAdmin', component: AddAdminComponent },
+{path: 'updateAdmin', component: UpdateAdminComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
