@@ -12,6 +12,7 @@ import { FarmerServiceService } from '../farmer-service.service';
 export class ViewAndUpdateProfileComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, private farmerService:FarmerServiceService) { 
+    this.farmer= new Farmer();
     this.getFarmer();
   }
   UpdateProfile: FormGroup;

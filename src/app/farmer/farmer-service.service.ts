@@ -7,12 +7,12 @@ import { Farmer } from '../shared/models/Farmer';
   providedIn: 'root'
 })
 export class FarmerServiceService {
- // getUrl='https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/getfarmer/'+localStorage.getItem('userId');
-  getUrl="http://localhost:8080";
+  getUrl='https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  
   constructor(private httpClient: HttpClient) { }
  
     getFarmer(): Observable<Farmer>{
-      return this.httpClient.get<Farmer>(`${this.getUrl}`);
+      return this.httpClient.get<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/getfarmer/"}`+`/`+localStorage.getItem('userId'));
     }
     updateFarmer(farmer: Farmer):Observable<Farmer> {
       return this.httpClient.put<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/updateFarmer"}`,farmer);
@@ -23,3 +23,4 @@ export class FarmerServiceService {
     }
  
 }
+
