@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BuyerTransaction } from 'src/app/shared/models/BuyerTransaction';
 import { BuyerServiceService } from '../buyer-service.service';
 
@@ -9,7 +10,7 @@ import { BuyerServiceService } from '../buyer-service.service';
 })
 export class ViewTransactionComponent implements OnInit {
   transaction: BuyerTransaction[]=[];
-  constructor(private buyerService: BuyerServiceService) {
+  constructor(private buyerService: BuyerServiceService, private router: Router) {
     this.getTransaction();
    }
 
@@ -17,7 +18,25 @@ export class ViewTransactionComponent implements OnInit {
   }
   private getTransaction(){
     this.buyerService.getTransaction().subscribe(data=>{
-      this.transaction=data;
-    });
-  }
+      console.log(data);
+     if(data!=null){
+        this.transaction=data;
+        
+        for(let i=0; i<this.transaction.length;i++){
+          console.log(this.transaction[i]);
+        }
+      }
+    else{
+      alert("No previous transaction available.");
+      this.router.navigate(['/buyer']);
+     
+    }
+    },
+    (error) => {
+      console.log(error);
+      alert("No previous transaction available.");
+      this.router.navigate(['/buyer'])
+    }
+    );
+}
 }
