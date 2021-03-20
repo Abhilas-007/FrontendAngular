@@ -3,11 +3,11 @@
 <div class="main-container">
 
     <div class="list-container">
-        <h1>Farmer Ids</h1>
+        <h1>Buyer Ids</h1>
         <div class="list-menu">
             <a class="list-menu-item"
                 *ngFor="let l of lists"
-                (click)="getFarmer(l)">
+                (click)="getBuyer(l)">
                     <p>
                         {{l}}
                     </p>
@@ -16,25 +16,13 @@
     </div>
     
     <div class="details-container">
-            <h1>Farmer Details</h1>
+            <h1>Buyer Details</h1>
             <div class="personal-details">
                     <p>
-                        Name: {{farmer.farmerName}}
+                        Name: {{buyer.buyerName}}
                     </p>
                     <p>
-                        Aadhar Number: {{farmer.aadharNumber}}
-                    </p>
-                    <p>
-                        Mobile Nummber: {{farmer.mobileNumber}}
-                    </p>
-                    <p>
-                        Bank Name: {{farmer.bankName}}
-                    </p>
-                    <p>
-                        Account Number: {{farmer.accountNumber}}
-                    </p>
-                    <p>
-                        IFSC: {{farmer.ifsc}}
+                        Mobile Number: {{buyer.phoneNumber}}
                     </p>
             </div>
                 <h1>Farmer Transaction Details</h1>
@@ -65,4 +53,3 @@
     </div>
 
 </div>
-

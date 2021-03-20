@@ -6,6 +6,7 @@ import { BuyCropsTabComponent } from './buy-crops-tab/buy-crops-tab.component';
 import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.component';
 import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
 import { CreditTabComponent } from './credit-tab/credit-tab.component';
+import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'farmerView',
     component: FarmerDetailsViewComponent
+  },
+  {
+    path: 'buyerView',
+    component: BuyerDetailsViewComponent
   },
   {
     path: 'creditTab',

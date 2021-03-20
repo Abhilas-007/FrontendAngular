@@ -1,0 +1,102 @@
+.main-container{
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+
+
+
+    .list-container{
+        display: flex;
+        background-color: wheat;
+        flex-direction: column;
+        border-radius: 5px;
+        height: 77%;
+        width: 30%;
+        padding: 1.5%;
+
+        h1{
+            font-weight: bold;
+        }
+
+        .list-menu{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: scroll;
+
+            .list-menu-item{
+                display: flex;
+                align-items: center;
+                border-radius: 5px;
+                width: 100%;
+                color: black;
+                padding: 6% 3% 3%;
+                text-decoration: none;
+                font-size: large;
+                opacity: 0.7;
+
+                &:hover{
+                    background: rgb(190, 58, 58);
+                    color: white;
+                }
+
+            }
+        }
+    }
+
+    .details-container{
+        display: flex;
+        flex-direction: column;
+        background-color: wheat;
+        opacity: 0.8;
+        border-radius: 5px;
+        height: 77%;
+        width: 100%;
+        padding: 1.5%;
+
+        h1{
+            font-weight: bold;
+        }
+
+        .personal-details{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            border-radius: 5px;
+            width: 100%;
+            height: auto;
+            color: black;
+            padding: 3% 3% 3%;
+            text-decoration: none;
+            font-size: large;
+            opacity: 0.7;
+            background-color: white;
+            margin-bottom: 1.5%;
+        }
+
+        .details{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: scroll;
+
+            .list-details{
+                align-items: center;
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+                color: black;
+                padding: 3% 3% 3%;
+                text-decoration: none;
+                font-size: large;
+                opacity: 0.7;
+                background-color: white;
+                margin-bottom: 1.5%;
+            }
+
+        }    
+    }
+
+}
