@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm,FormGroup } from '@angular/forms';
+
+import { Router } from '@angular/router';
 import { BuyerRequest } from 'src/app/shared/models/BuyerRequest';
 import { FarmerTransaction } from 'src/app/shared/models/farmerTransaction';
 import { BuycropsService } from './Buycrops.service';
+import { RequestServiceService } from './requestService.service';
 
 @Component({
   selector: 'app-buycrops',
@@ -13,10 +15,14 @@ export class BuycropsComponent implements OnInit {
 mandipincode:any;
 farmer1:FarmerTransaction=new FarmerTransaction();
 farmer:FarmerTransaction=new FarmerTransaction();
-request:BuyerRequest=new BuyerRequest();
-details:BuyerRequest[]=[{buyerId :Number(localStorage.getItem('buyerId')),mandiPincode:0,cropName:'',cropClass:'',quantity:0}];
-products: BuyerRequest[] = [];
-  constructor(private farmerTran:BuycropsService) { }
+
+ req: BuyerRequest[] = [];
+ id=Number(localStorage.getItem('userId'));
+ //request1: BuyerRequest[]=[{cropClass:'',cropName:'',quantity:0,buyerId:0,mandiPincode:0}];
+public request1: BuyerRequest[]=[];
+
+buyerId=Number(localStorage.getItem('buyerId'));
+  constructor(private farmerTran:BuycropsService,private saverequest:RequestServiceService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -38,24 +44,49 @@ products: BuyerRequest[] = [];
     );
     
   }
+  
+saveDetails(a:BuyerRequest) {
+  this.saverequest.saveRequest(a).subscribe(data => {
+    console.log(data);
+    
+   
+  },
+    error => console.log(error));
+}
   onMandiSearch(){
   this.getDetails();
   
   }
   onSubmit(){
     
-    if(this.mandipincode!=null ){
+    if(this.mandipincode!=null && this.request1.length!=0){
       alert("do you want to continue");
+      for(let a of this.request1){
+        this.saveDetails(a);
+      }
     }
     
     else
     {
       alert("enter mandipincode and choose details")
     }
-console.log(this.details);
+
+    this.router.navigate(['/buyer/buycrops']);
+    
 
   }
-  
-  
+    saveData(quantity:any, crop:FarmerTransaction){
+      if(quantity.value!=0){
+     alert("RequestAdded");
+      console.log(quantity.value);
+      //console.log(checked.checked);
+      //console.log(crop);
+      this.request1.push(new BuyerRequest(crop.cropName,crop.cropClass,quantity.value,this.id,this.mandipincode));
+      console.log(this.request1);
+      }
+      else{
+        alert("enter quantity");
+      }
+  }
   
 }

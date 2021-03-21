@@ -5,5 +5,5 @@ export class FarmerTransaction {
     amount: number;
     farmerId: number;
     mandiPincode: number;
-
+ 
 }

@@ -38,7 +38,7 @@ clerks:Clerk =new Clerk();
     this.updateClerk.updateClerk(form.value).subscribe(data => 
       {
         this.clerks=data;
-        if(this.clerks.clerkName == null){
+        if(this.clerks.clerkName == null && this.clerkid==null){
           window.alert("update failed");
           }
       }, error => console.log(error));
@@ -49,6 +49,7 @@ else{
       window.alert("Details Updated Successfuly");
      form.reset();
     this.clerks=null;
+    this.clerkid=null;
 }
 
   }

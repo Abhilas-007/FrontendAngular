@@ -14,24 +14,25 @@
         
         <thead>
           <tr>
-            <th> Select</th>
+           
               <th> CropName</th>
             <th> Cost</th>
             <th> Class</th>
             <th> Quantity</th>
+            <th>AddRequest</th>
            
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let crops of farmer ;let i=index; ">
             
-              <td><input  type="checkbox" ></td>
+              
             <td>{{crops.cropName}}</td>
             <td>{{crops.amount}}</td>
             <td>{{crops.cropClass}}</td>
            
-            <td><input type="text" placeholder="Enter Quantity "></td>
- 
+            <td><input #quantity type="text" placeholder="Enter Quantity "></td>
+             <td><input type="button" value="add" (click)="saveData(quantity, crops)"></td>
                 
                 </tr>
                 
@@ -46,4 +47,3 @@
            
 
     </div>
-    
