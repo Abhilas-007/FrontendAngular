@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Buyer } from '../shared/models/Buyer';
 import { BuyerTransaction } from '../shared/models/BuyerTransaction';
+import { Clerk } from '../shared/models/Clerk';
 import { Farmer } from '../shared/models/Farmer';
 import { FarmerTransaction } from '../shared/models/FarmerTransaction';
 
@@ -53,5 +54,15 @@ export class ClerkService {
     param = param.append('clerkId',clerkId);
     param = param.append('farmerId',buyerId.toString());
     return this.httpClient.get<BuyerTransaction[]>(`${this.transactionurl}`,{params:param});
+  }
+
+  getClerk(userId: any): Observable<Clerk>
+  {
+    return this.httpClient.get<Clerk>("https://alok-emandi-dec-20-dev-api.azurewebsites.net/clerk/getClerk/" + userId);
+  }
+
+  updateClerk(clerk: Clerk): Observable<any>
+  {
+    return this.httpClient.put("https://alok-emandi-dec-20-dev-api.azurewebsites.net/clerk/updateClerk",clerk);
   }
 }

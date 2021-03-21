@@ -17,10 +17,11 @@ import { CreditConfirmDialogComponent } from './credit-confirm-dialog/credit-con
 import { CreditTabComponent } from './credit-tab/credit-tab.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
-import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component'
+import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component'
 
 @NgModule({
-  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent, CreditConfirmDialogComponent, CreditTabComponent, BuyerDetailsViewComponent],
+  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent, CreditConfirmDialogComponent, CreditTabComponent, BuyerDetailsViewComponent, ViewProfileComponent],
   imports: [
     CommonModule,
     ClerkRoutingModule,

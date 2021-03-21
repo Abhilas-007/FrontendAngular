@@ -7,6 +7,7 @@ import { ConfirmCreditComponent } from './confirm-credit/confirm-credit.componen
 import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
 import { CreditTabComponent } from './credit-tab/credit-tab.component';
 import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'creditTab',
     component: CreditTabComponent
+  },
+  {
+    path: 'viewProfile',
+    component: ViewProfileComponent
   },
   { 
     path: '', 

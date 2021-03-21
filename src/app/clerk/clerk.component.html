@@ -15,7 +15,13 @@
       </div>
     </div>
     <div class="navbar-end">
-      <a class="logout navbar-item" (click)="logout()">Logout</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link navbar-item">Profile</a>
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" [routerLink]="['/clerk/viewProfile']" routerLinkActive>View Profile</a>
+          <a class="logout navbar-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

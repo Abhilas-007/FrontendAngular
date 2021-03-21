@@ -1,0 +1,38 @@
+@import '../../../mainstyles.scss';
+
+form{
+
+    margin-top: 50px;
+    margin-left: 20%;
+    background-color: wheat;
+    opacity: 0.7;
+    padding: 20px 20px 20px;
+
+    .field{
+
+        margin-top: 10px;
+
+        input{
+            padding: 3px;
+            font-size: x-large;
+        }
+    
+        label{
+            font-size: x-large;
+        }
+
+        button{
+            height: 60px;
+            width: 130px;
+            font-size: x-large;
+        }
+
+        .control i{
+            position: absolute;
+            margin-left: -40px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    }
+    
+}
