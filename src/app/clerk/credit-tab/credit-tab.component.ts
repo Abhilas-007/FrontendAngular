@@ -35,7 +35,7 @@ export class CreditTabComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure you want to continue?')
       .afterClosed().subscribe(res => {
         if (res) {
-          console.log("PASS");
+          // console.log("PASS");
           this.extraCreditObj.transactionId = this.creditForm.controls['transId'].value;
           this.extraCreditObj.cropClass = this.creditForm.controls['cropClass'].value;
           this.clerkTransService.creditExtraAmount(this.extraCreditObj)
@@ -88,6 +88,10 @@ export class CreditTabComponent implements OnInit {
               this.transId.markAsPending({ onlySelf: false });
               this.transId.setErrors(null);
             }
+          }, error =>
+          {
+            alert("Error in checking crop quality price.");
+            this.creditForm.reset();
           }
           )
       }
