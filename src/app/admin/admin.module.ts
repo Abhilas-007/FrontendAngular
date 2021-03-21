@@ -19,10 +19,11 @@ import { HomePageModule } from '../home-page/home-page.module';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { UpdateClerkComponent } from './update-clerk/update-clerk.component';
+import { UpdateCropQualityPriceComponent } from './update-crop-quality-price/update-crop-quality-price.component';
 
 @NgModule({
 
-  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent, UpdateClerkComponent],
+  declarations: [AdminComponent, MspUpdateComponent, MandiComponent,ViewCropComponent, ViewClerkComponent, UpdateCropPriceComponent, ViewFarmerComponent, ViewBuyerComponent, UpdateClerkComponent, UpdateCropQualityPriceComponent],
 
   imports: [
     CommonModule,
