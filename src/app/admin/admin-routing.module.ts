@@ -12,6 +12,7 @@ import { ViewBuyerComponent } from './view-buyer/view-buyer.component';
 import { HomePageModule } from '../home-page/home-page.module'
 import { HomePageComponent } from '../home-page/home-page.component';
 import { UpdateClerkComponent } from './update-clerk/update-clerk.component';
+import { UpdateCropQualityPriceComponent } from './update-crop-quality-price/update-crop-quality-price.component';
 
 const routes: Routes = [{ path: '', component: AdminComponent },
 {path:'view-crop',component:ViewCropComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [{ path: '', component: AdminComponent },
 {path:'userId/cropName/cropClass', component: UpdateCropPriceComponent},
 {path:'view-farmer',component:ViewFarmerComponent},
 {path:'view-buyer',component:ViewBuyerComponent},
-{path:'update-clerk',component:UpdateClerkComponent}
+{path:'update-clerk',component:UpdateClerkComponent},
+{path:'updateCropQualityPrice',component:UpdateCropQualityPriceComponent}
 ];
 
 @NgModule({

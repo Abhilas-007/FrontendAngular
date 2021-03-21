@@ -8,10 +8,11 @@ import { SharedModule } from '../shared/shared.module';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
 
 
 @NgModule({
-  declarations: [SuperAdminComponent, NavBarComponent, AddAdminComponent],
+  declarations: [SuperAdminComponent, NavBarComponent, AddAdminComponent, UpdateAdminComponent],
   imports: [
     CommonModule,
     SuperAdminRoutingModule,

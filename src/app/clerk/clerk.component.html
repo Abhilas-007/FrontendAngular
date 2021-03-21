@@ -4,13 +4,13 @@
   <div #menu class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" [routerLink]="['/clerk/buyCropsTab']" routerLinkActive>Buy Crops</a>
-      <a class="navbar-item" [routerLink]="['/clerk']" routerLinkActive>Credit</a>
+      <a class="navbar-item" [routerLink]="['/clerk/creditTab']" routerLinkActive>Credit</a>
       <a class="navbar-item" [routerLink]="['/clerk']" routerLinkActive>Buyer Requests</a>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link navbar-item">View</a>
         <div class="navbar-dropdown is-boxed">
           <a class="navbar-item" [routerLink]="['/clerk/farmerView']" routerLinkActive>Farmers</a>
-          <a class="navbar-item" [routerLink]="['/clerk']" routerLinkActive>Buyers</a>
+          <a class="navbar-item" [routerLink]="['/clerk/buyerView']" routerLinkActive>Buyers</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,32 @@
+<app-buyer></app-buyer>
+<div class="container">
+  <div style="background-color: wheat;">
+    <h1><b style="color:darkgreen; margin-left: 450px; margin-bottom: 50px;">Your Previous Transactions</b></h1>
+  </div>
+  <div class="row ">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Transaction Id</th>
+          <th>Crop Name</th>
+          <th>Crop class</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Mandi Pincode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transactions of transaction">
+          <td>{{transactions.transactionId}}</td>
+          <td>{{transactions.cropName}}</td>
+          <td>{{transactions.cropClass}}</td>
+          <td>{{transactions.quantity}}</td>
+          <td>{{transactions.amount}}</td>
+          <td>{{transactions.date}}</td>
+          <td>{{transactions.mandiPincode}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

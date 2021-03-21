@@ -1,9 +1,12 @@
 export class FarmerTransaction {
+    transactionId:number;
     cropName: string;
     cropClass: string;
     quantity: number;
     amount: number;
-    farmerId: number;
     mandiPincode: number;
+    date: string;
  
 }
+
+    

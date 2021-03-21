@@ -12,6 +12,7 @@ import { FarmerServiceService } from '../farmer-service.service';
 export class ViewAndUpdateProfileComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, private farmerService:FarmerServiceService) { 
+    this.farmer= new Farmer();
     this.getFarmer();
   }
   UpdateProfile: FormGroup;
@@ -53,7 +54,7 @@ onCancel(){
   this.router.navigate(['/farmer']);
 }
 getFarmer(){
-  this.farmerService.getFarmer().subscribe(data=>{
+  this.farmerService.getFarmer(localStorage.getItem('userId')).subscribe(data=>{
     this.farmer=data;
     console.log(this.farmer);
   });

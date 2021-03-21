@@ -1,0 +1,33 @@
+<app-home-page></app-home-page>
+
+<div class="container" style="display: flex;align-items: center;justify-content: center;">
+ <!-- <input #state class="input is-success" type="text" placeholder="Enter state name" style="width: 50%;">
+-->
+
+<div class="select" style="width: 40%;padding-right: 5px;">
+  <select #state aria-placeholder="Select a state" style="width: 100%;">
+    <option selected="true" disabled="true">Select</option>
+    <option >Karnataka</option>
+    <option>Bihar</option>
+  </select>
+</div>
+  <button #btn class="button is-primary" type="submit" (click)="onClick(state.value)">Search</button><br>
+</div><br>
+<div  id="table" class="container" style="display: none;align-items: center;justify-content: center;">
+  <div class="check" style="max-height: 400px;overflow-y: auto;width: 50%">
+    <table class="table table-responsive" >
+      <tr>
+        <th>Pincode</th>
+        <th>Available storage</th>
+      </tr>
+      <tr *ngFor='let mandi of mandies'>
+        <td>
+          {{mandi.mandiPincode}}
+        </td>
+        <td>
+          {{mandi.storage}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

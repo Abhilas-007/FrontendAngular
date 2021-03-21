@@ -6,7 +6,7 @@
       <div class="field">
         <label>Id</label>
         <div class="control">
-          <input class="input" required type="text" [ngModel]="buyer.buyerId" name="buyerId" readonly>
+          <input class="input" required type="text" [(ngModel)]="buyer.buyerId" name="buyerId" readonly>
         </div>
       </div>
 
@@ -15,7 +15,7 @@
         <div class="field">
             <label>Name</label>
             <div class="control">
-              <input class="input" required type="text" [ngModel]="buyer.buyerName" name="buyerName" pattern="[a-zA-Z]{3,15}([ ][a-zA-Z]{3,15})?([ ][a-zA-Z]{3,15})?" #Name="ngModel">
+              <input class="input" required type="text" [(ngModel)]="buyer.buyerName" name="buyerName" pattern="[a-zA-Z]{3,15}([ ][a-zA-Z]{3,15})?([ ][a-zA-Z]{3,15})?" #Name="ngModel">
               <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Invalid Name</span>
             </div>
           </div>
@@ -25,7 +25,7 @@
           <div class="field">
             <label>Password</label>
             <div class="control">
-                <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [ngModel]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [(ngModel)]="buyer.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
                 <i class="material-icons" matSuffix (click)="hide = !hide">
                   {{hide ? 'visibility':'visibility_off'}}
                 </i>
@@ -41,7 +41,7 @@
           <div class="field">
             <label>Phone Number</label>
             <div class="control">
-                <input class="input" required type="text" [ngModel]="buyer.phoneNumber" name="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
+                <input class="input" required type="text" [(ngModel)]="buyer.phoneNumber" name="phoneNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
                 <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
                   Digits and It should not start with 0</span>
               </div>

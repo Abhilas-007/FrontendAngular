@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewCropComponent } from '../admin/view-crop/view-crop.component';
 import { AboutComponent } from './about/about.component';
 import { BuyerSignupComponent } from './buyer-signup/buyer-signup.component';
+import { CheckStorageComponent } from './check-storage/check-storage.component';
 import { ContactComponent } from './contact/contact.component';
 import { ForgetPasswordFormComponent } from './forget-password-form/forget-password-form.component';
 import { HomePageComponent } from './home-page.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'resetPass',component:ResetPasswordComponent},
   {path:'passwordChangeSuccess', component:PasswordChangeSuccessComponent},
   {path:'passwordChangeFailure', component:PasswordChangefailureComponent},
-  {path:'sqcheck', component:SecurityQuestionCHeckComponent}
+  {path:'sqcheck', component:SecurityQuestionCHeckComponent},
+  {path:'check-storage',component:CheckStorageComponent}
 ];
 
 @NgModule({

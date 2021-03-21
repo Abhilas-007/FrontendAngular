@@ -13,11 +13,12 @@ import { SharedModule } from '../shared/shared.module';
 import { LogoutComponent } from './logout/logout.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { ViewAndUpdateProfileComponent } from './view-and-update-profile/view-and-update-profile.component';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 @NgModule({
   declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent, ViewAndUpdateProfileComponent],
   imports: [
     CommonModule,
+    ProgressSpinnerModule,
     FarmerRoutingModule,
     FormsModule,
     HttpClientModule,

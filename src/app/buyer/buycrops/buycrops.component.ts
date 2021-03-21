@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { BuyerRequest } from 'src/app/shared/models/BuyerRequest';
-import { FarmerTransaction } from 'src/app/shared/models/farmerTransaction';
+import { FarmerTransaction } from 'src/app/shared/models/FarmerTransaction';
 import { BuycropsService } from './Buycrops.service';
 import { RequestServiceService } from './requestService.service';
 

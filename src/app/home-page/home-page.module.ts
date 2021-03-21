@@ -18,7 +18,7 @@ import { PasswordChangefailureComponent } from './password-changefailure/passwor
 //import { information } from '../shared/about';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { SecurityQuestionCHeckComponent } from './security-question-check/security-question-check.component';
-
+import { CheckStorageComponent } from './check-storage/check-storage.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -33,6 +33,7 @@ import { SecurityQuestionCHeckComponent } from './security-question-check/securi
     PasswordChangeSuccessComponent,
     PasswordChangefailureComponent,
     SecurityQuestionCHeckComponent,
+    CheckStorageComponent,
   ],
   imports: [
     CommonModule,

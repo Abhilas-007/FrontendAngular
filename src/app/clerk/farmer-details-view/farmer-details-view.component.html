@@ -3,10 +3,11 @@
 <div class="main-container">
 
     <div class="list-container">
-        <h1>Farmers</h1>
+        <h1>Farmer Ids</h1>
         <div class="list-menu">
             <a class="list-menu-item"
-                *ngFor="let l of lists">
+                *ngFor="let l of lists"
+                (click)="getFarmer(l)">
                     <p>
                         {{l}}
                     </p>
@@ -15,21 +16,52 @@
     </div>
     
     <div class="details-container">
-        <h1>Farmer Transaction Details</h1>
-        <div class="details">
-            <div class="list-details"
-                *ngFor="let l of lists">
+            <h1>Farmer Details</h1>
+            <div class="personal-details">
                     <p>
-                        Name: Ram
+                        Name: {{farmer.farmerName}}
                     </p>
                     <p>
-                        Date: 16/03/2021
+                        Aadhar Number: {{farmer.aadharNumber}}
                     </p>
                     <p>
-                        Amount: 50000/-
+                        Mobile Nummber: {{farmer.mobileNumber}}
+                    </p>
+                    <p>
+                        Bank Name: {{farmer.bankName}}
+                    </p>
+                    <p>
+                        Account Number: {{farmer.accountNumber}}
+                    </p>
+                    <p>
+                        IFSC: {{farmer.ifsc}}
+                    </p>
+            </div>
+                <h1>Farmer Transaction Details</h1>
+                <div class="details">
+                <div class="list-details"
+                *ngFor="let t of transactions">
+                    <p>
+                        Transaction Id: {{t.transactionId}}
+                    </p>
+                    <p>
+                        Crop Name: {{t.cropName}}
+                    </p>
+                    <p>
+                        Crop Class: {{t.cropClass}}
+                    </p>
+                    <p>
+                        Quantity: {{t.quantity}}
+                    </p>
+                    <p>
+                        Amount: {{t.amount}}
+                    </p>
+                    <p>
+                        Date: {{t.date}}
                     </p>
                 </div>
         </div>
+
     </div>
 
 </div>
