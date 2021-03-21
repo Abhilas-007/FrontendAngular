@@ -11,7 +11,7 @@ export class BuyerServiceService {
 
   private updateUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/update';
   private getUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/get/'+localStorage.getItem('userId');
-  private getTransactionUrl= 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyerTransaction/getTransactions/'+localStorage.getItem('userId');
+  private getTransactionUrl= 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyerTransaction/getTransactions/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class BuyerServiceService {
     console.log(buyer);
     return this.httpClient.put<Buyer>(`${this.updateUrl}`,buyer);
   }
-  getTransaction() {
-    return this.httpClient.get<BuyerTransaction[]>(`${this.getTransactionUrl}`)
+  getTransaction(userId:any) {
+    return this.httpClient.get<BuyerTransaction[]>(`${this.getTransactionUrl}`+userId)
   }
 }

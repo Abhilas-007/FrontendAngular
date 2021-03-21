@@ -11,8 +11,8 @@ export class FarmerServiceService {
   
   constructor(private httpClient: HttpClient) { }
  
-    getFarmer(): Observable<Farmer>{
-      return this.httpClient.get<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/getfarmer/"}`+`/`+localStorage.getItem('userId'));
+    getFarmer(userId:any): Observable<Farmer>{
+      return this.httpClient.get<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/getfarmer/"}`+userId);
     }
     updateFarmer(farmer: Farmer):Observable<Farmer> {
       return this.httpClient.put<Farmer>(`${"https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/updateFarmer"}`,farmer);

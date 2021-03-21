@@ -54,7 +54,7 @@ onCancel(){
   this.router.navigate(['/farmer']);
 }
 getFarmer(){
-  this.farmerService.getFarmer().subscribe(data=>{
+  this.farmerService.getFarmer(localStorage.getItem('userId')).subscribe(data=>{
     this.farmer=data;
     console.log(this.farmer);
   });
