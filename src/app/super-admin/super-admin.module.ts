@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SuperAdminRoutingModule } from './super-admin-routing.module';
 import { SuperAdminComponent } from './super-admin.component';
@@ -17,6 +18,7 @@ import { UpdateAdminComponent } from './update-admin/update-admin.component';
     CommonModule,
     SuperAdminRoutingModule,
     SharedModule,
+    FormsModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition:true
     }),

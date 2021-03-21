@@ -1,1 +1,37 @@
 <app-nav-bar></app-nav-bar>
+
+<div class="form-container">
+
+    <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm); updateForm.resetForm()">
+  
+        <div class="field">
+            <label>Admin Id</label>
+            <div class="control">
+                <input class="input" required type="text" [(ngModel)]="admin.adminId" name="adminId" pattern="[1-9]([0-9])?" #adminId="ngModel">
+                <span class="help-block" *ngIf="adminId.errors?.pattern" style="color: red;">Invalid Admin Id</span>
+            </div>
+        </div>
+  
+        <br>
+        
+        <div class="field">
+          <label>Email Id</label>
+          <div class="control">
+              <input class="input" required type="text" [(ngModel)]="admin.emailId" name="emailId" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #email="ngModel">
+              <span class="help-block" *ngIf="email.errors?.pattern" style="color: red;">Invalid Email Id</span>
+            </div>
+        </div>
+  
+        <br>
+        
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit" [disabled]="!updateForm.valid">Update Admin</button>
+          </div>
+          <div class="control">
+            <button class="button is-primary" style="background-color: red;" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+          
+  </form>
+  </div>
