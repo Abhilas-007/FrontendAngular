@@ -6,7 +6,4 @@ export class FarmerTransaction {
     amount: number;
     mandiPincode: number;
     date: string;
- 
 }
-
-    
