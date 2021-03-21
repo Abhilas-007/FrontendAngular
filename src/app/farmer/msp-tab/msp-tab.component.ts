@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Admin } from 'src/app/shared/models/Admin';
 import { Crop } from 'src/app/shared/models/Crop';
 import { AdminService } from '../admin.service';
@@ -25,7 +26,7 @@ export class MspTabComponent implements OnInit {
   allCrops: Crop[] = [];
 
   constructor(private adminService: AdminService,
-    private cropService: CropService) { }
+    private cropService: CropService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAdmins();
@@ -39,7 +40,13 @@ export class MspTabComponent implements OnInit {
         this.i = this.i + 1;
       }
       this.allAdmins = data;
-    }, error => console.log(error));
+    }, error => 
+    {
+      console.log(error);
+      alert("Error in getting admins. Try again later.");
+      this.router.navigate(['/farmer']);
+    }  
+    );
   }
 
   getCrops(): void {
@@ -49,7 +56,13 @@ export class MspTabComponent implements OnInit {
         this.j = this.j + 1;
       }
       this.allCrops = data;
-    }, error => console.log(error));
+    }, error => 
+    {
+      console.log(error);
+      alert("Error in getting crops. Try again later.");
+      this.router.navigate(['/farmer']);
+    }
+    );
   }
 
   onStateSearch() {
