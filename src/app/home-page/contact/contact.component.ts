@@ -8,10 +8,11 @@ import { contact } from '../../shared/mokes/contact';
 })
 export class ContactComponent implements OnInit {
 
-  contact:string=contact.contactUs;
-  mail:string=contact.mail;
-  phone1:string=contact.phone1;
-  phone2:string=contact.phone2
+  message: string = contact.message;
+  mail: string = contact.mail;
+  phone1: string = contact.phone1;
+  phone2: string = contact.phone2;
+
   constructor() { }
 
   ngOnInit(): void {
