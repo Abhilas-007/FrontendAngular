@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Buyer } from 'src/app/shared/models/Buyer';
 import { BuyerServiceService } from '../buyer-service.service';
 
@@ -14,15 +15,14 @@ export class ViewProfileComponent implements OnInit {
   @Output() formSubmit: EventEmitter<Buyer> = new EventEmitter<Buyer>();
   hide: boolean = true;
 
-  constructor(private buyerService: BuyerServiceService) { }
+  constructor(private buyerService: BuyerServiceService,private router: Router) { }
 
   ngOnInit(): void {
-    this.buyer = null;
     this.getBuyer();
   }
 
   getBuyer(){
-    this.buyerService.getBuyer().subscribe(data => {
+    this.buyerService.getBuyer(localStorage.getItem('userId')).subscribe(data => {
       this.buyer=data;
     });
   }
@@ -35,6 +35,10 @@ export class ViewProfileComponent implements OnInit {
       }, error => console.log(error));
 
       window.alert("Details Updated Successfuly");
+  }
+
+  onCancel(){
+    this.router.navigate(['/buyer']);
   }
 
 }

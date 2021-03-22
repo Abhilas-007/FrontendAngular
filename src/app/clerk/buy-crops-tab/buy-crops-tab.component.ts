@@ -129,7 +129,7 @@ export class BuyCropsTabComponent implements OnInit {
     this.allCropsEntered = true;
     const control = <FormArray>this.FormGroup.controls['itemRows'];
     this.inputLength = this.noOfCropTypes - 1;
-    console.log(this.noOfCropTypes);
+    // console.log(this.noOfCropTypes);
     this.tempAllItems = control.value;
     this.foundWrongItem = false;
 

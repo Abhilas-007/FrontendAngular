@@ -10,13 +10,13 @@ import { BuyerTransaction } from '../shared/models/BuyerTransaction';
 export class BuyerServiceService {
 
   private updateUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/update';
-  private getUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/get/'+localStorage.getItem('userId');
+  private getUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/get/';
   private getTransactionUrl= 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyerTransaction/getTransactions/';
 
   constructor(private httpClient: HttpClient) { }
 
-  getBuyer(): Observable<Buyer>{
-    return this.httpClient.get<Buyer>(`${this.getUrl}`);
+  getBuyer(userId: any): Observable<Buyer>{
+    return this.httpClient.get<Buyer>(`${this.getUrl}`+userId);
   }
 
   updateBuyer(buyer:Buyer): Observable<Buyer>{

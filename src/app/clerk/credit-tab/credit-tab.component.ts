@@ -4,6 +4,7 @@ import { ClerkTransactionService } from '../clerkTransaction.service';
 import { DialogService } from '../dialogService.service';
 import { debounceTime, tap } from 'rxjs/operators';
 import { ExtraCredit } from 'src/app/shared/models/ExtraCredit';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-credit-tab',
@@ -19,7 +20,8 @@ export class CreditTabComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dialogService: DialogService,
-    private clerkTransService: ClerkTransactionService
+    private clerkTransService: ClerkTransactionService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class CreditTabComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure you want to continue?')
       .afterClosed().subscribe(res => {
         if (res) {
-          console.log("PASS");
+          // console.log("PASS");
           this.extraCreditObj.transactionId = this.creditForm.controls['transId'].value;
           this.extraCreditObj.cropClass = this.creditForm.controls['cropClass'].value;
           this.clerkTransService.creditExtraAmount(this.extraCreditObj)
@@ -50,8 +52,9 @@ export class CreditTabComponent implements OnInit {
               }
             },
               error => {
-                alert("Error in finding crop quality price.");
-                this.creditForm.reset();
+                console.log(error);
+                // alert("Error in finding crop quality price.");
+                // this.router.navigate(['/clerk/creditTab']);
               }
             );
         }
@@ -88,6 +91,12 @@ export class CreditTabComponent implements OnInit {
               this.transId.markAsPending({ onlySelf: false });
               this.transId.setErrors(null);
             }
+          }, 
+          error =>
+          {
+            console.log(error);
+            // alert("Error in checking crop quality price.");
+            // this.creditForm.reset();
           }
           )
       }

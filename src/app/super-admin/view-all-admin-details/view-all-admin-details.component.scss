@@ -4,17 +4,10 @@ table,th,td {
     text-align: center;
     background-color: wheat;
     opacity: 0.9;
-    
- }
- th{
-   position: sticky;
  }
 table {
-  //width: 100%;
   display: table;
   overflow-y: scroll;
   max-height: 400px;
   border-collapse: collapse;
-  
-
 }

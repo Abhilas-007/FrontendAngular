@@ -26,9 +26,19 @@ export class ViewProfileComponent implements OnInit
   {
     this.clerkService.getClerk(localStorage.getItem('userId')).subscribe(data => 
       {
-        this.clerk = data
-      },error => 
+        if(data != null)
+        {
+          this.clerk = data
+        }
+        else
+        {
+          alert("Error getting the clerk details.");
+          this.router.navigate(['/clerk']);
+        }
+      },
+      error => 
       {
+        console.log(error);
         alert("Error getting the clerk details.");
         this.router.navigate(['/clerk']);
       }
@@ -39,15 +49,24 @@ export class ViewProfileComponent implements OnInit
   {
     this.clerkService.updateClerk(form.value).subscribe(data => 
       {
-        this.clerk=data;
-      }, error => 
+        if(data == true)
+        {
+          alert("Details Updated Successfuly");
+          this.router.navigate(['/clerk']);
+        }
+        else
+        {
+          alert("Error updating the clerk.");
+          this.router.navigate(['/clerk']);
+        }
+      }, 
+      error => 
       {
+        console.log(error);
         alert("Error updating the clerk.");
         this.router.navigate(['/clerk']);
       }
     );
-    alert("Details Updated Successfuly");
-    this.router.navigate(['/clerk']);
   }
 }
 

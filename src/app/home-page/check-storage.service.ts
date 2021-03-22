@@ -9,8 +9,8 @@ import { Admin } from '../shared/models/Admin';
 export class CheckStorageService {
 
   
-  private findAdmin:String=' https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAdminsByState';
-  private findMandi:String=' https://alok-emandi-dec-20-dev-api.azurewebsites.net/mandi/getMandiByAdminId';
+  private findAdmin:String='https://alok-emandi-dec-20-dev-api.azurewebsites.net/getAdminByState';
+  private findMandi:String='https://alok-emandi-dec-20-dev-api.azurewebsites.net/mandi/getMandiByAdminId';
 
   constructor(private http:HttpClient) { }
 

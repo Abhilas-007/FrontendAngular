@@ -1,7 +1,7 @@
-
+ 
 <app-buyer></app-buyer>
 
-    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" style="overflow: scroll; height: 70%; width: 40%; overflow-x: hidden;">
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" style="overflow: scroll; height: 70%; width: 40%; overflow-x: hidden; margin-left: 30%;">
 
       <div class="field">
         <label>Id</label>
@@ -52,6 +52,9 @@
           <div class="field is-grouped">
             <div class="control">
               <button class="button is-primary" [disabled]="!profileForm.valid" type="submit">Update</button>
+            </div>
+            <div class="control">
+              <button class="button is-primary" style="background-color: red;" type="button" (click)="onCancel()">Cancel</button>
             </div>
           </div>
             

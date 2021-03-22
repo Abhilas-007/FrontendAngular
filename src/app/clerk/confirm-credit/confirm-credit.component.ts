@@ -31,15 +31,46 @@ export class ConfirmCreditComponent implements OnInit {
       this.allClerkCropItems[i] = this.dataService.getClerkCropItems()[i];
       this.allCosts[i] = this.dataService.getAllCosts()[i];
     }
-    this.clerkService.getTotalPrice(this.allClerkCropItems).subscribe(data => { this.totalPrice = data });
+    this.clerkService.getTotalPrice(this.allClerkCropItems)
+    .subscribe(
+      data => 
+      { 
+        if(data != 0)
+        {
+          this.totalPrice = data; 
+        }
+        else
+        {
+          alert("Error in getting the total price.");
+          this.dataService.allCrops = [];
+          this.dataService.allClerkCropItems = [];
+          this.router.navigate(['/clerk/buyCropsTab']);
+        }
+      }
+    );
   }
 
   onCredit() {
-    this.clerkService.buyCrops(this.allClerkCropItems).subscribe(data => console.log(data));
-    this.dataService.allCrops = [];
-    this.dataService.allClerkCropItems = [];
-    alert("Amount credited successfully!!");
-    this.router.navigate(['/clerk/buyCropsTab']);
+    this.clerkService.buyCrops(this.allClerkCropItems).subscribe(
+      data => 
+      {
+        console.log(data);
+        if(data == false)
+        {
+          alert("Failed to buy crops. Try again later.");
+          this.dataService.allCrops = [];
+          this.dataService.allClerkCropItems = [];
+          this.router.navigate(['/clerk/buyCropsTab']);
+        }
+        else
+        {
+          this.dataService.allCrops = [];
+          this.dataService.allClerkCropItems = [];
+          alert("Amount credited successfully!!");
+          this.router.navigate(['/clerk/buyCropsTab']);
+        }
+      }
+    );
   }
 
   onCancel() {

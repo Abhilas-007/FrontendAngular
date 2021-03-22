@@ -12,51 +12,52 @@ import { CheckStorageService } from '../check-storage.service';
 })
 export class CheckStorageComponent implements OnInit {
 
-  disable:boolean;
+  disable: boolean;
   admins: Array<Admin> = new Array();
-  mandies:Array<any>=new Array();
+  mandies: Array<any> = new Array();
   map: Map<string, string> = new Map<string, string>();
   mandiMap: Map<string, string> = new Map<string, string>();
 
-  temp:Array<any>=new Array();
+  temp: Array<any> = new Array();
   constructor(private storage: CheckStorageService) { }
 
   ngOnInit(): void {
   }
   onClick(state: string) {
-    state=state.toLowerCase();
-    if(state=='select'){
+    state = state.toLowerCase();
+    if (state == 'select') {
       alert("Plaease select a state");
       return;
     }
-    document.getElementById("table").style.display="flex";
-    this.mandies=[];
+    document.getElementById("table").style.display = "flex";
+    this.mandies = [];
     this.map.set('state', state);
     console.log(this.map);
     this.storage.getAdmins(this.map).subscribe(
       data => {
         this.admins = data,
-         
-         this.admins.forEach(x => {
-          this.mandiMap.set('adminId', x.adminId);
-          
-          this.storage.getMandis(this.mandiMap).subscribe(
-            data => {
-    
-              this.temp = data,
-              
-              this.mandies=this.mandies.concat(this.temp),
-              console.log(this.mandies)
-              
-              
-    
-            },
-            error => {console.log(error)}
-          )
+
+        console.log(this.admins),
+        this.admins.forEach(x => {
+            this.mandiMap.set('adminId', x.adminId);
+
+            this.storage.getMandis(this.mandiMap).subscribe(
+              data => {
+
+                this.temp = data,
+                
+                this.mandies = this.mandies.concat(this.temp),
+                console.log(this.mandies)
+
+
+
+              },
+              error => { alert("error"),console.log(error) }
+            );
         })
       },
-      error =>{ console.log(error)}
-        
+      error => { console.log(error) }
+
 
     );
 

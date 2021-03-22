@@ -1,0 +1,37 @@
+.form-container{
+
+    form{
+
+        margin-top: 50px;
+        margin-left: 30%;
+        height: 70%;
+        width: 40%;
+        background-color: wheat;
+        opacity: 0.7;
+        padding: 20px 20px 20px;
+    
+        .field{
+    
+            margin-top: 10px;
+            
+            label{
+                font-size: x-large;
+            }
+
+            input{
+                padding: 3px;
+                font-size: x-large;
+            }
+
+    
+            button{
+                padding: 5px;
+                height: 60px;
+                width: 165px;
+                font-size: x-large;
+            }
+        }
+        
+    }
+
+}

@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Admin } from '../shared/models/Admin';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SuperAdminService {
-  private baseUrl: string =
-    'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
- // private baseUrl: string = 'http://localhost:8080';
+ private baseUrl: string =
+   'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  //private baseUrl: string = 'http://localhost:8080';
   constructor(private httpclient: HttpClient) {}
 
   chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -41,5 +42,14 @@ export class SuperAdminService {
       sAdminId: localStorage.getItem('userId')
     };
     return this.httpclient.post(`${this.baseUrl}/sAdmin/addAdmin`, obj, {responseType :'text'});
+  }
+
+  updateAdmin(admin: Admin): Observable<Admin>{
+    admin.password = this.randomString(this.getRandomArbitrary(6,10), this.chars);
+    return this.httpclient.put<Admin>(`${this.baseUrl}/admin/updateAdmin`,admin);
+  }
+
+  viewAllAdmins():Observable<any>{
+    return this.httpclient.get(`https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllAdmins`);
   }
 }

@@ -1,0 +1,25 @@
+<app-nav-bar></app-nav-bar>
+<div class="container" style="display: flex;align-items: center;justify-content: center;">
+  <div id="table" class="container" style="display: flex;align-items: center;justify-content: center;">
+    <div class="check" style="max-height: 400px;overflow-y: auto;width: 50%">
+      <table class="table table-responsive">
+        <tr>
+          <th>Admin Id</th>
+          <th>State</th>
+          <th>Email Id</th>
+        </tr>
+        <tr *ngFor='let admin of admins'>
+          <td>
+            {{admin.adminId}}
+          </td>
+          <td>
+            {{admin.state}}
+          </td>
+          <td>
+            {{admin.emailId}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
