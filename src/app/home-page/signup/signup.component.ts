@@ -43,7 +43,12 @@ export class SignupComponent implements OnInit {
        console.log(this.farmerId);
         this.goToEmployeeList();
      } 
-    });
+    },
+    (error)=>{
+      console.log(error);
+      alert("Aadhar number already exists.");
+      this.router.navigate(['/signup'])
+     });
   }
   goToEmployeeList(){
     alert("Sign up Successfully"+"\n"+"Your Farmer Id is :"+this.farmerId);

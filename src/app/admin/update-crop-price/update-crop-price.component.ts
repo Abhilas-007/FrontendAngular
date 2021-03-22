@@ -42,7 +42,8 @@ export class UpdateCropPriceComponent implements OnInit {
     },
     (error) => {
       console.log(error);
-     
+      window.alert("Invalid crop details.");
+      history.go(0);
      });
 
   }
