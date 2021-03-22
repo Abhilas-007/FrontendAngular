@@ -10,10 +10,13 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { ViewAllAdminDetailsComponent } from './view-all-admin-details/view-all-admin-details.component';
+
 
 
 @NgModule({
-  declarations: [SuperAdminComponent, NavBarComponent, AddAdminComponent, UpdateAdminComponent],
+  declarations: [SuperAdminComponent, NavBarComponent, AddAdminComponent, UpdateAdminComponent,ViewAllAdminDetailsComponent],
+
   imports: [
     CommonModule,
     SuperAdminRoutingModule,

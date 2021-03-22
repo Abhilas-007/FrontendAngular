@@ -48,4 +48,8 @@ export class SuperAdminService {
     admin.password = this.randomString(this.getRandomArbitrary(6,10), this.chars);
     return this.httpclient.put<Admin>(`${this.baseUrl}/admin/updateAdmin`,admin);
   }
+
+  viewAllAdmins():Observable<any>{
+    return this.httpclient.get(`http://localhost:8080/admin/getAllAdmins`);
+  }
 }

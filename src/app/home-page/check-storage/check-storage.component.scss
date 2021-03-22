@@ -6,6 +6,9 @@ table,th,td {
     opacity: 0.9;
     
  }
+ th{
+   position: sticky;
+ }
 table {
   //width: 100%;
   display: table;
