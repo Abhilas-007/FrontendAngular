@@ -50,6 +50,6 @@ export class SuperAdminService {
   }
 
   viewAllAdmins():Observable<any>{
-    return this.httpclient.get(`http://localhost:8080/admin/getAllAdmins`);
+    return this.httpclient.get(`https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAllAdmins`);
   }
 }
