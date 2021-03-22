@@ -15,27 +15,38 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details-view.component';
 import { CreditConfirmDialogComponent } from './credit-confirm-dialog/credit-confirm-dialog.component';
 import { CreditTabComponent } from './credit-tab/credit-tab.component';
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
-import { ViewProfileComponent } from './view-profile/view-profile.component'
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { ClerkBuyerRequestListComponent } from './clerk-buyer-request-list/clerk-buyer-request-list.component';
 
 @NgModule({
-  declarations: [ClerkComponent, BuyCropsTabComponent, ConfirmCreditComponent, FarmerDetailsViewComponent, CreditConfirmDialogComponent, CreditTabComponent, BuyerDetailsViewComponent, ViewProfileComponent],
+  declarations: [
+    ClerkComponent,
+    BuyCropsTabComponent,
+    ConfirmCreditComponent,
+    FarmerDetailsViewComponent,
+    CreditConfirmDialogComponent,
+    CreditTabComponent,
+    BuyerDetailsViewComponent,
+    ViewProfileComponent,
+    ClerkBuyerRequestListComponent,
+  ],
   imports: [
     CommonModule,
     ClerkRoutingModule,
     SharedModule,
     HttpClientModule,
     BackButtonDisableModule.forRoot({
-      preserveScrollPosition:true
+      preserveScrollPosition: true,
     }),
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [DataService],
-  entryComponents: [CreditConfirmDialogComponent]
+  entryComponents: [CreditConfirmDialogComponent],
 })
-export class ClerkModule { }
+export class ClerkModule {}
