@@ -7,7 +7,7 @@
         <div class="field">
             <label>Admin Id</label>
             <div class="control">
-                <input class="input" required type="text" [(ngModel)]="admin.adminId" name="adminId" pattern="[1-9]([0-9])?" #adminId="ngModel">
+                <input class="input" required type="text" [(ngModel)]="admin.adminId" name="adminId" pattern="[A05][0-9]{7}" #adminId="ngModel">
                 <span class="help-block" *ngIf="adminId.errors?.pattern" style="color: red;">Invalid Admin Id</span>
             </div>
         </div>

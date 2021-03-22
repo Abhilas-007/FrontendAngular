@@ -21,7 +21,12 @@ export class UpdateAdminComponent implements OnInit {
   onSubmit(form: NgForm){
     this.sService.updateAdmin(this.admin).subscribe(data => {
       this.admin = data;
-    });
+      window.alert("Admin Updated Successfully");
+    }, error => {
+      window.alert("Invalid Admin Id");
+    }
+    );
+    
   }
 
   onCancel(){
