@@ -4,11 +4,8 @@
 
   <div #menu class="navbar-menu">
     <div class="navbar-start">
-      <button class="button is-primary" [routerLink]="['/buyer/buycrops']" routerLinkActive>
-        BuyCrops
-      </button>
-      <button class="btn btn-success" [routerLink]="['/buyer/viewTransaction']" style="margin-top: 17px; margin-left: 30px;">View
-        Transactions</button>
+      <a class="navbar-item" [routerLink]="['/buyer/buycrops']" routerLinkActive>Buy Crops</a>
+      <a class="navbar-item" [routerLink]="['/buyer/viewTransaction']" routerLinkActive>View Transactions</a>
     </div>
   
     <div class="navbar-end">
