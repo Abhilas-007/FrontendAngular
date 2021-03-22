@@ -22,7 +22,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   getBuyer(){
-    this.buyerService.getBuyer().subscribe(data => {
+    this.buyerService.getBuyer(localStorage.getItem('userId')).subscribe(data => {
       this.buyer=data;
     });
   }
