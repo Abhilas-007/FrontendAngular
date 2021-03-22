@@ -8,9 +8,9 @@ import { Admin } from '../shared/models/Admin';
   providedIn: 'root',
 })
 export class SuperAdminService {
- //private baseUrl: string =
-   //'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
-  private baseUrl: string = 'http://localhost:8080';
+ private baseUrl: string =
+   'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  //private baseUrl: string = 'http://localhost:8080';
   constructor(private httpclient: HttpClient) {}
 
   chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
