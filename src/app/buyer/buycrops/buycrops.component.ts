@@ -64,8 +64,8 @@ saveDetails(a:BuyerRequest) {
       for(let a of this.request1){
         this.saveDetails(a);
       }
+      alert("Request Added Successfully")
     }
-    
     else
     {
       alert("enter mandipincode and choose details")
