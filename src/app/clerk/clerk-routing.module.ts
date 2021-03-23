@@ -8,6 +8,7 @@ import { FarmerDetailsViewComponent } from './farmer-details-view/farmer-details
 import { CreditTabComponent } from './credit-tab/credit-tab.component';
 import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { ClerkBuyerRequestListComponent } from './clerk-buyer-request-list/clerk-buyer-request-list.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   { 
     path: '', 
     component: ClerkComponent 
+  },
+  { 
+    path: 'buyerRequests', 
+    component: ClerkBuyerRequestListComponent 
   }
 ];
 

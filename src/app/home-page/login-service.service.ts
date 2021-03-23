@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class LoginServiceService {
 // private baseUrl: string =
  //  'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
- private baseUrl: string = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+ private baseUrl: string = 'http://localhost:8080';
   constructor(private httpclient: HttpClient) {}
   loginAdmin(map: any): Observable<any> {
     let obj = {
@@ -42,7 +42,7 @@ export class LoginServiceService {
       userId: map.get('userId'),
       password: map.get('password'),
     };
-    return this.httpclient.post(`${this.baseUrl}/clerk/login`, obj);
+    return this.httpclient.post(`${this.baseUrl}/clerk/login`, obj, {responseType: 'text'});
   }
   resetPass(map: any): Observable<any> {
     let obj = {

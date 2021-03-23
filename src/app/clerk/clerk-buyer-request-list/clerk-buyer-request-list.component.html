@@ -1,0 +1,36 @@
+<app-clerk></app-clerk>
+
+<div class="spinner">
+  <p-progressSpinner *ngIf="requestList == null"></p-progressSpinner>
+</div>
+<div class="main-container" *ngIf="requestList != null">
+  <div class="list-container">
+      <h2>Buyer ID List</h2>
+    <div class="list-menu">
+      <a
+        class="list-menu-item"
+        *ngFor="let l of requestList"
+        (click)="getRequestDetails(l)"
+      >
+        <p>
+          {{ l.buyerId }}
+        </p>
+      </a>
+    </div>
+  </div>
+  <div class="details-container" *ngIf="request!=null">
+    <h1>Buyer Request Details</h1>
+    <div class="personal-details">
+      <p>Buyer ID={{ request.buyerId }}</p>
+      <p>Crop Name={{ request.cropName }}</p>
+      <p>Crop Class={{ request.cropClass }}</p>
+      <p>Quantity={{ request.quantity }} quintals</p>
+      <table>
+        <tr>
+          <td><button class="btn btn-success" (click)="acceptRequest(request)">Accept</button></td>
+          <td><button class="btn btn-danger" (click)="rejectRequest()">Reject</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

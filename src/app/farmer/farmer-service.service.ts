@@ -8,6 +8,7 @@ import { Farmer } from '../shared/models/Farmer';
 })
 export class FarmerServiceService {
   getUrl='https://alok-emandi-dec-20-dev-api.azurewebsites.net';
+  baseUrl='http://localhost:8080';
   
   constructor(private httpClient: HttpClient) { }
  
@@ -19,7 +20,7 @@ export class FarmerServiceService {
     }
 
     getTransactions(): Observable<any>{
-     return this.httpClient.get(`${this.getUrl}/farmerTransaction/`+localStorage.getItem('userId'));
+     return this.httpClient.get(`${this.baseUrl}/farmerTransaction/`+localStorage.getItem('userId'));
     }
  
 }

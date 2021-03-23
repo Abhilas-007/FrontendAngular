@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BuyerDetailsViewComponent } from './buyer-details-view/buyer-details-view.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { ClerkBuyerRequestListComponent } from './clerk-buyer-request-list/clerk-buyer-request-list.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ClerkBuyerRequestListComponent } from './clerk-buyer-request-list/clerk
     CreditTabComponent,
     BuyerDetailsViewComponent,
     ViewProfileComponent,
-    ClerkBuyerRequestListComponent,
+    ClerkBuyerRequestListComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +46,7 @@ import { ClerkBuyerRequestListComponent } from './clerk-buyer-request-list/clerk
     ReactiveFormsModule,
     MatDialogModule,
     MatIconModule,
+    ProgressSpinnerModule,
   ],
   providers: [DataService],
   entryComponents: [CreditConfirmDialogComponent],

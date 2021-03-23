@@ -18,7 +18,7 @@ export class ClerkService {
   private buyerUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyer/details';
   private transactionurl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmerTransaction/byId';
   private transactionurl1 = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net/buyerTransaction/byId';
-
+  private baseUrl="http://localhost:8080";
   constructor(private httpClient: HttpClient) { }
 
   getFarmerIds(clerkId: string): Observable<Array<number>>{
@@ -68,4 +68,8 @@ export class ClerkService {
   {
     return this.httpClient.put("https://alok-emandi-dec-20-dev-api.azurewebsites.net/clerk/updateClerk",clerk);
   }
+
+   getRequestList(userId: any): Observable<any>{
+     return this.httpClient.get(`${this.baseUrl}/clerk/getRequestList/`+userId);
+   }
 }
