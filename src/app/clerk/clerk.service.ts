@@ -81,9 +81,9 @@ export class ClerkService {
    }
 
    rejectRequest(requestId: any): Observable<any>{
-    let obj={
+    let jsonObj={
       reqId: requestId
     }
-    return this.httpClient.post(`${this.baseUrl}/clerk/rejectRequest`,obj, {responseType: 'text'});
+    return this.httpClient.post(`${this.baseUrl}/clerk/rejectRequest`, jsonObj, {responseType: 'text'});
   }
 }
