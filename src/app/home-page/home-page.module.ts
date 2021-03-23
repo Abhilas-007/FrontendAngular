@@ -20,6 +20,7 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { SecurityQuestionCHeckComponent } from './security-question-check/security-question-check.component';
 import { CheckStorageComponent } from './check-storage/check-storage.component';
 import { MatIconModule } from "@angular/material/icon";
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -35,6 +36,7 @@ import { MatIconModule } from "@angular/material/icon";
     PasswordChangefailureComponent,
     SecurityQuestionCHeckComponent,
     CheckStorageComponent,
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
