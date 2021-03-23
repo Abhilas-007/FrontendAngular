@@ -19,6 +19,7 @@ import { PasswordChangefailureComponent } from './password-changefailure/passwor
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { SecurityQuestionCHeckComponent } from './security-question-check/security-question-check.component';
 import { CheckStorageComponent } from './check-storage/check-storage.component';
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -43,7 +44,8 @@ import { CheckStorageComponent } from './check-storage/check-storage.component';
     ReactiveFormsModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition: true
-    })
+    }),
+    MatIconModule
   ],
 })
 export class HomePageModule {}
