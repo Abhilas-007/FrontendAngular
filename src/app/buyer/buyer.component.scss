@@ -1,23 +1,16 @@
-*{
-    margin: 0px;
-    padding: 0px;
-   }
-   body{
-    font-family: arial;
-    background-color:black;
-   }
 
    .main-container{
 
      overflow-y: scroll;
      height: 77%;
-     background-color: rgb(172, 76, 76);
+     margin-top: 0%;
+     padding: 0px;
 
     .instruction{
 
         height: fit-content;
         padding: 1.5%;
-        color: white;
+        color: black;
     
         p{
             font-size: large;
@@ -43,6 +36,7 @@
             border-radius: 5px; 
             margin: 2%;
             height: 40%;
+            opacity: 1;
     
             .image img{
                 width: 100%;
