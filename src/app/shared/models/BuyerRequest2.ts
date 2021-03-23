@@ -1,6 +1,6 @@
 
 export class BuyerRequest2 {
-    ReqId: string;
+   id: string;
     cropClass:string;
     cropName:string;
     quantity:number;

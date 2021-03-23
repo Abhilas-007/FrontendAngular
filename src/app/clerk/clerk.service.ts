@@ -72,4 +72,18 @@ export class ClerkService {
    getRequestList(userId: any): Observable<any>{
      return this.httpClient.get(`${this.baseUrl}/clerk/getRequestList/`+userId);
    }
+
+   acceptRequest(requestId: any): Observable<any>{
+     let obj={
+       reqId: requestId
+     }
+     return this.httpClient.post(`${this.baseUrl}/clerk/acceptRequest`, obj, {responseType: 'text'});
+   }
+
+   rejectRequest(requestId: any): Observable<any>{
+    let obj={
+      reqId: requestId
+    }
+    return this.httpClient.post(`${this.baseUrl}/clerk/rejectRequest`,obj, {responseType: 'text'});
+  }
 }
