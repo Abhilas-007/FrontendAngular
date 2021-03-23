@@ -11,14 +11,13 @@
 
      overflow-y: scroll;
      height: 77%;
+     background-color: rgb(172, 76, 76);
 
     .instruction{
 
-        background-color: white;
         height: fit-content;
         padding: 1.5%;
-        margin-left: 2%;
-        margin-right: 2%;
+        color: white;
     
         p{
             font-size: large;
