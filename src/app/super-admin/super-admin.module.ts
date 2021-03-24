@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SuperAdminRoutingModule } from './super-admin-routing.module';
 import { SuperAdminComponent } from './super-admin.component';
@@ -22,6 +23,7 @@ import { ViewAllAdminDetailsComponent } from './view-all-admin-details/view-all-
     SuperAdminRoutingModule,
     SharedModule,
     FormsModule,
+    HttpClientModule,
     BackButtonDisableModule.forRoot({
       preserveScrollPosition:true
     }),
