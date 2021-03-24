@@ -20,7 +20,7 @@ export class FarmerServiceService {
     }
 
     getTransactions(): Observable<any>{
-     return this.httpClient.get(`${this.baseUrl}/farmerTransaction/`+localStorage.getItem('userId'));
+     return this.httpClient.get(`${this.getUrl}/farmerTransaction/`+localStorage.getItem('userId'));
     }
  
 }

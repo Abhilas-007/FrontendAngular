@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          alert("Wrong userId or password");
+          this.loginForm.reset();
         }
       );
     }
@@ -67,6 +69,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          alert("Wrong userId or password");
+          this.loginForm.reset();
         }
       );
     }
@@ -87,6 +91,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          alert("Wrong userId or password");
+          this.loginForm.reset();
         }
       );
     }
@@ -107,6 +113,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          alert("Wrong userId or password");
+          this.loginForm.reset();
         }
       );
     }
@@ -127,6 +135,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          alert("Wrong userId or password");
+          this.loginForm.reset();
         }
       );
     }

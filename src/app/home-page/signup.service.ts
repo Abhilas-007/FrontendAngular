@@ -11,7 +11,7 @@ export class SignupService {
   private baseURL ="https://alok-emandi-dec-20-dev-api.azurewebsites.net/farmer/createFarmer";
   constructor(private httpClient: HttpClient) { }
 
-  createEmployee(farmer:Farmer): Observable<object>{
+  createFarmer(farmer:Farmer): Observable<object>{
     return this.httpClient.post(`${this.baseURL}`, farmer);
   }
   

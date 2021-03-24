@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   stringJson:string;
   farmerId;
   farmer:Farmer= new Farmer();
-  constructor(private employeeService: SignupService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private signUpService: SignupService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
    
@@ -26,14 +26,14 @@ export class SignupComponent implements OnInit {
   onSubmit(form:NgForm){
     if(this.farmer.password===this.confirmPassword){
       console.log(form);
-    this.saveEmployee();
+    this.saveFarmer();
     }
     else
     alert("Password not matched");
     
    }
-   saveEmployee(){
-    this.employeeService.createEmployee(this.farmer).subscribe(data =>{
+   saveFarmer(){
+    this.signUpService.createFarmer(this.farmer).subscribe(data =>{
       if(data==null){
         alert("Aadhar number already exists.");
         window.location.reload();
@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
      if(data!=null){
        this.farmerId=data;
        console.log(this.farmerId);
-        this.goToEmployeeList();
+        this. goToFarmerList();
      } 
     },
     (error)=>{
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['/signup'])
      });
   }
-  goToEmployeeList(){
+  goToFarmerList(){
     alert("Sign up Successfully"+"\n"+"Your Farmer Id is :"+this.farmerId);
     this.router.navigate(['']);
   }
