@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FarmerDashboardComponent } from './farmer-dashboard/farmer-dashboard.component';
 import { FarmerComponent } from './farmer.component';
 import { MspTabComponent } from './msp-tab/msp-tab.component';
 import { TransactionTabComponent } from './transaction-tab/transaction-tab.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   { 
     path: '', 
-    component: FarmerComponent 
+    component: FarmerDashboardComponent 
   },
   {
     path: "viewProfile",

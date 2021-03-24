@@ -14,8 +14,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { ViewAndUpdateProfileComponent } from './view-and-update-profile/view-and-update-profile.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { FarmerDashboardComponent } from './farmer-dashboard/farmer-dashboard.component';
 @NgModule({
-  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent, ViewAndUpdateProfileComponent],
+  declarations: [FarmerComponent, MspTabComponent, TransactionTabComponent, LogoutComponent, ViewAndUpdateProfileComponent, FarmerDashboardComponent],
   imports: [
     CommonModule,
     ProgressSpinnerModule,
