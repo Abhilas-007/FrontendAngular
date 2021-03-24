@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CheckStorageService } from './check-storage.service';
 
@@ -6,7 +8,12 @@ describe('CheckStorageService', () => {
   let service: CheckStorageService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule 
+      ],
+    });
     service = TestBed.inject(CheckStorageService);
   });
 
