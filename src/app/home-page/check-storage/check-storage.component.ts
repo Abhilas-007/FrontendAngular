@@ -24,6 +24,8 @@ export class CheckStorageComponent implements OnInit {
   ngOnInit(): void {
   }
   onClick(state: string) {
+    document.getElementById('load')
+    .style.display = 'flex',
     state = state.toLowerCase();
     if (state == 'select') {
       alert("Plaease select a state");
@@ -44,7 +46,9 @@ export class CheckStorageComponent implements OnInit {
             this.storage.getMandis(this.mandiMap).subscribe(
               data => {
 
+               this.hideloader();
                 this.temp = data,
+                
                 
                 this.mandies = this.mandies.concat(this.temp),
                 console.log(this.mandies)
@@ -56,11 +60,18 @@ export class CheckStorageComponent implements OnInit {
             );
         })
       },
-      error => {console.log(error) }
+      error => {console.log(error) , document.getElementById('load').style.display = 'none'}
 
 
     );
 
 
   }
+  hideloader() {
+  
+    // Setting display of spinner
+    // element to none
+    document.getElementById('load')
+        .style.display = 'none';
+}
 }
