@@ -13,8 +13,8 @@ import { RequestServiceService } from './requestService.service';
 })
 export class BuycropsComponent implements OnInit {
 mandipincode:any;
-farmer1:FarmerTransaction=new FarmerTransaction();
-farmer:FarmerTransaction=new FarmerTransaction();
+farmer1:FarmerTransaction[]=[];
+farmer:FarmerTransaction[]=[];
 
  req: BuyerRequest[] = [];
  id=Number(localStorage.getItem('userId'));
@@ -31,7 +31,7 @@ buyerId=Number(localStorage.getItem('buyerId'));
      
         this.farmer1=data;
       console.log(this.farmer1)
-      if(this.farmer1.mandiPincode == 0){
+      if(this.farmer1[0].mandiPincode == 0){
         alert("Invalid pincode");
       }
       else{
