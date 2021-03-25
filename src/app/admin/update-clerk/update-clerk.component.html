@@ -10,7 +10,7 @@
         </div>
         <br>
    <div class="container">
-    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" #f="ngForm">
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" >
 
         <div class="field">
           <label>Id</label>
@@ -24,7 +24,7 @@
           <div class="field">
               <label>Name</label>
               <div class="control">
-                <input class="input" required type="text" [ngModel]="clerks.clerkName" name="clerkName" pattern="[a-zA-Z]{1,15}([ ][a-zA-z]{1,15})?([ ][a-zA-Z]{1,15})?" #Name="ngModel">
+                <input class="input" required type="text" [(ngModel)]="clerks.clerkName" name="clerkName" pattern="[a-zA-Z]{1,15}([ ][a-zA-z]{1,15})?([ ][a-zA-Z]{1,15})?" #Name="ngModel" required>
                 <span class="help-block" *ngIf="Name.errors?.pattern" style="color: red;">Invalid Name</span>
               </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="field">
               <label>Password</label>
               <div class="control">
-                  <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [ngModel]="clerks.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel">
+                  <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [(ngModel)]="clerks.password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z]).{6,12}$" #pwd="ngModel" required>
                   <i class="material-icons" matSuffix (click)="hide = !hide">
                     {{hide ? 'visibility':'visibility_off'}}
                   </i>
@@ -50,7 +50,7 @@
             <div class="field">
               <label>Phone Number</label>
               <div class="control">
-                  <input class="input" required type="text" [ngModel]="clerks.mobileNumber" name="mobileNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel">
+                  <input class="input" required type="text" [(ngModel)]="clerks.mobileNumber" name="mobileNumber" pattern="^[2-9]{1}[0-9]{9}$" #mobile="ngModel" required>
                   <span class="help-block" *ngIf="mobile.errors?.pattern" style="color: red;">MobileNumber Should be 10
                     Digits and It should not start with 0</span>
                 </div>
@@ -62,16 +62,16 @@
             <div class="field">
               <label>Email Id</label>
               <div class="control">
-                  <input class="input" required type="text" [ngModel]="clerks.emailId" name="emailId" pattern="[a-zA-Z]" >
-                  
+                  <input class="input" required type="text" [(ngModel)]="clerks.emailId" name="emailId" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel" required>
+                  <span class="help-block" *ngIf="email.errors?.pattern" style="color: red;">enter valid email id</span>
                 </div>
             </div>
       
             <br>
-           
-                <button type="submit" class="button is-primary" style="background-color: brown;
-                color: white;">Update</button>
-
+            <div class="control">
+                <button class="button is-primary"   type="submit" [disabled]="!profileForm.valid" style="background-color: brown;
+                color: white;" >Update</button>
+</div>
               
               
       </form>

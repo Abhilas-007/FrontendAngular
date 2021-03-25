@@ -18,7 +18,7 @@
               <th> CropName</th>
             <th> Cost</th>
             <th> Class</th>
-            <th> Quantity</th>
+            <th> Quantity(Quintal)</th>
             <th>AddRequest</th>
            
           </tr>
@@ -31,7 +31,8 @@
             <td>{{crops.amount}}</td>
             <td>{{crops.cropClass}}</td>
            
-            <td><input #quantity type="text" placeholder="Enter Quantity "></td>
+            <td><input #quantity type="number" placeholder="Enter Quantity " ></td>
+            
              <td><input type="button" value="add" (click)="saveData(quantity, crops)"></td>
                 
                 </tr>

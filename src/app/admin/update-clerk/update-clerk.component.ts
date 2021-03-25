@@ -34,7 +34,7 @@ clerks:Clerk =new Clerk();
   }
   onSubmit(form:NgForm){
     console.log(form.value);
-
+   
     this.updateClerk.updateClerk(form.value).subscribe(data => 
       {
         this.clerks=data;
@@ -51,6 +51,5 @@ else{
     this.clerks=null;
     this.clerkid=null;
 }
-
-  }
+}
   }

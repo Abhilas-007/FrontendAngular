@@ -9,10 +9,13 @@ describe('Service: Buyer', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BuyerService],
+
       imports: [
         RouterTestingModule,
         HttpClientTestingModule 
       ],
+
+     
     });
   });
 
