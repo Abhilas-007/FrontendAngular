@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewClerkComponent } from './view-clerk.component';
@@ -8,7 +9,10 @@ describe('ViewClerkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewClerkComponent ]
+      declarations: [ ViewClerkComponent ],
+      imports: [
+        HttpClientTestingModule 
+      ]
     })
     .compileComponents();
   });

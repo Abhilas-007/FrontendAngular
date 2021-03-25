@@ -1,5 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { CreditTabComponent } from './credit-tab.component';
@@ -12,7 +14,9 @@ describe('CreditTabComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        MatDialogModule 
       ],
       declarations: [ CreditTabComponent ]
     })

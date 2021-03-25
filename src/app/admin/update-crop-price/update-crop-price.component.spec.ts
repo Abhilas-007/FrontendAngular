@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { UpdateCropPriceComponent } from './update-crop-price.component';
 
@@ -8,7 +11,12 @@ describe('UpdateCropPriceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateCropPriceComponent ]
+      declarations: [ UpdateCropPriceComponent ],
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

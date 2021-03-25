@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewBuyerComponent } from './view-buyer.component';
@@ -8,7 +9,10 @@ describe('ViewBuyerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewBuyerComponent ]
+      declarations: [ ViewBuyerComponent ],
+      imports: [
+        HttpClientTestingModule 
+      ]
     })
     .compileComponents();
   });

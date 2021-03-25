@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { BuyCropsTabComponent } from './buy-crops-tab.component';
@@ -12,7 +13,8 @@ describe('BuyCropsTabComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule,
+        ReactiveFormsModule 
       ],
       declarations: [ BuyCropsTabComponent ]
     })
