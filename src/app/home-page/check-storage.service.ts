@@ -9,7 +9,7 @@ import { Admin } from '../shared/models/Admin';
 export class CheckStorageService {
 
   
-  private findAdmin:String='https://alok-emandi-dec-20-dev-api.azurewebsites.net/getAdminByState';
+  private findAdmin:String='https://alok-emandi-dec-20-dev-api.azurewebsites.net/admin/getAdminByState';
   private findMandi:String='https://alok-emandi-dec-20-dev-api.azurewebsites.net/mandi/getMandiByAdminId';
 
   constructor(private http:HttpClient) { }
@@ -17,6 +17,7 @@ export class CheckStorageService {
   getAdmins(map:any): Observable<any>{
     
 
+    console.log(map);
     const convMap={};
     map.forEach((val: string, key: string) => {
       convMap[key] = val;

@@ -52,11 +52,11 @@ export class CheckStorageComponent implements OnInit {
 
 
               },
-              error => { alert("error"),console.log(error) }
+              error => {console.log(error) }
             );
         })
       },
-      error => { console.log(error) }
+      error => {console.log(error) }
 
 
     );
