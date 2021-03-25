@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogoutService } from '../core/logout.service';
+import { AboutComponent } from './about/about.component';
+import{ about } from '../shared/mokes/about';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +12,9 @@ import { LogoutService } from '../core/logout.service';
 export class HomePageComponent implements OnInit {
 
   val = localStorage.getItem('loginStatus');
+  farmer:string=about.farmer;
+  buyer:string=about.buyer;
+  govt:string=about.govt;
   constructor(private _logout: LogoutService,private router:Router) { }
 
   ngOnInit(): void {
