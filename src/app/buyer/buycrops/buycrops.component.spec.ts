@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { BuycropsComponent } from './buycrops.component';
@@ -12,7 +13,8 @@ describe('BuycropsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule,
+        FormsModule 
       ],
       declarations: [ BuycropsComponent ]
     })
