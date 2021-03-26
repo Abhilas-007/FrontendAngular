@@ -28,4 +28,16 @@ describe('MspTabComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create', () => {
+    expect(component.getAdmins()).toBe();
+  });
+  it('should create', () => {
+    expect(component.getCrops()).toBe();
+  });
+  it('should create', () => {
+    expect(component.onStateSearch()).toBe();
+  });
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
 });

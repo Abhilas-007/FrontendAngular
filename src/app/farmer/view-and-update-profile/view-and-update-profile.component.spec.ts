@@ -30,4 +30,17 @@ describe('ViewAndUpdateProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    expect(component.onSubmit()).toBe();
+  });
+  it('should create', () => {
+    expect(component.onCancel()).toBe();
+  });
+  it('should create', () => {
+    expect(component.getFarmer()).toBe();
+  });
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
 });

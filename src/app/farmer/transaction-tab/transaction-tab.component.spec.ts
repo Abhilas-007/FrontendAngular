@@ -28,4 +28,10 @@ describe('TransactionTabComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create', () => {
+    expect(component.getTransactions()).toBe();
+  });
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
 });
