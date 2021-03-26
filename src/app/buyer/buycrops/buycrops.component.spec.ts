@@ -36,4 +36,21 @@ describe('BuycropsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should execute ngOnInit()', () => {
+    expect(component.ngOnInit()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.getDetails()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onMandiSearch()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onSubmit()).toBe();
+  });
+
 });
