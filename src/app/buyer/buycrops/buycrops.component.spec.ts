@@ -49,8 +49,4 @@ describe('BuycropsComponent', () => {
     expect(component.onMandiSearch()).toBe();
   });
 
-  it('should create', () => {
-    expect(component.onSubmit()).toBe();
-  });
-
 });

@@ -32,7 +32,4 @@ describe('ConfirmDialogComponent', () => {
     expect(component.ngOnInit()).toBe();
   });
 
-  it('should create', () => {
-    expect(component.closeDailog()).toBe();
-  });
 });
