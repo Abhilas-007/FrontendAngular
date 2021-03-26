@@ -30,4 +30,17 @@ describe('ViewProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    expect(component.getBuyer()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onCancel()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
+
 });
