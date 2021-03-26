@@ -27,4 +27,8 @@ describe('ViewCropComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
 });

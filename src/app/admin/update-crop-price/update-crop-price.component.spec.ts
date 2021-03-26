@@ -30,4 +30,24 @@ describe('UpdateCropPriceComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onSubmit()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.getPreviousPrice()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.printSuccessMessage()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onCancel()).toBe();
+  });
 });

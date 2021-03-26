@@ -25,7 +25,19 @@ describe('UpdateCropQualityPriceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create 1', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should create 2', () => {
+    expect(component.ngOnInit()).toBe();
+  });
+
+  it('should create 3', () => {
+    expect(component.getPrice()).toBe();
+  });
+
+  it('should create 5', () => {
+    expect(component.cancel()).toBe();
   });
 });

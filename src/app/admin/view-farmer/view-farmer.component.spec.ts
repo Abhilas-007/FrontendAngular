@@ -28,4 +28,16 @@ describe('ViewFarmerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create', () => {
+    expect(component.ngOnInit()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.getFarmers()).toBe();
+  });
+
+  it('should create', () => {
+    expect(component.onMandiPincodeSearch()).toBe();
+  });
 });
