@@ -41,8 +41,8 @@ describe('ViewFarmerComponent', () => {
     expect(component.onMandiPincodeSearch()).toBe();
   });
 
-  it(`should get the farmers`, waitForAsync( () => {
-    expect(component.getFarmers.length).toBeDefined();
-  }
-  ));
+  // it(`should get the farmers`, waitForAsync( () => {
+  //   expect(component.getFarmers.length).toBeDefined();
+  // }
+  // ));
 });
