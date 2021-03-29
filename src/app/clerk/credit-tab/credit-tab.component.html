@@ -15,13 +15,13 @@
                         <span class="help-block" *ngIf="creditForm.get('transId').errors
                         && (creditForm.get('transId').touched || creditForm.get('transId').dirty)">
                             <span *ngIf="creditForm.get('transId').errors.required">
-                                Transaction ID is required
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Transaction ID is required
                             </span>
                             <span *ngIf="creditForm.get('transId').errors.min && !transId.errors?.notUnique">
-                                Transaction ID must have atleast one digit
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Transaction ID must have atleast one digit
                             </span>
                             <span *ngIf="transId.errors?.notUnique">
-                                Transaction ID not found
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Transaction ID not found
                             </span>
                         </span>
                         <span *ngIf="transId.pending" style="color: rgb(145, 143, 143);">
@@ -38,10 +38,10 @@
                         <span class="help-block" *ngIf="creditForm.get('cropClass').errors
                         && (creditForm.get('cropClass').touched || creditForm.get('cropClass').dirty)">
                             <span *ngIf="creditForm.get('cropClass').errors.required">
-                                Crop class is required
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Crop class is required
                             </span>
                             <span *ngIf="creditForm.get('cropClass').hasError('pattern')">
-                                Crop class must be A or B only
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Crop class must be A or B only
                             </span>
                         </span>
                     </div>
