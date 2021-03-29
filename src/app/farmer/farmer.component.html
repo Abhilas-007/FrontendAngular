@@ -12,7 +12,10 @@
             <a class="navbar-item" [routerLink]="['/msp']" routerLinkActive>MSP</a>
             <a class="navbar-item" [routerLink]="['/transaction']" routerLinkActive>Transaction</a>
         </div>
-        <h1 style="text-align: center; color: brown;"><b>Farmer Dashboard</b>  </h1>
+        <!-- <h1 style="text-align: center; color: brown;"><b>Farmer Dashboard</b>  </h1> -->
+        <h1 style="text-align: center; color: brown; padding-top: 0.6%; font-size: 40px;">
+          <b><a [routerLink]="['/farmer']" style="text-decoration: none; color:brown">Farmer Dashboard</a></b>
+        </h1>
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link"> Profile </a>
