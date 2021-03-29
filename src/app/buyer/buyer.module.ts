@@ -14,7 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { MatDialogModule,MatDialogRef,MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { DialogService } from './dialog.service';
+
 @NgModule({
   declarations: [BuyerComponent,ViewProfileComponent, BuycropsComponent,ViewTransactionComponent, NavBarComponent, ConfirmDialogComponent],
   
@@ -39,7 +39,7 @@ import { DialogService } from './dialog.service';
       provide: MatDialog,
       useValue: {}
     },
-    DialogService
+ 
  ]
 })
 export class BuyerModule { }
