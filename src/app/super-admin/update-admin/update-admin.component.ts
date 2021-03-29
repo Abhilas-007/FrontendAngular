@@ -22,6 +22,7 @@ export class UpdateAdminComponent implements OnInit {
     this.sService.updateAdmin(this.admin).subscribe(data => {
       this.admin = data;
       window.alert("Admin Updated Successfully");
+      form.reset();
     }, error => {
       window.alert("Invalid Admin Id");
     }
