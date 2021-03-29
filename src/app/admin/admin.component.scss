@@ -1,4 +1,4 @@
-@import '../../mainstyles.scss';
+@import "../../mainstyles.scss";
 
 // .navbar{
 //     background-color: $beige-light;
@@ -17,23 +17,33 @@
 // }
 
 .navbar {
-    background-color: ghostwhite;
-    opacity: 0.5;
-    .navbar-item {
-      font-size: x-large;
+  background-color: ghostwhite;
+  opacity: 0.5;
+  height: 30px;
+
+  .navbar-menu {
+    height: 30px;
+  }
+  .navbar-item {
+    font-size: large;
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+
+    a {
       text-decoration: none;
       color: brown;
-      font-weight: bold;
-    }
-    .navbar-link{
-        text-decoration: none;
-        color: brown;
-    }
-    .button{
-        margin-top: 15px;
-        height: 50px;
-        width: 150px;
-        font-size: x-large;
-        background-color: green;
     }
   }
+  .navbar-link {
+    text-decoration: none;
+    color: brown;
+  }
+  // .button{
+  //     // margin-top: 15px;
+  //     height: 50px;
+  //     width: 150px;
+  //     font-size: x-large;
+  //     background-color: green;
+  // }
+}

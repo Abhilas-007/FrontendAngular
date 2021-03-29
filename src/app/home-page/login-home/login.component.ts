@@ -100,6 +100,7 @@ export class LoginComponent implements OnInit {
       this.ls.loginClerk(this.map).subscribe(
         (data) => {
           if (data != null) {
+            console.log(data);
             console.log('successful login');
             localStorage.setItem('userId', this.loginForm.controls['id'].value);
             localStorage.setItem('loginStatus', 'true');
@@ -107,6 +108,7 @@ export class LoginComponent implements OnInit {
             this._router.navigate(['/clerk']);
           }
           if (data == null) {
+            console.log(data);
             alert('invalid credentials');
             this.loginForm.reset();
           }

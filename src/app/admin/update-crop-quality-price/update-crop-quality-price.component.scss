@@ -7,12 +7,25 @@
     border: 1px solid brown;
     border-radius:5px;
     padding: 30px;
-    opacity:0.7;
+    opacity:0.6;
     background-color:wheat;
     justify-content: center;
     align-items: center;
     table{
         padding: 3px;
         background-color:wheat;
+        button{
+            background-color:brown;
+            color: wheat;
+        }
+        td {
+          color:black;
+          font-style: bold;
+          
+          input{
+              border-radius: 5px;
+              
+          }
+        }
     }
 }

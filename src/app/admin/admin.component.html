@@ -56,43 +56,87 @@
   </div>
 </nav> -->
 
-<nav class="navbar is-white has-shadow" role="navigation" aria-label="main navigation">
+<nav
+  class="navbar is-white has-shadow"
+  role="navigation"
+  aria-label="main navigation"
+>
   <div #menu class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link navbar-item">Update</a>
         <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" [routerLink]="['/admin/updateMSP']" routerLinkActive>MSP</a>
-          <a class="navbar-item" [routerLink]="['/admin/userId/cropName/cropClass']" routerLinkActive>Cost To Buyers</a>
-          <a class="navbar-item" [routerLink]="['/admin/updateCropQualityPrice']" routerLinkActive>Crop Quality Price</a>
-          <a class="navbar-item" [routerLink]="['/admin/update-clerk']" routerLinkActive>Clerk</a>
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/updateMSP']"
+            routerLinkActive
+            >MSP</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/userId/cropName/cropClass']"
+            routerLinkActive
+            >Cost To Buyers</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/updateCropQualityPrice']"
+            routerLinkActive
+            >Crop Quality Price</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/update-clerk']"
+            routerLinkActive
+            >Clerk</a
+          >
         </div>
       </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link navbar-item">View</a>
         <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" [routerLink]="['/admin/view-crop']" routerLinkActive>Crop Details</a>
-          <a class="navbar-item" [routerLink]="['/admin/view-farmer']" routerLinkActive>Farmer Details</a>
-          <a class="navbar-item" [routerLink]="['/admin/view-buyer']" routerLinkActive>Buyer Details</a>
-          <a class="navbar-item" [routerLink]="['/admin/view-clerk']" routerLinkActive>Clerk Details</a>
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/view-crop']"
+            routerLinkActive
+            >Crop Details</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/view-farmer']"
+            routerLinkActive
+            >Farmer Details</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/view-buyer']"
+            routerLinkActive
+            >Buyer Details</a
+          >
+          <a
+            class="navbar-item"
+            [routerLink]="['/admin/view-clerk']"
+            routerLinkActive
+            >Clerk Details</a
+          >
         </div>
       </div>
-      <div class="navbar">
-        <button class="button is-primary" [routerLink]="['/admin/addMandi']" routerLinkActive>
-          Add Mandi
-        </button>
+      <div class="navbar-item">
+        <a [routerLink]="['/admin/addMandi']" routerLinkActive> Add Mandi </a>
       </div>
     </div>
-    
-    <p style="text-align: center; color: brown; padding-top: 0.6%; font-size: 40px; margin: 38px 0 12px;">
-      <b><a [routerLink]="['/admin']" style="padding-top: 0.6%; text-decoration: none; color:brown">Admin Dashboard</a></b>
-    </p>
-    
+
+    <div class="navbar-item">
+      <a [routerLink]="['/admin']">Admin Dashboard</a>
+    </div>
+
     <div class="navbar-end">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link"> Profile </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" [routerLink]="['/admin']" routerLinkActive> View Profile </a>
+          <a class="navbar-item" [routerLink]="['/admin']" routerLinkActive>
+            View Profile
+          </a>
           <a class="navbar-item" (click)="logout()"> Logout </a>
         </div>
       </div>

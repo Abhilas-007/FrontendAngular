@@ -46,7 +46,7 @@ export class UpdateCropQualityPriceComponent implements OnInit {
         }
       },
       (error) => {
-        alert('couldnt get price, try again later');
+        alert('Invalid Input');
         console.log(error);
         this.qPUpdateForm.reset();
       }
@@ -64,6 +64,8 @@ export class UpdateCropQualityPriceComponent implements OnInit {
         (data) => {
           if (data != null) {
             alert("crop price updated");
+            this.cropPrice=null;
+            this.qPUpdateForm.reset();
           } else alert("the price couldn't be updated");
         },
         (error) => {
