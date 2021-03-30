@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Admin } from '../shared/models/Admin';
 import { Crop } from '../shared/models/Crop';
 import { CropVariety } from '../shared/models/CropVariety';
 import { Mandi } from '../shared/models/Mandi';
@@ -117,5 +118,11 @@ export class AdminService {
     return this.httpClient.post(`${this.baseUrl}/admin/updateQP`, cropVariety, {
       responseType: 'text',
     });
+  }
+
+  getAdmin(adminId: string): Observable<any>{
+    let param = new HttpParams();
+    param = param.append('adminId',adminId);
+    return this.httpClient.get<Admin>(`${this.baseUrl}/admin/get`,{params:param});
   }
 }

@@ -1,0 +1,59 @@
+<app-admin></app-admin>
+<form #profileForm="ngForm" style="overflow: scroll; height: 70%; width: 40%; overflow-x: hidden; margin-left: 30%;">
+
+    <div class="field">
+      <label>Id</label>
+      <div class="control">
+        <input class="input" required type="text" [(ngModel)]="admin.adminId" name="adminId" readonly>
+      </div>
+    </div>
+
+    <br>
+
+        <div class="field">
+          <label>Password</label>
+          <div class="control">
+              <input matInput [type]="hide ?'password':'text'" class="input" required type="text" [(ngModel)]="admin.password" name="password" #pwd="ngModel" readonly>
+              <i class="material-icons" matSuffix (click)="hide = !hide">
+                {{hide ? 'visibility':'visibility_off'}}
+              </i>
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="field">
+          <label>Email Id</label>
+          <div class="control">
+              <input class="input" required type="text" [(ngModel)]="admin.emailId" name="phoneNumber" #email="ngModel" readonly>
+            </div>
+        </div>
+  
+        <br>
+
+        <div class="field">
+            <label>State</label>
+            <div class="control">
+                <input class="input" required type="text" [(ngModel)]="admin.state" name="state" #state="ngModel" readonly>
+            </div>
+        </div>
+
+        <br>
+
+        <!--<div class="field">
+            <label>Super Admin Id</label>
+            <div class="control">
+                <input class="input" required type="text" [(ngModel)]="admin.superAdminId" name="sAdmin" #state="ngModel" readonly>
+            </div>
+        </div>
+
+        <br> -->
+
+        
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" style="background-color: red;" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+          
+  </form>
