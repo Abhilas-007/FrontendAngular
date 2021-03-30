@@ -15,6 +15,7 @@ export class ViewTransactionComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.transaction=null;
   }
   getTransaction(){
     this.buyerService.getTransaction(localStorage.getItem('userId')).subscribe(data=>{

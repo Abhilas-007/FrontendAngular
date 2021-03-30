@@ -1,12 +1,12 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
+<div class="container" *ngIf="transaction!=null">
   <div style="background-color: wheat;">
     <h1><b style="color:darkgreen; margin-left: 450px; margin-bottom: 50px;">Your Previous Transactions</b></h1>
   </div>
   <div class="row ">
     <table class="table table-striped">
       <thead>
-        <tr>
+        <tr >
           <th>Transaction Id</th>
           <th>Crop Name</th>
           <th>Crop class</th>

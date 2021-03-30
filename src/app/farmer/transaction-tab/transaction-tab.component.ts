@@ -15,6 +15,7 @@ export class TransactionTabComponent implements OnInit {
   constructor(private farmerService:FarmerServiceService, private router:Router) { }
 
   ngOnInit(): void {
+    this.transactions=null;
     this.getTransactions();
   }
   getTransactions():void{
