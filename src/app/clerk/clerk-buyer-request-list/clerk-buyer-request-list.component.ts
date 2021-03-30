@@ -41,12 +41,14 @@ export class ClerkBuyerRequestListComponent implements OnInit {
       (data) => {
         if (data != null) {
           alert('Order successfully accepted');
+          this.router.navigate(['/clerk']);
         } else {
           alert('Couldnt accept order');
         }
       },
       (error) => {
         alert('Some error occured, try again later');
+        this.router.navigate(['/clerk']);
       }
     );
   }
@@ -57,12 +59,14 @@ export class ClerkBuyerRequestListComponent implements OnInit {
       (data) => {
         if (data != null) {
           alert('Order rejected');
+          this.router.navigate(['/clerk']);
         } else {
           alert('Couldnt reject, try again later');
         }
       },
       (error) => {
         alert('Some error occured, try again later');
+        this.router.navigate(['/clerk']);
       }
     );
   }
