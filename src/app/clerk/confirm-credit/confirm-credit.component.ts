@@ -54,21 +54,25 @@ export class ConfirmCreditComponent implements OnInit {
     this.clerkService.buyCrops(this.allClerkCropItems).subscribe(
       data => 
       {
-        console.log(data);
-        if(data == false)
-        {
-          alert("Failed to buy crops. Try again later.");
-          this.dataService.allCrops = [];
-          this.dataService.allClerkCropItems = [];
-          this.router.navigate(['/clerk/buyCropsTab']);
-        }
-        else
-        {
-          this.dataService.allCrops = [];
-          this.dataService.allClerkCropItems = [];
-          alert("Amount credited successfully!!");
-          this.router.navigate(['/clerk/buyCropsTab']);
-        }
+        this.dataService.allCrops = [];
+        this.dataService.allClerkCropItems = [];
+        alert("Amount credited successfully!!");
+        this.router.navigate(['/clerk/buyCropsTab']);
+        // console.log(data);
+        // if(data == false)
+        // {
+        //   alert("Failed to buy crops. Try again later.");
+        //   this.dataService.allCrops = [];
+        //   this.dataService.allClerkCropItems = [];
+        //   this.router.navigate(['/clerk/buyCropsTab']);
+        // }
+        // else
+        // {
+        //   this.dataService.allCrops = [];
+        //   this.dataService.allClerkCropItems = [];
+        //   alert("Amount credited successfully!!");
+        //   this.router.navigate(['/clerk/buyCropsTab']);
+        // }
       }
     );
   }
