@@ -10,7 +10,7 @@ import { FarmerServiceService } from '../farmer-service.service';
   styleUrls: ['./view-and-update-profile.component.scss']
 })
 export class ViewAndUpdateProfileComponent implements OnInit {
-
+  hide: boolean = true;
   constructor(private fb: FormBuilder, private router: Router, private farmerService:FarmerServiceService) { 
     this.farmer= new Farmer();
     this.getFarmer();
@@ -22,14 +22,14 @@ export class ViewAndUpdateProfileComponent implements OnInit {
     this.UpdateProfile = this.fb.group({
       aadharNumber: new FormControl('null',[Validators.required] ),
       farmerId: new FormControl('null', [Validators.required]),
-      farmerName: new FormControl('null',[Validators.required, Validators.pattern("^([A-Za-z])+(( )([A-Za-z])+)*$")]),
+      farmerName: new FormControl('null',[Validators.required, Validators.pattern("[a-zA-Z]{3,15}([ ][a-zA-z]{3,15})?([ ][a-zA-Z]{3,15})?[ ]?")]),
       mobileNumber: new FormControl('null',[Validators.required, Validators.pattern("^[1-9][0-9]{9}$")]),
       accountNumber: new FormControl('null', [Validators.required, Validators.pattern('^[1-9][0-9]{10,15}$') ]),
       password: new FormControl('null', [Validators.required, Validators.pattern("^(?=.*[0-9])(?=.*[a-z]).{6,12}$")]),
       ifsc: new FormControl('null', [Validators.required , Validators.pattern("^[A-Z]{4}[0-9]{7}$")]),
-      bankName: new FormControl('null', [Validators.required, Validators.pattern("^([A-Za-z])+(( )([A-Za-z])+)*$")]),
+      bankName: new FormControl('null', [Validators.required, Validators.pattern("[a-zA-Z]{3,15}([ ][a-zA-z]{1,15})?([ ][a-zA-Z]{1,15})?([ ][a-zA-Z]{1,15})?([ ][a-zA-Z]{1,15})?[ ]?")]),
       securityQuestion: new FormControl('null', [Validators.required]),
-      answer: new FormControl('null', [Validators.required, Validators.pattern("^[A-Za-z0-9]{3,20}$")])
+      answer: new FormControl('null', [Validators.required, Validators.pattern("^[A-Za-z0-9 ]{3,20}$")])
     });
   }
 onSubmit(){

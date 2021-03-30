@@ -46,8 +46,14 @@
                     </div>
                     <div class="form-group">
                         <label for="cropClass">Password </label>
-                        <input type="text" id="password" class="form-control" formControlName="password"
-                            [(ngModel)]="farmer.password">
+                        
+                            <input matInput [type]="hide ?'password':'text'" class="form-control" id="password"
+                            formControlName="password"
+                            [(ngModel)]="farmer.password" name="password">
+                        <i class="material-icons" matSuffix (click)="hide = !hide">
+                            {{hide ? 'visibility':'visibility_off'}}
+                        </i>
+                
                         <span class=" text-danger"
                             *ngIf="UpdateProfile.get('password').hasError('required') && UpdateProfile.get('password').touched">Password
                             is required</span>
@@ -137,7 +143,7 @@
                             is required</span>
                             <p class=" text-danger"
                             *ngIf="UpdateProfile.get('answer').hasError('pattern') && UpdateProfile.get('answer').touched">
-                            Invalid Answer</p>
+                           Minimum length of answer should be 3 and maximum should be 20</p>
 
                     </div>
 

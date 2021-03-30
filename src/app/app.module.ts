@@ -31,7 +31,8 @@ import { CreditConfirmDialogComponent } from './clerk/credit-confirm-dialog/cred
     ReactiveFormsModule,
     SharedModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
