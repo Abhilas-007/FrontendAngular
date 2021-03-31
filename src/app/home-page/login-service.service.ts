@@ -14,28 +14,28 @@ export class LoginServiceService {
       userId: map.get('userId'),
       password: map.get('password'),
     };
-    return this.httpclient.post(`${this.baseUrl}/admin/login`, obj);
+    return this.httpclient.post(`${this.baseUrl}/admin/login`, obj,{responseType: 'text'});
   }
   loginSAdmin(map: any): Observable<any> {
     let obj = {
       userId: map.get('userId'),
       password: map.get('password'),
     };
-    return this.httpclient.post(`${this.baseUrl}/sAdmin/login`, obj);
+    return this.httpclient.post(`${this.baseUrl}/sAdmin/login`, obj,{responseType: 'text'});
   }
   loginBuyer(map: any): Observable<any> {
     let obj = {
       userId: map.get('userId'),
       password: map.get('password'),
     };
-    return this.httpclient.post(`${this.baseUrl}/buyer/login`, obj);
+    return this.httpclient.post(`${this.baseUrl}/buyer/login`, obj,{responseType: 'text'});
   }
   loginFarmer(map: any): Observable<any> {
     let obj = {
       userId: map.get('userId'),
       password: map.get('password'),
     };
-    return this.httpclient.post(`${this.baseUrl}/farmer/login`, obj);
+    return this.httpclient.post(`${this.baseUrl}/farmer/login`, obj,{responseType: 'text'});
   }
   loginClerk(map: any): Observable<any> {
     let obj = {
