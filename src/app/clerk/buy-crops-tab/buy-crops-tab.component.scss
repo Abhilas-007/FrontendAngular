@@ -2,7 +2,7 @@
     text-emphasis-color: Red;
     width: 50%;
     background-color: wheat;
-    opacity: 0.7;
+    opacity: 0.8;
     border: 1px red solid;
     padding: 10px;
     margin-top: 10px;
@@ -27,7 +27,7 @@
         text-align: center;
         h3{
             display: inline;
-            margin-left: 5%;
+            margin-left: 12%;
             margin-right: 6%;
             color: black;
             font-weight: bold;
@@ -48,26 +48,30 @@
 }
 
 .row{
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
     margin-right: 10%;
     
     .form-group{
+        max-width: 50%;
         display: inline;
         margin-left: auto;
         margin-right: auto;
     }
     input{
-        width: 40%;
-        margin-left: 3%;
+        width: 100%;
+        margin-left: 5%;
     }
     button{
         text-align: center;
-        margin-left: 3%;
+        margin-left: 10%;
     }
 }
 
 button{
     opacity: 1;
+}
+
+#crossButton{
+    padding-left: 20%;
 }
 

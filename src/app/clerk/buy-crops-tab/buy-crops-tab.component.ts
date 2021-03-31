@@ -172,13 +172,14 @@ export class BuyCropsTabComponent implements OnInit {
         if (this.cropNameCheck && this.cropQtyCheck === true) {
           this.clerkService.getSingleCropPrice(new ClerkCrop(this.farmerId, this.clerkId, ((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty))
             .subscribe(data => {
-              this.singleCost = data;
+              console.log(data);
               if (data == 0) {
                 this.foundWrongItem = true;
                 alert(((this.tempAllItems[i]).CropName) + " not found.");
               }
               else {
                 // this.foundWrongItem = false;
+                this.singleCost = data;
                 this.requiredStorage = this.requiredStorage + Number((this.tempAllItems[i]).CropQty);
                 this.tempCropToBuy = new CropsToBuy(((this.tempAllItems[i]).CropName).toLowerCase(), (this.tempAllItems[i]).CropQty);
                 this.dataService.addItem(this.tempCropToBuy);
@@ -189,6 +190,11 @@ export class BuyCropsTabComponent implements OnInit {
               }
               this.count = this.count + 1;
               this.dummy(this.foundWrongItem);
+            },
+            errors =>
+            {
+              this.foundWrongItem = true;
+              alert(((this.tempAllItems[i]).CropName) + " not found.");
             }
             );
         }

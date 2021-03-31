@@ -1,10 +1,24 @@
 .navbar {
-    background-color: ghostwhite;
-    opacity: 0.5;
-    .navbar-item {
-      font-size: x-large;
-      text-decoration: none;
-      color: brown;
-      font-weight: bold;
-    }
+  background-color: ghostwhite;
+  opacity: 0.5;
+  .navbar-item {
+    font-size: x-large;
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
   }
+}
+
+.container{
+  background-color: wheat;
+  padding: 8%;
+  opacity: 0.7;
+  margin-top: 7%;
+  border-radius: 10%;
+
+  h1{
+    font-size: 50px;
+    margin-left: 20%;
+    font-weight: bold;
+  }
+}

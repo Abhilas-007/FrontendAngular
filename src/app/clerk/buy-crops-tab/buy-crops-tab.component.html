@@ -15,16 +15,16 @@
 
 <div class="container" *ngIf="staticSubmit == true">
     <div class="dynamicForm">
-        <form novalidate [formGroup]="FormGroup">
+        <form novalidate [formGroup]="FormGroup" >
             <div class="row">
-                <div class="col-xs-12 form-group marL40">
+                <div class="form-group">
                     <div style="margin-top:0px;" formGroupName="itemRows">
                         <div class="dynamicFormHeading">
                             <h1>Crop Details</h1>
                         </div>
                         <div class="columnHeadings">
                             <h3>CROP NAME</h3>
-                            <h3>CROP QUANTITY(in Quintals)</h3>
+                            <h3>CROP QUANTITY</h3>
                         </div>
                         <ng-container *ngIf='FormGroup.controls.itemRows!=null'>
                             <div *ngFor="let itemrow of FormGroup.controls.itemRows.controls; let i=index"
@@ -37,7 +37,7 @@
                                         <input matInput placeHolder="Enter qty in quintals..."
                                             formControlName="CropQty">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="crossButton">
                                         <button (click)="deleteRow(i)" class="btn btn-danger"
                                             style="opacity: 1;">X</button>
                                     </div>
