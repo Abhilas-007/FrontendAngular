@@ -17,7 +17,7 @@ export class AdminService {
   private addMandiUrl =
     'https://alok-emandi-dec-20-dev-api.azurewebsites.net/mandi/add';
   private baseUrl = 'https://alok-emandi-dec-20-dev-api.azurewebsites.net';
- // private baseUrl='http://localhost:8080';
+  //private baseUrl='http://localhost:8080';
   constructor(private httpClient: HttpClient) {}
 
   getMSP(adminId: string, cropName: string): Observable<Crop> {

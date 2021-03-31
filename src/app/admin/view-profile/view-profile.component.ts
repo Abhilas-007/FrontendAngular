@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Admin } from 'src/app/shared/models/Admin';
 import { AdminService } from '../admin.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-view-profile',
