@@ -13,7 +13,7 @@ describe('BuyerServiceService', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule 
+        HttpClientTestingModule
       ]
     });
     service = TestBed.inject(BuyerServiceService);
@@ -27,19 +27,28 @@ describe('BuyerServiceService', () => {
   it('should test HttpClient get', () => {
     const testGet = 1;
     service.getBuyer(testGet).subscribe(data => {
-      expect(data).toBe({"buyerId":1,"buyerName":"nusrath","password":"anjum15","phoneNumber":"7259258255"})
+      expect(data).toBe({ "buyerId": 1, "buyerName": "nusrath", "password": "anjum15", "phoneNumber": "7259258255" })
     });
   });
 
   it('should update buyer detail', () => {
     let buyer: Buyer = new Buyer();
-    buyer.buyerId=1;
-    buyer.buyerName="anjum";
-    buyer.password="anjum15";
-    buyer.phoneNumber="1234567892";
+    buyer.buyerId = 1;
+    buyer.buyerName = "anjum";
+    buyer.password = "anjum15";
+    buyer.phoneNumber = "1234567892";
     service.updateBuyer(buyer).subscribe(data => {
-      expect(data).toBe({"buyerId":1,"buyerName":"anjum","password":"anjum15","phoneNumber":"1234567892"})
+      expect(data).toBe({ "buyerId": 1, "buyerName": "anjum", "password": "anjum15", "phoneNumber": "1234567892" })
     });
-  });
+  })
+
+  it('should get transaction', () => {
+    const test = 2;
+    service.getTransaction(test).subscribe(data => {
+      expect(data.length).toEqual(1)
+    });
+  })
+
 
 });
+

@@ -28,6 +28,9 @@ describe('SignupComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component.ngOnInit()).toBe();
+    expect(component.hide).toBeTrue();
+    expect(component.confirmPassword).toBe('');
   });
+
 });

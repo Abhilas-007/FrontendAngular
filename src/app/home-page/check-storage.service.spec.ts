@@ -7,6 +7,7 @@ import { CheckStorageService } from './check-storage.service';
 describe('CheckStorageService', () => {
   let service: CheckStorageService;
 
+  map:new Map<string, string>();
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -20,4 +21,7 @@ describe('CheckStorageService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+
 });
+
